@@ -45,7 +45,7 @@ Find the `PROFILE` object at the top of the file:
 contact: {
   email: 'dhavalkotak0150@gmail.com',           // Replace with your email
   linkedin: 'https://www.linkedin.com/in/dhaval-kotak-a6b3ab24a?utm_source=share_via&utm_content=profile&utm_medium=member_android',  // Replace
-  github: 'https://github.com/YOUR_GITHUB_USERNAME',               // Replace
+  github: 'https://github.com/DhavalMK15',               // Replace
 },
 ```
 
