@@ -14,7 +14,7 @@ export const PROFILE = {
   role: 'QA Engineer / Software Quality Assurance Engineer',
   focusAreas: ['Manual Testing', 'API Testing', 'Mobile Testing', 'Accessibility Testing', 'AI-Assisted Automation'],
   contact: {
-    email: 'YOUR_EMAIL@example.com',
+    email: 'dhavalkotak0150@gmail.com',
     linkedin: 'https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME',
     github: 'https://github.com/YOUR_GITHUB_USERNAME',
   },
