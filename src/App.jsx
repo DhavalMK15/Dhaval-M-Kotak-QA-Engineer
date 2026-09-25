@@ -10,10 +10,10 @@ export default function App() {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('dk_portfolio_theme')
-      if (saved) return saved === 'dark'
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
+      if (saved !== null) return saved === 'dark'
+      return true // Always default to Dark theme on first visit
     }
-    return false
+    return true
   })
 
   useEffect(() => {
