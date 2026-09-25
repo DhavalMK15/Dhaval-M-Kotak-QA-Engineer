@@ -1,9 +1,9 @@
 // ====================================================
-// Portfolio Data – Dhaval Kotak | QA Engineer
+// Portfolio Data – Dhaval M Kotak | QA Engineer
 // ====================================================
 
 export const PROFILE = {
-  name: 'Dhaval Kotak',
+  name: 'Dhaval M Kotak',
   title: 'QA Engineer',
   currentCompany: 'WebTech Solutions', // Current Employer
   tagline: 'QA Engineer | Manual Testing | API | Mobile | Accessibility | AI-Assisted Automation',

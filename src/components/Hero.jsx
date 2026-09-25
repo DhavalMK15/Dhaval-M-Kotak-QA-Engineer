@@ -113,7 +113,7 @@ export default function Hero({ isDark = false }) {
 
           {/* H1 */}
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-2">
-            Dhaval Kotak
+            Dhaval M Kotakak
           </h1>
 
           {/* Typed subtitle */}

@@ -149,7 +149,7 @@ export default function Footer() {
 
         {/* Bottom bar with Back-to-Top trigger */}
         <div className="border-t border-slate-200/80 dark:border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
-          <p>© {currentYear} Dhaval Kotak · QA Portfolio</p>
+          <p>© {currentYear} Dhaval M Kotak · QA Portfolio</p>
 
           <button
             onClick={handleScrollTop}

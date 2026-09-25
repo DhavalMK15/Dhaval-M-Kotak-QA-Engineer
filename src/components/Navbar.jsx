@@ -90,7 +90,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
               className="flex items-center gap-2.5 group"
-              aria-label="Dhaval Kotak - Home"
+              aria-label="Dhaval M Kotak - Home"
             >
               <div className="relative">
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
