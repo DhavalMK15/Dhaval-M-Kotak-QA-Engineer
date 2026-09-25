@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Sparkles } from 'lucide-react'
+import { Sparkles, CheckCircle2 } from 'lucide-react'
 
 const SHOWCASE_PROJECTS = [
   {
@@ -121,14 +121,14 @@ export default function Projects() {
                 <button
                   key={p.id}
                   onClick={() => setActiveId(p.id)}
-                  className={`w-full text-left flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-150 cursor-pointer ${
+                  className={`w-full text-left flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-200 cursor-pointer ${
                     isActive
-                      ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-300 dark:border-sky-700/60 text-slate-900 dark:text-white shadow-xs'
+                      ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-300 dark:border-sky-700/60 border-l-4 border-l-sky-500 dark:border-l-sky-400 text-slate-900 dark:text-white shadow-xs font-bold -translate-y-0.5'
                       : 'bg-transparent border-transparent text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isActive ? 'bg-sky-500' : 'bg-slate-400 dark:bg-slate-600'}`} />
+                    <div className={`w-2 h-2 rounded-full flex-shrink-0 ${isActive ? 'bg-sky-500 ring-2 ring-sky-300 dark:ring-sky-500/40' : 'bg-slate-400 dark:bg-slate-600'}`} />
                     <div className="min-w-0">
                       <div className="text-[10px] font-semibold tracking-widest uppercase mb-0.5 opacity-60">
                         {p.domain}
@@ -149,7 +149,7 @@ export default function Projects() {
             {active && (
               <div
                 key={activeId}
-                className="p-4 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800 shadow-2xs"
+                className="p-4 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:shadow-sm transition-all duration-300"
               >
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <span className="text-[10px] font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase">
@@ -171,8 +171,8 @@ export default function Projects() {
 
                 <ul className="space-y-2.5 sm:space-y-3">
                   {active.bullets.map((b, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
-                      <div className="w-1.5 h-1.5 rounded-full bg-sky-500 flex-shrink-0 mt-1.5" />
+                    <li key={idx} className="flex items-start gap-2.5 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                      <CheckCircle2 size={16} className="text-sky-500 dark:text-sky-400 flex-shrink-0 mt-0.5" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -204,7 +204,8 @@ export default function Projects() {
                 className="px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-[12px] font-medium border
                   bg-slate-100 dark:bg-slate-800/60
                   border-slate-200 dark:border-slate-700/60
-                  text-slate-600 dark:text-slate-300"
+                  text-slate-600 dark:text-slate-300
+                  hover:border-sky-400 dark:hover:border-sky-600 hover:text-sky-600 dark:hover:text-sky-400 hover:-translate-y-0.5 transition-all duration-200 cursor-default"
               >
                 {domain}
               </span>

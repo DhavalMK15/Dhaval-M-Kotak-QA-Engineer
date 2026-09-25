@@ -90,7 +90,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
               className="flex items-center gap-2.5 group"
-              aria-label="Dhaval M Kotak - Home"
+              aria-label="Dhaval Kotak - Home"
             >
               <div className="relative">
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
@@ -103,7 +103,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
               </div>
               <div className="hidden sm:block">
                 <span className="font-extrabold text-slate-900 dark:text-white tracking-tight text-[15px] group-hover:text-sky-600 transition-colors">
-                  Dhaval <span className="text-sky-600 dark:text-sky-400">Kotak</span>
+                  Dhaval M <span className="text-sky-600 dark:text-sky-400">Kotak</span>
                 </span>
                 <span className="block text-[10.5px] font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase -mt-0.5">
                   QA Engineer

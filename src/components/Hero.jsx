@@ -103,16 +103,19 @@ export default function Hero({ isDark = false }) {
 
       <div className="section-container relative">
         <div className="max-w-3xl mb-5 sm:mb-6">
-          {/* Status pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1 rounded-full bg-white/80 dark:bg-slate-800/70 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-[11px] sm:text-[12px] font-semibold mb-3 backdrop-blur-sm max-w-full shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
+          {/* Status pill with animated ping */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-[11.5px] sm:text-[12px] font-semibold mb-3.5 backdrop-blur-md max-w-full shadow-2xs ring-1 ring-slate-100 dark:ring-slate-800/50">
+            <span className="relative flex h-2 w-2 flex-shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
             <span className="truncate sm:whitespace-normal">
               QA Engineer at <strong className="text-sky-600 dark:text-sky-400 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
             </span>
           </div>
 
           {/* H1 */}
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-2">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-2.5">
             Dhaval M Kotak
           </h1>
 
@@ -121,14 +124,14 @@ export default function Hero({ isDark = false }) {
             <TypedFocus />
           </div>
 
-          {/* Highlight badges */}
+          {/* Highlight badges with Check icons and hover lift */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-w-2xl">
             {HIGHLIGHT_POINTS.map((pt) => (
               <div
                 key={pt}
-                className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/80 dark:bg-slate-800/50 border border-slate-200/90 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 text-[12px] sm:text-[13px] font-medium hover:border-sky-400/50 hover:text-sky-700 dark:hover:text-white transition-all duration-200 backdrop-blur-sm shadow-2xs"
+                className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/85 dark:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-[12.5px] sm:text-[13px] font-medium hover:border-sky-400/80 dark:hover:border-sky-500/70 hover:shadow-xs hover:-translate-y-0.5 hover:text-sky-700 dark:hover:text-white transition-all duration-200 backdrop-blur-sm"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400 flex-shrink-0" />
+                <CheckCircle2 size={15} className="text-sky-500 dark:text-sky-400 flex-shrink-0" />
                 <span className="leading-snug">{pt}</span>
               </div>
             ))}
@@ -138,7 +141,7 @@ export default function Hero({ isDark = false }) {
           <div className="flex flex-col xs:flex-row flex-wrap gap-2.5 sm:gap-3">
             <button
               onClick={() => handleScroll('projects')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400 text-white font-semibold text-[13px] transition-all shadow-md shadow-sky-500/20 active:scale-95 cursor-pointer"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-[13px] transition-all shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/30 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <span>Projects</span>
               <ArrowRight size={15} />
@@ -146,7 +149,7 @@ export default function Hero({ isDark = false }) {
 
             <button
               onClick={() => handleScroll('skills')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-800/70 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 font-semibold text-[13px] transition-all backdrop-blur-sm shadow-2xs active:scale-95 cursor-pointer"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-800/80 dark:hover:bg-slate-750 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 font-semibold text-[13px] transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <Briefcase size={15} />
               <span>Key Skills</span>
@@ -154,7 +157,7 @@ export default function Hero({ isDark = false }) {
 
             <button
               onClick={() => handleScroll('contact')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white/10 dark:hover:bg-white/15 border border-slate-900 dark:border-white/10 text-white font-semibold text-[13px] transition-all backdrop-blur-sm shadow-2xs active:scale-95 cursor-pointer"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 border border-slate-900 dark:border-slate-700 text-white font-semibold text-[13px] transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <Mail size={15} />
               <span>Contact</span>
@@ -163,13 +166,13 @@ export default function Hero({ isDark = false }) {
         </div>
 
         {/* Stats Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-5 border-t border-slate-200/90 dark:border-slate-800">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 pt-5 border-t border-slate-200/90 dark:border-slate-800">
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="bg-white/80 dark:bg-slate-800/40 border border-slate-200/90 dark:border-slate-700/50 rounded-xl py-2.5 sm:py-3 px-2 sm:px-4 text-center backdrop-blur-sm hover:border-sky-400/50 dark:hover:border-sky-500/30 transition-colors shadow-2xs"
+              className="bg-white/80 dark:bg-slate-800/40 border border-slate-200/90 dark:border-slate-700/50 rounded-xl py-3 px-3 sm:px-4 text-center backdrop-blur-sm hover:border-sky-400/60 dark:hover:border-sky-500/50 hover:-translate-y-0.5 hover:shadow-xs transition-all duration-200 shadow-2xs"
             >
-              <div className="flex items-center justify-center gap-1.5 mb-0.5">
+              <div className="flex items-center justify-center gap-1.5 mb-1">
                 <span className="text-xs" aria-hidden="true">{s.icon}</span>
                 <span className="text-base sm:text-xl font-extrabold text-sky-600 dark:text-sky-400 font-mono">{s.value}</span>
               </div>

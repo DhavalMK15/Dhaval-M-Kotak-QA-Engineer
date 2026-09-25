@@ -62,11 +62,13 @@ export default function Skills() {
             {SKILL_CATEGORIES.map((cat) => (
               <div
                 key={cat.id}
-                className="card-modern card-top-accent p-3.5 sm:p-4 flex flex-col justify-between"
+                className="card-modern card-top-accent p-3.5 sm:p-4 flex flex-col justify-between hover:-translate-y-1 hover:shadow-md hover:border-sky-300 dark:hover:border-sky-700/70 transition-all duration-200 group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <h3 className="text-[14px] sm:text-[15px] font-bold text-slate-900 dark:text-white">{cat.label}</h3>
+                    <h3 className="text-[14px] sm:text-[15px] font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                      {cat.label}
+                    </h3>
                     <span className="text-[10px] sm:text-[10.5px] font-bold px-2.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 uppercase tracking-wide">
                       {cat.level}
                     </span>
@@ -75,7 +77,7 @@ export default function Skills() {
                   {/* Interactive progress accent bar */}
                   <div className="h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden mb-3">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 transition-all duration-500"
+                      className="h-full rounded-full bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 transition-all duration-500 group-hover:brightness-110"
                       style={{ width: `${cat.barWidth}%` }}
                     />
                   </div>
@@ -85,7 +87,7 @@ export default function Skills() {
                     {cat.skills.map((s) => (
                       <span
                         key={s}
-                        className="px-2.5 py-1 rounded-md bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11.5px] sm:text-[12.5px] font-medium hover:border-sky-300 dark:hover:border-sky-500 hover:text-sky-700 dark:hover:text-sky-300 transition-all duration-200"
+                        className="px-2.5 py-1 rounded-md bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11.5px] sm:text-[12.5px] font-medium hover:bg-sky-50 dark:hover:bg-sky-950/40 hover:border-sky-300 dark:hover:border-sky-500 hover:text-sky-700 dark:hover:text-sky-300 transition-all duration-200"
                       >
                         {s}
                       </span>
@@ -97,15 +99,15 @@ export default function Skills() {
           </div>
         )}
 
-        {/* TAB 2: TOOLS — all tools, no search/filter */}
+        {/* TAB 2: TOOLS — all tools */}
         {activeTab === 'tools' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3">
             {TOOLS.map((tool) => (
               <div
                 key={tool.name}
-                className="card-modern p-3 sm:p-3.5 flex items-center gap-3 group"
+                className="card-modern p-3 sm:p-3.5 flex items-center gap-3 group hover:-translate-y-1 hover:shadow-md hover:border-sky-300 dark:hover:border-sky-700/70 transition-all duration-200 cursor-default"
               >
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 border border-sky-100 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 border border-sky-100 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 transition-transform duration-200 group-hover:scale-110 shadow-2xs">
                   {tool.icon}
                 </div>
                 <div className="min-w-0 flex-1">

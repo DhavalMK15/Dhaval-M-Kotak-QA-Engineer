@@ -88,18 +88,22 @@ export default function AIAutomation() {
               </div>
 
               {/* Bullet points scaled */}
-              <ul className="space-y-2 mb-3.5">
+              <ul className="space-y-2.5 mb-4">
                 {AI_WORKFLOWS.map((w) => (
-                  <li key={w} className="flex items-start gap-2 text-slate-600 dark:text-slate-300 text-[12.5px] sm:text-[13px] font-medium leading-snug">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sky-600 dark:bg-sky-400 mt-1 flex-shrink-0" />
+                  <li key={w} className="flex items-start gap-2.5 text-slate-700 dark:text-slate-300 text-[12.5px] sm:text-[13px] font-medium leading-snug">
+                    <CheckCircle2 size={15} className="text-sky-500 dark:text-sky-400 flex-shrink-0 mt-0.5" />
                     <span>{w}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Status Note */}
-              <div className="p-3 rounded-lg bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200/90 dark:border-amber-800/80 text-amber-900 dark:text-amber-200 text-[12px] font-medium leading-relaxed">
-                🎯 <strong>Honest Positioning:</strong> My core strength is Manual QA. Automation is an actively growing technical capability powered by AI tooling.
+              <div className="p-3.5 rounded-xl bg-amber-50/90 dark:bg-amber-950/40 border border-amber-200/90 dark:border-amber-800/80 text-amber-900 dark:text-amber-200 text-[12px] font-medium leading-relaxed flex items-start gap-2.5">
+                <span className="text-sm flex-shrink-0 mt-0.5">🎯</span>
+                <div>
+                  <strong className="font-bold text-amber-950 dark:text-amber-100">Honest Positioning:</strong>{' '}
+                  My core strength is Manual QA. Automation is an actively growing technical capability powered by AI tooling.
+                </div>
               </div>
             </div>
           </div>
@@ -115,12 +119,12 @@ export default function AIAutomation() {
                   onClick={() => setActivePillarId(p.id)}
                   className={`p-3.5 sm:p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
                     isSelected
-                      ? 'bg-sky-50/90 dark:bg-sky-950/40 border-sky-400 dark:border-sky-500/80 shadow-xs ring-1 ring-sky-300 dark:ring-sky-500/30'
-                      : 'bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-200 dark:hover:border-slate-600'
+                      ? 'bg-sky-50/90 dark:bg-sky-950/40 border-sky-400 dark:border-sky-500/80 border-l-4 border-l-sky-500 dark:border-l-sky-400 shadow-xs ring-1 ring-sky-300 dark:ring-sky-500/30 -translate-y-0.5'
+                      : 'bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-200 dark:hover:border-slate-600 hover:-translate-y-0.5'
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
                       {p.icon}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -128,9 +132,15 @@ export default function AIAutomation() {
                         <h3 className={`text-[14px] sm:text-[14.5px] font-bold ${isSelected ? 'text-sky-950 dark:text-sky-200 font-black' : 'text-slate-900 dark:text-white'}`}>
                           {p.title}
                         </h3>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border border-sky-100 dark:border-sky-800">
-                          {p.badge}
-                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border border-sky-100 dark:border-sky-800">
+                            {p.badge}
+                          </span>
+                          <ChevronRight
+                            size={14}
+                            className={`text-slate-400 transition-transform duration-200 ${isSelected ? 'rotate-90 text-sky-500' : ''}`}
+                          />
+                        </div>
                       </div>
                       <p className="text-slate-600 dark:text-slate-300 text-[12px] sm:text-[12.5px] leading-relaxed font-normal mb-2">
                         {p.desc}
@@ -138,13 +148,14 @@ export default function AIAutomation() {
 
                       {/* Interactive Drawer for selected pillar */}
                       {isSelected && (
-                        <div className="pt-2.5 border-t border-sky-100 dark:border-sky-800/60 grid grid-cols-1 sm:grid-cols-3 gap-1.5 animate-fade-in">
+                        <div className="pt-2.5 border-t border-sky-200/60 dark:border-sky-800/60 grid grid-cols-1 sm:grid-cols-3 gap-1.5 animate-fade-in">
                           {p.highlights.map((h) => (
                             <span
                               key={h}
-                              className="text-[11px] font-semibold text-sky-800 dark:text-sky-200 bg-white/90 dark:bg-slate-800/90 border border-sky-200 dark:border-sky-800 px-2 py-1 rounded leading-tight"
+                              className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-sky-800 dark:text-sky-200 bg-white/95 dark:bg-slate-900/90 border border-sky-200 dark:border-sky-800 px-2.5 py-1.5 rounded-lg leading-tight shadow-2xs"
                             >
-                              ✓ {h}
+                              <CheckCircle2 size={12} className="text-sky-500 dark:text-sky-400 flex-shrink-0" />
+                              <span>{h}</span>
                             </span>
                           ))}
                         </div>
