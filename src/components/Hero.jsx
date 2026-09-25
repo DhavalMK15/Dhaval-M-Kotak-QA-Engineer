@@ -45,13 +45,13 @@ function TypedFocus() {
 
   return (
     <span className="inline-flex items-center" aria-live="polite">
-      <span className="text-sky-600 font-bold">{displayed}</span>
-      <span className="ml-1.5 w-0.5 h-6 sm:h-7 bg-sky-600 animate-pulse inline-block" aria-hidden="true" />
+      <span className="text-sky-600 dark:text-sky-400 font-bold">{displayed}</span>
+      <span className="ml-1.5 w-0.5 h-6 sm:h-7 bg-sky-600 dark:bg-sky-400 animate-pulse inline-block" aria-hidden="true" />
     </span>
   )
 }
 
-export default function Hero() {
+export default function Hero({ isDark = false }) {
   const handleScroll = (sectionId) => {
     const el = document.getElementById(sectionId)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -74,45 +74,50 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-20 pb-8 sm:pt-24 sm:pb-10 overflow-hidden border-b border-slate-800"
+      className="relative pt-20 pb-8 sm:pt-24 sm:pb-10 overflow-hidden border-b border-slate-200/90 dark:border-slate-800 bg-gradient-to-b from-sky-50/70 via-blue-50/30 to-white dark:from-[#020817] dark:via-[#0a0f1e] dark:to-[#050d1a] transition-colors duration-300"
       aria-label="Introduction"
-      style={{
-        background: 'linear-gradient(135deg, #020817 0%, #0a0f1e 40%, #050d1a 70%, #020817 100%)',
-      }}
     >
-      {/* Aurora blobs */}
+      {/* Aurora Ambient Glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, #0ea5e9 0%, transparent 70%)', filter: 'blur(60px)' }} />
-        <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full opacity-15"
-          style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 70%)', filter: 'blur(70px)' }} />
-        <div className="absolute bottom-0 right-1/3 w-[350px] h-[350px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #22d3ee 0%, transparent 70%)', filter: 'blur(80px)' }} />
-        {/* Fine dot grid */}
-        <div className="absolute inset-0 opacity-[0.04]"
+        <div
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-40 dark:opacity-20 transition-opacity duration-300"
+          style={{ background: 'radial-gradient(circle, #38bdf8 0%, transparent 70%)', filter: 'blur(70px)' }}
+        />
+        <div
+          className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full opacity-30 dark:opacity-15 transition-opacity duration-300"
+          style={{ background: 'radial-gradient(circle, #818cf8 0%, transparent 70%)', filter: 'blur(80px)' }}
+        />
+        <div
+          className="absolute bottom-0 right-1/3 w-[350px] h-[350px] rounded-full opacity-20 dark:opacity-10 transition-opacity duration-300"
+          style={{ background: 'radial-gradient(circle, #22d3ee 0%, transparent 70%)', filter: 'blur(90px)' }}
+        />
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
           style={{
-            backgroundImage: 'radial-gradient(circle, #94a3b8 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, #0284c7 1px, transparent 1px)',
             backgroundSize: '28px 28px',
-          }} />
+          }}
+        />
       </div>
 
       <div className="section-container relative">
         <div className="max-w-3xl mb-5 sm:mb-6">
           {/* Status pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1 rounded-full bg-slate-800/70 border border-slate-700/60 text-slate-300 text-[11px] sm:text-[12px] font-semibold mb-3 backdrop-blur-sm max-w-full">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1 rounded-full bg-white/80 dark:bg-slate-800/70 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-[11px] sm:text-[12px] font-semibold mb-3 backdrop-blur-sm max-w-full shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
             <span className="truncate sm:whitespace-normal">
-              QA Engineer at <strong className="text-sky-400 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
+              QA Engineer at <strong className="text-sky-600 dark:text-sky-400 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
             </span>
           </div>
 
           {/* H1 */}
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-2">
             Dhaval Kotak
           </h1>
 
           {/* Typed subtitle */}
-          <div className="text-sm sm:text-xl font-bold text-slate-300 mb-4 min-h-[32px] flex items-center">
+          <div className="text-sm sm:text-xl font-bold text-slate-600 dark:text-slate-300 mb-4 min-h-[32px] flex items-center">
             <TypedFocus />
           </div>
 
@@ -121,9 +126,9 @@ export default function Hero() {
             {HIGHLIGHT_POINTS.map((pt) => (
               <div
                 key={pt}
-                className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700/50 text-slate-300 text-[12px] sm:text-[13px] font-medium hover:border-sky-500/50 hover:text-white transition-all duration-200 backdrop-blur-sm"
+                className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/80 dark:bg-slate-800/50 border border-slate-200/90 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 text-[12px] sm:text-[13px] font-medium hover:border-sky-400/50 hover:text-sky-700 dark:hover:text-white transition-all duration-200 backdrop-blur-sm shadow-2xs"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-sky-400 flex-shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400 flex-shrink-0" />
                 <span className="leading-snug">{pt}</span>
               </div>
             ))}
@@ -133,7 +138,7 @@ export default function Hero() {
           <div className="flex flex-col xs:flex-row flex-wrap gap-2.5 sm:gap-3">
             <button
               onClick={() => handleScroll('projects')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-[13px] transition-colors shadow-lg shadow-sky-500/20 active:scale-95"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400 text-white font-semibold text-[13px] transition-all shadow-md shadow-sky-500/20 active:scale-95 cursor-pointer"
             >
               <span>Projects</span>
               <ArrowRight size={15} />
@@ -141,7 +146,7 @@ export default function Hero() {
 
             <button
               onClick={() => handleScroll('skills')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-800/70 hover:bg-slate-700/80 border border-slate-700/60 text-slate-200 font-semibold text-[13px] transition-colors backdrop-blur-sm active:scale-95"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-800/70 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 font-semibold text-[13px] transition-all backdrop-blur-sm shadow-2xs active:scale-95 cursor-pointer"
             >
               <Briefcase size={15} />
               <span>Key Skills</span>
@@ -149,7 +154,7 @@ export default function Hero() {
 
             <button
               onClick={() => handleScroll('contact')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white/8 hover:bg-white/12 border border-white/10 text-white font-semibold text-[13px] transition-colors backdrop-blur-sm active:scale-95"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white/10 dark:hover:bg-white/15 border border-slate-900 dark:border-white/10 text-white font-semibold text-[13px] transition-all backdrop-blur-sm shadow-2xs active:scale-95 cursor-pointer"
             >
               <Mail size={15} />
               <span>Contact</span>
@@ -158,17 +163,17 @@ export default function Hero() {
         </div>
 
         {/* Stats Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-5 border-t border-slate-800">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-5 border-t border-slate-200/90 dark:border-slate-800">
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="bg-slate-800/40 border border-slate-700/50 rounded-xl py-2.5 sm:py-3 px-2 sm:px-4 text-center backdrop-blur-sm hover:border-sky-500/30 transition-colors"
+              className="bg-white/80 dark:bg-slate-800/40 border border-slate-200/90 dark:border-slate-700/50 rounded-xl py-2.5 sm:py-3 px-2 sm:px-4 text-center backdrop-blur-sm hover:border-sky-400/50 dark:hover:border-sky-500/30 transition-colors shadow-2xs"
             >
               <div className="flex items-center justify-center gap-1.5 mb-0.5">
                 <span className="text-xs" aria-hidden="true">{s.icon}</span>
-                <span className="text-base sm:text-xl font-extrabold text-sky-400 font-mono">{s.value}</span>
+                <span className="text-base sm:text-xl font-extrabold text-sky-600 dark:text-sky-400 font-mono">{s.value}</span>
               </div>
-              <p className="text-slate-400 font-medium text-[11px] sm:text-[11.5px] truncate">{s.label}</p>
+              <p className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-[11.5px] truncate">{s.label}</p>
             </div>
           ))}
         </div>
