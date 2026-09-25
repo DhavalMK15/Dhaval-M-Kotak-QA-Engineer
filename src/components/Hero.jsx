@@ -99,9 +99,11 @@ export default function Hero() {
       <div className="section-container relative">
         <div className="max-w-3xl mb-5 sm:mb-6">
           {/* Status pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-800/70 border border-slate-700/60 text-slate-300 text-[12px] font-semibold mb-3 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>QA Engineer at <strong className="text-sky-400 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, Gujarat, India</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1 rounded-full bg-slate-800/70 border border-slate-700/60 text-slate-300 text-[11px] sm:text-[12px] font-semibold mb-3 backdrop-blur-sm max-w-full">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+            <span className="truncate sm:whitespace-normal">
+              QA Engineer at <strong className="text-sky-400 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
+            </span>
           </div>
 
           {/* H1 */}
@@ -110,28 +112,28 @@ export default function Hero() {
           </h1>
 
           {/* Typed subtitle */}
-          <div className="text-base sm:text-xl font-bold text-slate-300 mb-4 h-7 sm:h-8 flex items-center">
+          <div className="text-sm sm:text-xl font-bold text-slate-300 mb-4 min-h-[32px] flex items-center">
             <TypedFocus />
           </div>
 
           {/* Highlight badges */}
-          <div className="grid sm:grid-cols-2 gap-2 mb-6 max-w-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-w-2xl">
             {HIGHLIGHT_POINTS.map((pt) => (
               <div
                 key={pt}
-                className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700/50 text-slate-300 text-[12.5px] sm:text-[13px] font-medium hover:border-sky-500/50 hover:text-white transition-all duration-200 backdrop-blur-sm"
+                className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-slate-800/50 border border-slate-700/50 text-slate-300 text-[12px] sm:text-[13px] font-medium hover:border-sky-500/50 hover:text-white transition-all duration-200 backdrop-blur-sm"
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-sky-400 flex-shrink-0" />
-                <span>{pt}</span>
+                <span className="leading-snug">{pt}</span>
               </div>
             ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-2.5 sm:gap-3">
+          <div className="flex flex-col xs:flex-row flex-wrap gap-2.5 sm:gap-3">
             <button
               onClick={() => handleScroll('projects')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-[13px] transition-colors shadow-lg shadow-sky-500/20"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-[13px] transition-colors shadow-lg shadow-sky-500/20 active:scale-95"
             >
               <span>Projects</span>
               <ArrowRight size={15} />
@@ -139,7 +141,7 @@ export default function Hero() {
 
             <button
               onClick={() => handleScroll('skills')}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-800/70 hover:bg-slate-700/80 border border-slate-700/60 text-slate-200 font-semibold text-[13px] transition-colors backdrop-blur-sm"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-800/70 hover:bg-slate-700/80 border border-slate-700/60 text-slate-200 font-semibold text-[13px] transition-colors backdrop-blur-sm active:scale-95"
             >
               <Briefcase size={15} />
               <span>Key Skills</span>
@@ -147,7 +149,7 @@ export default function Hero() {
 
             <button
               onClick={() => handleScroll('contact')}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/8 hover:bg-white/12 border border-white/10 text-white font-semibold text-[13px] transition-colors backdrop-blur-sm"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white/8 hover:bg-white/12 border border-white/10 text-white font-semibold text-[13px] transition-colors backdrop-blur-sm active:scale-95"
             >
               <Mail size={15} />
               <span>Contact</span>
@@ -156,17 +158,17 @@ export default function Hero() {
         </div>
 
         {/* Stats Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-slate-800">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-5 border-t border-slate-800">
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="bg-slate-800/40 border border-slate-700/50 rounded-xl py-3 px-4 text-center backdrop-blur-sm hover:border-sky-500/30 transition-colors"
+              className="bg-slate-800/40 border border-slate-700/50 rounded-xl py-2.5 sm:py-3 px-2 sm:px-4 text-center backdrop-blur-sm hover:border-sky-500/30 transition-colors"
             >
-              <div className="flex items-center justify-center gap-1.5 mb-1">
+              <div className="flex items-center justify-center gap-1.5 mb-0.5">
                 <span className="text-xs" aria-hidden="true">{s.icon}</span>
-                <span className="text-lg sm:text-xl font-extrabold text-sky-400 font-mono">{s.value}</span>
+                <span className="text-base sm:text-xl font-extrabold text-sky-400 font-mono">{s.value}</span>
               </div>
-              <p className="text-slate-400 font-medium text-[11.5px] truncate">{s.label}</p>
+              <p className="text-slate-400 font-medium text-[11px] sm:text-[11.5px] truncate">{s.label}</p>
             </div>
           ))}
         </div>

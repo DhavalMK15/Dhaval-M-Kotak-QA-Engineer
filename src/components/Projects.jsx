@@ -90,21 +90,42 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10">
+        <div className="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-10">
 
-          {/* Left: project list */}
-          <div className="lg:col-span-4 flex flex-col gap-1.5">
+          {/* Mobile: Horizontal scrollable project selector */}
+          <div className="flex lg:hidden overflow-x-auto gap-2 pb-1 -mx-4 px-4 sm:mx-0 sm:px-0">
             {SHOWCASE_PROJECTS.map((p) => {
               const isActive = activeId === p.id
               return (
                 <button
                   key={p.id}
                   onClick={() => setActiveId(p.id)}
-                  className={`w-full text-left flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-150
-                    ${isActive
-                      ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-300 dark:border-sky-700/60 text-slate-900 dark:text-white'
+                  className={`flex-shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
+                    isActive
+                      ? 'bg-sky-50 dark:bg-sky-950/60 border-sky-400 dark:border-sky-600 text-sky-700 dark:text-sky-300 shadow-xs'
+                      : 'bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300'
+                  }`}
+                >
+                  <span className="font-mono text-[10.5px] opacity-70">{p.num}</span>
+                  <span>{p.name}</span>
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Desktop: Vertical project list */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col gap-1.5">
+            {SHOWCASE_PROJECTS.map((p) => {
+              const isActive = activeId === p.id
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => setActiveId(p.id)}
+                  className={`w-full text-left flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-150 cursor-pointer ${
+                    isActive
+                      ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-300 dark:border-sky-700/60 text-slate-900 dark:text-white shadow-xs'
                       : 'bg-transparent border-transparent text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white'
-                    }`}
+                  }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isActive ? 'bg-sky-500' : 'bg-slate-400 dark:bg-slate-600'}`} />
@@ -123,28 +144,36 @@ export default function Projects() {
             })}
           </div>
 
-          {/* Right: details */}
+          {/* Right: details card */}
           <div className="lg:col-span-8">
             {active && (
-              <div key={activeId}>
-                <div className="text-[10px] font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase mb-1">
-                  {active.domain}
+              <div
+                key={activeId}
+                className="p-4 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800 shadow-2xs"
+              >
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[10px] font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase">
+                    {active.domain}
+                  </span>
+                  <span className="text-[11px] font-mono font-semibold text-slate-400">
+                    {active.num} / 05
+                  </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">
                   {active.name}
                 </h3>
 
-                <div className="h-px bg-slate-200 dark:bg-slate-800 mb-5" />
+                <div className="h-px bg-slate-200 dark:bg-slate-800 mb-4" />
 
-                <div className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-3">
-                  Key Features
+                <div className="text-[10.5px] font-bold tracking-widest text-slate-400 uppercase mb-3">
+                  Key Deliverables & Feature Modules
                 </div>
 
-                <ul className="space-y-3">
+                <ul className="space-y-2.5 sm:space-y-3">
                   {active.bullets.map((b, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    <li key={idx} className="flex items-start gap-2.5 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
                       <div className="w-1.5 h-1.5 rounded-full bg-sky-500 flex-shrink-0 mt-1.5" />
-                      {b}
+                      <span>{b}</span>
                     </li>
                   ))}
                 </ul>
@@ -155,14 +184,14 @@ export default function Projects() {
         </div>
 
         {/* Tested Domains strip */}
-        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/80 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
           <div className="flex items-center gap-2 flex-shrink-0">
             <div className="w-1.5 h-1.5 rounded-full bg-sky-500" />
             <span className="text-[11px] font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase">
               Tested Domains
             </span>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {[
               'Resident & Community Management',
               'Enterprise CRM & Case Tracking',
@@ -172,7 +201,7 @@ export default function Projects() {
             ].map((domain) => (
               <span
                 key={domain}
-                className="px-3 py-1 rounded-full text-[12px] font-medium border
+                className="px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-[12px] font-medium border
                   bg-slate-100 dark:bg-slate-800/60
                   border-slate-200 dark:border-slate-700/60
                   text-slate-600 dark:text-slate-300"

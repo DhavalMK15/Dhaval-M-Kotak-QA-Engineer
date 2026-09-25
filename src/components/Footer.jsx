@@ -75,7 +75,7 @@ export default function Footer() {
             </h3>
             <ul className="grid grid-cols-2 gap-2 text-xs" role="list">
               {[
-                { label: 'About', id: 'about' },
+                { label: 'Home', id: 'hero' },
                 { label: 'Skills', id: 'skills' },
                 { label: 'AI & Auto', id: 'ai-automation' },
                 { label: 'Projects', id: 'projects' },

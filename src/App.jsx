@@ -60,6 +60,18 @@ export default function App() {
 }
 
 function BackToTop() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.pageYOffset > 300)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  if (!visible) return null
+
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     document.getElementById('hero')?.focus()
@@ -68,7 +80,7 @@ function BackToTop() {
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-5 right-5 w-10 h-10 rounded-xl glass-panel hover:bg-white dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center justify-center shadow-md z-30 no-print cursor-pointer"
+      className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 w-9 h-9 sm:w-10 sm:h-10 rounded-xl glass-panel hover:bg-white dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center justify-center shadow-lg z-30 no-print cursor-pointer animate-fade-in"
       aria-label="Back to top"
     >
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">

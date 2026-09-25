@@ -4,14 +4,14 @@ import { Menu, X, Sparkles, Send, Sun, Moon } from 'lucide-react'
 import { PROFILE } from '../data/portfolioData'
 
 const NAV_ITEMS = [
-  { label: 'About', href: '#about' },
+  { label: 'Home', href: '#hero' },
   { label: 'Skills & Tools', href: '#skills' },
   { label: 'AI & Automation', href: '#ai-automation' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
 
-const SECTION_IDS = ['about', 'skills', 'ai-automation', 'projects', 'contact']
+const SECTION_IDS = ['hero', 'skills', 'ai-automation', 'projects', 'contact']
 
 // Ease-in-out cubic for buttery smooth scroll
 function easeInOutCubic(t) {
@@ -187,7 +187,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="md:hidden min-w-[42px] min-h-[42px] flex items-center justify-center p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -202,7 +202,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
       {/* Mobile Drawer */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-30 md:hidden"
+          className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-40 md:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
@@ -210,7 +210,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
 
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 bottom-0 w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-40 transform transition-transform duration-300 ease-in-out md:hidden shadow-xl flex flex-col justify-between ${
+        className={`fixed top-0 right-0 bottom-0 w-[84vw] max-w-[310px] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-50 transform transition-transform duration-300 ease-in-out md:hidden shadow-2xl flex flex-col justify-between ${
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -219,29 +219,37 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
       >
         <div>
           <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800">
-            <span className="font-bold text-slate-900 dark:text-white">Navigation</span>
+            <span className="font-bold text-slate-900 dark:text-white text-base">Navigation</span>
             <button
               onClick={() => setMobileOpen(false)}
-              className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               aria-label="Close navigation menu"
             >
               <X size={20} />
             </button>
           </div>
 
-          <nav aria-label="Mobile navigation" className="p-4">
+          <nav aria-label="Mobile navigation" className="p-3">
             <ul className="space-y-1" role="list">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }}
-                    className="flex items-center px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-950/50 font-medium text-sm transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {NAV_ITEMS.map((item) => {
+                const sectionId = item.href.replace('#', '')
+                const isActive = activeSection === sectionId
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }}
+                      className={`flex items-center px-4 py-3 rounded-xl font-semibold text-sm transition-all ${
+                        isActive
+                          ? 'bg-sky-50 dark:bg-sky-950/70 text-sky-600 dark:text-sky-400 font-bold border-l-2 border-sky-500 pl-3.5'
+                          : 'text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
         </div>

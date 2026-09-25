@@ -138,11 +138,11 @@ export default function AIAutomation() {
 
                       {/* Interactive Drawer for selected pillar */}
                       {isSelected && (
-                        <div className="pt-2.5 border-t border-sky-100 dark:border-sky-800/60 grid sm:grid-cols-3 gap-1.5 animate-fade-in">
+                        <div className="pt-2.5 border-t border-sky-100 dark:border-sky-800/60 grid grid-cols-1 sm:grid-cols-3 gap-1.5 animate-fade-in">
                           {p.highlights.map((h) => (
                             <span
                               key={h}
-                              className="text-[10.5px] font-semibold text-sky-800 dark:text-sky-200 bg-white/90 dark:bg-slate-800/90 border border-sky-200 dark:border-sky-800 px-1.5 py-0.5 rounded"
+                              className="text-[11px] font-semibold text-sky-800 dark:text-sky-200 bg-white/90 dark:bg-slate-800/90 border border-sky-200 dark:border-sky-800 px-2 py-1 rounded leading-tight"
                             >
                               ✓ {h}
                             </span>
