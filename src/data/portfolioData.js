@@ -1,5 +1,5 @@
 // ====================================================
-// Portfolio Data – Dhaval Kotak | QA Engineer
+// Portfolio Data – Dhaval M Kotak | QA Engineer
 // ====================================================
 
 export const PROFILE = {
@@ -15,8 +15,8 @@ export const PROFILE = {
   focusAreas: ['Manual Testing', 'API Testing', 'Mobile Testing', 'Accessibility Testing', 'AI-Assisted Automation'],
   contact: {
     email: 'dhavalkotak0150@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME',
-    github: 'https://github.com/YOUR_GITHUB_USERNAME',
+    linkedin: 'https://www.https://www.linkedin.com/in/dhaval-kotak-a6b3ab24a?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+    github: 'https://github.com/DhavalMK15',
   },
 }
 
@@ -656,7 +656,7 @@ export const QA_REPOSITORIES = [
     forks: '9',
     badge: 'Automation',
     primaryMetric: '85+ Tests',
-    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/selenium-pytest-crm-framework',
+    repoUrl: 'https://github.com/DhavalMK15/selenium-pytest-crm-framework',
   },
   {
     id: 'rest-api-suite',
@@ -668,7 +668,7 @@ export const QA_REPOSITORIES = [
     forks: '6',
     badge: 'API Testing',
     primaryMetric: '40+ Endpoints',
-    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/rest-api-postman-test-suite',
+    repoUrl: 'https://github.com/DhavalMK15/rest-api-postman-test-suite',
   },
   {
     id: 'qa-artifacts',
@@ -680,7 +680,7 @@ export const QA_REPOSITORIES = [
     forks: '12',
     badge: 'Templates',
     primaryMetric: '5 Templates',
-    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/enterprise-qa-artifacts-templates',
+    repoUrl: 'https://github.com/DhavalMK15/enterprise-qa-artifacts-templates',
   },
 ]
 
