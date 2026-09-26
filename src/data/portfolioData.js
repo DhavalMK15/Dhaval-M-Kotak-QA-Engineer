@@ -15,7 +15,7 @@ export const PROFILE = {
   focusAreas: ['Manual Testing', 'API Testing', 'Mobile Testing', 'Accessibility Testing', 'AI-Assisted Automation'],
   contact: {
     email: 'dhavalkotak0150@gmail.com',
-    linkedin: 'https://www.https://www.linkedin.com/in/dhaval-kotak-a6b3ab24a',
+    linkedin: 'https://www.linkedin.com/in/dhaval-kotak-a6b3ab24a',
     github: 'https://github.com/DhavalMK15',
   },
 }

@@ -44,7 +44,7 @@ Find the `PROFILE` object at the top of the file:
 ```js
 contact: {
   email: 'dhavalkotak0150@gmail.com',           // Replace with your email
-  linkedin: 'https://www.linkedin.com/in/dhaval-kotak-a6b3ab24a',  // Replace
+  linkedin: 'linkedin.com/in/dhaval-kotak-a6b3ab24a',  // Replace
   github: 'https://github.com/DhavalMK15',               // Replace
 },
 ```
