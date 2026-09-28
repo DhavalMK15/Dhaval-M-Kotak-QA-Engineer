@@ -9,12 +9,12 @@ const SHOWCASE_PROJECTS = [
     name: 'Resident Connect',
     tag: 'Team Lead',
     description:
-      'Property management & tenant portal with sub-products Look4Lease, Immi Dreams, and Clientracker.',
+      'Property management and tenant portal ecosystem across mobile and web platforms.',
     bullets: [
-      'Tenant & property manager portal · Work order lifecycle',
-      'Maintenance ticketing & community engagement workflows',
-      'Cross-product QA: Look4Lease, Immi Dreams, Clientracker',
-      'iOS & Android native apps · Responsive web portals'
+      'Tenant Portal & Work Orders',
+      'Maintenance Ticketing',
+      'Look4Lease & Clientracker QA',
+      'iOS, Android & Web Apps'
     ]
   },
   {
@@ -25,10 +25,10 @@ const SHOWCASE_PROJECTS = [
     description:
       'Legal attorney network with 6 dedicated portals covering Matters and CDL case lifecycles.',
     bullets: [
-      'Multi-portal architecture across 6 web & admin portals',
-      'Legal Matters & Commercial Driver (CDL) workflows',
-      'Stripe payment integration & member auto-renewals',
-      'ADA / WCAG accessibility & automated Postman API suites'
+      '6 Web & Admin Portals',
+      'Matters & CDL Workflows',
+      'Stripe Payment Gateway',
+      'ADA/WCAG & Postman APIs'
     ]
   },
   {
@@ -40,10 +40,10 @@ const SHOWCASE_PROJECTS = [
     description:
       'Real estate broker CRM for client management, property listings, and commission tracking.',
     bullets: [
-      'Broker & agent client management · Deal pipelines',
-      'Property listing inventory & real-time search matching',
-      'Commission splits, revenue tracking & financial KPIs',
-      'Cross-platform consistency: web and mobile interfaces'
+      'Broker CRM & Pipelines',
+      'Property Search Matching',
+      'Commission & Financial KPIs',
+      'Web & Mobile Consistency'
     ]
   },
   {
@@ -54,10 +54,10 @@ const SHOWCASE_PROJECTS = [
     description:
       'Public sector examination management, candidate verification, and secure data processing.',
     bullets: [
-      'Systematic regression suites across exam modules',
-      'Secure candidate verification & high-volume data validation',
-      'Real-time exam operational readiness & live monitoring',
-      'Score computation, candidate evaluation & audit integrity'
+      'Exam Regression Suites',
+      'Candidate Data Verification',
+      'Live Operational Readiness',
+      'Score & Audit Integrity'
     ]
   },
   {
@@ -68,10 +68,10 @@ const SHOWCASE_PROJECTS = [
     description:
       'Augmented reality interactive event platform converting static QR codes into 3D experiences.',
     bullets: [
-      'AR camera tracking, marker recognition & 3D rendering',
-      'QR scanner performance across diverse devices & lighting',
-      'Dynamic multimedia asset streaming & low latency playback',
-      'Cross-platform iOS & Android mobile compatibility'
+      '3D AR Marker Tracking',
+      'High-Speed QR Scanner',
+      'Low-Latency Asset Stream',
+      'iOS & Android Mobile QA'
     ]
   }
 ]
@@ -234,13 +234,26 @@ export default function Projects() {
 
   useEffect(() => {
     if (isSidebarOpen) {
+      const originalBodyOverflow = document.body.style.overflow
+      const originalHtmlOverflow = document.documentElement.style.overflow
+      const originalBodyOverscroll = document.body.style.overscrollBehavior
+      const originalHtmlOverscroll = document.documentElement.style.overscrollBehavior
+
       document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      document.body.style.overscrollBehavior = 'none'
+      document.documentElement.style.overscrollBehavior = 'none'
+
       const handleKeyDown = (e) => {
         if (e.key === 'Escape') setIsSidebarOpen(false)
       }
       window.addEventListener('keydown', handleKeyDown)
+
       return () => {
-        document.body.style.overflow = ''
+        document.body.style.overflow = originalBodyOverflow
+        document.documentElement.style.overflow = originalHtmlOverflow
+        document.body.style.overscrollBehavior = originalBodyOverscroll
+        document.documentElement.style.overscrollBehavior = originalHtmlOverscroll
         window.removeEventListener('keydown', handleKeyDown)
       }
     }
@@ -404,10 +417,10 @@ export default function Projects() {
                   {active.bullets.map((b, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-2xl bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-800/70 hover:border-sky-400/60 dark:hover:border-sky-500/60 transition-all duration-200 flex items-start gap-3.5 group/item cursor-default"
+                      className="p-4 sm:p-4.5 rounded-2xl bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-800/70 hover:border-sky-400/60 dark:hover:border-sky-500/60 transition-all duration-200 flex items-center gap-3 group/item cursor-default"
                     >
-                      <CheckCircle2 size={19} className="text-sky-500 dark:text-sky-400 flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover/item:scale-125" />
-                      <span className="text-sm sm:text-[15px] font-medium text-slate-700 dark:text-slate-200 leading-relaxed">
+                      <CheckCircle2 size={18} className="text-sky-500 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
+                      <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 leading-snug">
                         {b}
                       </span>
                     </div>
@@ -424,21 +437,23 @@ export default function Projects() {
       {/* Slide-out Sidebar Drawer: All Tested Projects */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 z-50 overflow-hidden"
+          className="fixed inset-0 z-50 overflow-hidden overscroll-contain"
           role="dialog"
           aria-modal="true"
           aria-labelledby="all-projects-sidebar-title"
         >
-          {/* Backdrop overlay with blur */}
+          {/* Backdrop overlay with blur & scroll prevention */}
           <div
-            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 animate-overlay-in"
+            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 animate-overlay-in overscroll-contain"
             onClick={() => setIsSidebarOpen(false)}
+            onWheel={(e) => e.preventDefault()}
             aria-hidden="true"
           />
 
           {/* Slide-out Sidebar Panel from Right with deep elevation shadow */}
           <aside
-            className="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] md:w-[560px] max-w-full bg-white dark:bg-slate-900 border-l border-slate-200/90 dark:border-slate-800/80 sidebar-shadow flex flex-col animate-sidebar-in overflow-hidden"
+            className="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] md:w-[560px] max-w-full bg-white dark:bg-slate-900 border-l border-slate-200/90 dark:border-slate-800/80 sidebar-shadow flex flex-col animate-sidebar-in overflow-hidden overscroll-contain"
+            style={{ overscrollBehavior: 'contain' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Sidebar Header with maximum breathing space */}
@@ -462,8 +477,11 @@ export default function Projects() {
               </button>
             </div>
 
-            {/* Scrollable Project Cards List with generous spacing */}
-            <div className="overflow-y-auto p-6 sm:p-8 space-y-4 sm:space-y-5 flex-1">
+            {/* Scrollable Project Cards List with contained overscroll */}
+            <div
+              className="overflow-y-auto overscroll-contain p-6 sm:p-8 space-y-4 sm:space-y-5 flex-1"
+              style={{ overscrollBehavior: 'contain' }}
+            >
               {ALL_TESTED_PROJECTS.map((p) => (
                 <div
                   key={p.num}
