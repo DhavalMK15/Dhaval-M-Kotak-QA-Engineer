@@ -41,7 +41,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-sky-100 selection:text-sky-900 dark:selection:bg-sky-900/50 dark:selection:text-sky-100">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-300 antialiased selection:bg-sky-200 selection:text-sky-950 dark:selection:bg-sky-900 dark:selection:text-sky-100">
       <Navbar isDark={isDark} onToggleDarkMode={toggleDarkMode} />
 
       <main id="main-content" tabIndex={-1}>
@@ -80,11 +80,11 @@ function BackToTop() {
   return (
     <button
       onClick={handleClick}
-      className="hidden sm:flex fixed bottom-5 right-5 w-10 h-10 rounded-xl glass-panel hover:bg-white dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all items-center justify-center shadow-lg z-30 no-print cursor-pointer animate-fade-in"
+      className="hidden sm:flex fixed bottom-5 right-5 w-10 h-10 rounded-xl glass-panel hover:bg-white dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:text-sky-700 dark:hover:text-sky-300 transition-all items-center justify-center shadow-lg z-30 no-print cursor-pointer animate-fade-in"
       aria-label="Back to top"
     >
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </button>
   )

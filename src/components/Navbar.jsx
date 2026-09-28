@@ -105,14 +105,14 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                 <span className="font-extrabold text-slate-900 dark:text-white tracking-tight text-[15px] sm:text-base group-hover:text-sky-600 transition-colors">
                   Dhaval M <span className="text-sky-600 dark:text-sky-400">Kotak</span>
                 </span>
-                <span className="block text-xs font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase">
+                <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 tracking-wider uppercase">
                   QA Engineer
                 </span>
               </div>
             </a>
 
             {/* Desktop Nav with Floating Glass Indicator */}
-            <ul className="hidden md:flex items-center gap-1.5 p-1 rounded-2xl glass-panel shadow-2xs" role="list">
+            <ul className="hidden md:flex items-center gap-1.5 p-1 rounded-2xl glass-panel border border-slate-300/80 dark:border-slate-700/80 shadow-2xs" role="list">
               {NAV_ITEMS.map((item) => {
                 const sectionId = item.href.replace('#', '')
                 const isActive = activeSection === sectionId
@@ -121,10 +121,10 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                     <a
                       href={item.href}
                       onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }}
-                      className={`relative px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-200 block ${
+                      className={`relative px-4 py-2 text-sm font-bold rounded-xl transition-all duration-200 block ${
                         isActive
-                          ? 'text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/70 shadow-xs font-bold'
-                          : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                          ? 'text-sky-700 dark:text-sky-300 bg-sky-100/80 dark:bg-sky-950/80 border border-sky-300 dark:border-sky-800 shadow-xs'
+                          : 'text-slate-800 dark:text-slate-200 hover:text-sky-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/80'
                       }`}
                       aria-current={isActive ? 'page' : undefined}
                     >
@@ -141,7 +141,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
               <button
                 type="button"
                 onClick={onToggleDarkMode}
-                className="relative inline-flex items-center justify-center w-10 h-10 rounded-2xl glass-panel hover:bg-white dark:hover:bg-slate-800 border border-slate-200/90 dark:border-slate-700/80 shadow-2xs hover:shadow-xs transition-all duration-300 group cursor-pointer overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 active:scale-90"
+                className="relative inline-flex items-center justify-center w-10 h-10 rounded-2xl glass-panel hover:bg-white dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 shadow-2xs hover:shadow-xs transition-all duration-300 group cursor-pointer overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 active:scale-90"
                 aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
                 title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
               >
@@ -187,7 +187,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden min-w-[42px] min-h-[42px] flex items-center justify-center p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="md:hidden min-w-[42px] min-h-[42px] flex items-center justify-center p-2 rounded-xl text-slate-800 dark:text-slate-100 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 transition-colors"
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -202,7 +202,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
       {/* Mobile Drawer */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-40 md:hidden"
+          className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs z-40 md:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
@@ -210,7 +210,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
 
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 bottom-0 w-[84vw] max-w-[310px] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-50 transform transition-transform duration-300 ease-in-out md:hidden shadow-2xl flex flex-col justify-between ${
+        className={`fixed top-0 right-0 bottom-0 w-[84vw] max-w-[310px] bg-white dark:bg-slate-900 border-l border-slate-300 dark:border-slate-700 z-50 transform transition-transform duration-300 ease-in-out md:hidden shadow-2xl flex flex-col justify-between ${
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -218,11 +218,11 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
         aria-label="Navigation menu"
       >
         <div>
-          <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800">
-            <span className="font-bold text-slate-900 dark:text-white text-base">Navigation</span>
+          <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
+            <span className="font-extrabold text-slate-950 dark:text-white text-base">Navigation</span>
             <button
               onClick={() => setMobileOpen(false)}
-              className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               aria-label="Close navigation menu"
             >
               <X size={20} />
@@ -239,10 +239,10 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                     <a
                       href={item.href}
                       onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }}
-                      className={`flex items-center px-4 py-3 rounded-xl font-semibold text-sm transition-all ${
+                      className={`flex items-center px-4 py-3 rounded-xl font-bold text-sm transition-all ${
                         isActive
-                          ? 'bg-sky-50 dark:bg-sky-950/70 text-sky-600 dark:text-sky-400 font-bold border-l-2 border-sky-500 pl-3.5'
-                          : 'text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                          ? 'bg-sky-100/90 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 border-l-4 border-sky-600 pl-3'
+                          : 'text-slate-800 dark:text-slate-100 hover:text-sky-700 dark:hover:text-sky-300 hover:bg-slate-100 dark:hover:bg-slate-800/80'
                       }`}
                     >
                       {item.label}
@@ -255,31 +255,31 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
         </div>
 
         {/* Mobile Drawer Footer with Theme Switch & CTA */}
-        <div className="p-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+        <div className="p-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
           <button
             type="button"
             onClick={onToggleDarkMode}
-            className="w-full flex items-center justify-between p-3 rounded-2xl glass-panel border border-slate-200/80 dark:border-slate-800 shadow-2xs hover:bg-white dark:hover:bg-slate-800 transition-all cursor-pointer"
+            className="w-full flex items-center justify-between p-3 rounded-2xl glass-panel border border-slate-300 dark:border-slate-700 shadow-2xs hover:bg-white dark:hover:bg-slate-800 transition-all cursor-pointer"
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             <div className="flex items-center gap-2.5">
               <span className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
-                isDark ? 'bg-sky-950/80 text-sky-400 border border-sky-800/80' : 'bg-amber-50 text-amber-500 border border-amber-200'
+                isDark ? 'bg-sky-950/90 text-sky-400 border border-sky-700' : 'bg-amber-100 text-amber-700 border border-amber-300'
               }`}>
                 {isDark ? <Moon size={16} /> : <Sun size={16} />}
               </span>
               <div className="text-left">
-                <span className="block text-xs font-bold text-slate-900 dark:text-white">
+                <span className="block text-xs font-bold text-slate-950 dark:text-white">
                   {isDark ? 'Dark Mode' : 'Light Mode'}
                 </span>
-                <span className="block text-xs text-slate-500 dark:text-slate-400">
+                <span className="block text-xs font-medium text-slate-700 dark:text-slate-300">
                   {isDark ? 'Switch to light theme' : 'Switch to dark theme'}
                 </span>
               </div>
             </div>
 
             <div className={`w-11 h-6 rounded-full p-0.5 transition-colors duration-300 flex items-center ${
-              isDark ? 'bg-sky-600 justify-end' : 'bg-slate-300 dark:bg-slate-700 justify-start'
+              isDark ? 'bg-sky-600 justify-end' : 'bg-slate-400 dark:bg-slate-600 justify-start'
             }`}>
               <div className="w-5 h-5 rounded-full bg-white shadow-sm" />
             </div>

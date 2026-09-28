@@ -262,21 +262,21 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 sm:py-28 lg:py-32 border-b border-slate-200/80 dark:border-slate-800 transition-colors duration-300"
+      className="py-20 sm:py-28 lg:py-32 border-b border-slate-300 dark:border-slate-800 transition-colors duration-300"
       aria-labelledby="projects-heading"
     >
       <div className="section-container">
 
         {/* Heading with generous breathing space */}
         <div className="mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 text-xs sm:text-[13px] font-semibold tracking-widest uppercase mb-4">
-            <Sparkles size={12} className="text-sky-500" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-xs sm:text-[13px] font-bold tracking-widest uppercase mb-4">
+            <Sparkles size={12} className="text-sky-600 dark:text-sky-400" />
             <span>Top 5 Featured Projects</span>
           </div>
-          <h2 id="projects-heading" className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Project <span className="text-sky-600 dark:text-sky-400">Specifications</span> &amp; Case Studies
+          <h2 id="projects-heading" className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+            Project <span className="text-sky-700 dark:text-sky-400">Specifications</span> &amp; Case Studies
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base mt-2.5 max-w-xl leading-relaxed">
+          <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-base mt-2.5 max-w-xl font-medium leading-relaxed">
             Key deliverables, test architectures, and verified release modules.
           </p>
         </div>
@@ -293,11 +293,11 @@ export default function Projects() {
                   onClick={() => setActiveId(p.id)}
                   className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all border cursor-pointer ${
                     isActive
-                      ? 'bg-sky-500/15 border-sky-400 text-sky-700 dark:text-sky-300 shadow-xs'
-                      : 'bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300'
+                      ? 'bg-sky-100 dark:bg-sky-950 border-sky-400 dark:border-sky-500 text-sky-900 dark:text-sky-200 shadow-xs'
+                      : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-slate-400'
                   }`}
                 >
-                  <span className="font-mono text-xs opacity-80">{p.num}</span>
+                  <span className="font-mono text-xs opacity-90">{p.num}</span>
                   <span>{p.name}</span>
                 </button>
               )
@@ -305,9 +305,9 @@ export default function Projects() {
             <button
               type="button"
               onClick={() => setIsSidebarOpen(true)}
-              className="flex-shrink-0 flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-dashed border-emerald-300 dark:border-emerald-700/80 bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-all cursor-pointer"
+              className="flex-shrink-0 flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-dashed border-emerald-400 dark:border-emerald-600 bg-emerald-100/70 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-900/60 transition-all cursor-pointer"
             >
-              <Layers size={13} className="text-emerald-600 dark:text-emerald-400" />
+              <Layers size={13} className="text-emerald-700 dark:text-emerald-400" />
               <span>All Tested Projects</span>
             </button>
           </div>
@@ -322,30 +322,30 @@ export default function Projects() {
                   onClick={() => setActiveId(p.id)}
                   className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] ${
                     isActive
-                      ? 'bg-sky-500/10 dark:bg-sky-500/15 border-2 border-sky-500 dark:border-sky-400 shadow-lg shadow-sky-500/10 dark:shadow-sky-500/10 -translate-y-0.5'
-                      : 'bg-white/50 dark:bg-slate-900/40 border-slate-200/70 dark:border-slate-800/70 hover:bg-white dark:hover:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-700 hover:translate-x-1'
+                      ? 'bg-sky-50 dark:bg-sky-950/70 border-2 border-sky-500 dark:border-sky-400 shadow-lg shadow-sky-500/10 dark:shadow-sky-500/10 -translate-y-0.5'
+                      : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/80 hover:border-sky-400 dark:hover:border-slate-600 hover:translate-x-1'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div className="min-w-0 flex-1">
-                      <div className="text-[11px] font-bold tracking-widest uppercase text-sky-600 dark:text-sky-400 opacity-90 mb-1.5 flex items-center gap-2">
+                      <div className="text-[11px] font-extrabold tracking-widest uppercase text-sky-700 dark:text-sky-300 mb-1.5 flex items-center gap-2">
                         <span>{p.domain}</span>
                         {p.tag && (
-                          <span className="text-[10px] font-semibold px-2 py-0.2 rounded bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700">
                             {p.tag}
                           </span>
                         )}
                       </div>
-                      <div className={`text-sm sm:text-[15px] font-bold truncate transition-colors ${
-                        isActive ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white'
+                      <div className={`text-sm sm:text-[15px] font-extrabold truncate transition-colors ${
+                        isActive ? 'text-slate-950 dark:text-white' : 'text-slate-800 dark:text-slate-200 group-hover:text-sky-700 dark:group-hover:text-sky-300'
                       }`}>
                         {p.name}
                       </div>
                     </div>
-                    <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg transition-colors ${
+                    <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg transition-colors border ${
                       isActive
-                        ? 'bg-sky-500 text-white shadow-xs'
-                        : 'text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800/70 group-hover:text-slate-600 dark:group-hover:text-slate-300'
+                        ? 'bg-sky-600 text-white border-sky-600 shadow-xs'
+                        : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 group-hover:text-slate-950 dark:group-hover:text-white'
                     }`}>
                       {p.num}
                     </span>
@@ -358,13 +358,13 @@ export default function Projects() {
             <button
               type="button"
               onClick={() => setIsSidebarOpen(true)}
-              className="mt-3 flex items-center justify-between w-full p-4 sm:p-4.5 rounded-2xl border border-dashed border-emerald-300 dark:border-emerald-800/80 bg-emerald-50/50 hover:bg-emerald-100/70 dark:bg-emerald-950/20 dark:hover:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 transition-all duration-200 group text-sm font-semibold cursor-pointer"
+              className="mt-3 flex items-center justify-between w-full p-4 sm:p-4.5 rounded-2xl border border-dashed border-emerald-400 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-900 dark:text-emerald-200 transition-all duration-200 group text-sm font-bold cursor-pointer"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <Layers size={16} className="text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <Layers size={16} className="text-emerald-700 dark:text-emerald-400 group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span className="truncate">View All Tested Projects</span>
               </div>
-              <ArrowRight size={16} className="text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1.5 transition-transform flex-shrink-0 ml-2" />
+              <ArrowRight size={16} className="text-emerald-700 dark:text-emerald-400 group-hover:translate-x-1.5 transition-transform flex-shrink-0 ml-2" />
             </button>
           </div>
 
@@ -373,7 +373,7 @@ export default function Projects() {
             {active && (
               <div
                 key={activeId}
-                className="animate-project-slide relative overflow-hidden p-8 sm:p-10 lg:p-12 rounded-3xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:border-sky-300 dark:hover:border-sky-700/60 transition-all duration-300"
+                className="animate-project-slide relative overflow-hidden p-8 sm:p-10 lg:p-12 rounded-3xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-md hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:border-sky-500 dark:hover:border-sky-500 transition-all duration-300"
               >
                 {/* Glowing subtle top accent bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 animate-expand-line" />
@@ -381,34 +381,34 @@ export default function Projects() {
                 {/* Card Header */}
                 <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
                   <div className="flex items-center gap-2.5 flex-wrap">
-                    <span className="text-xs sm:text-[13px] font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase">
+                    <span className="text-xs sm:text-[13px] font-extrabold tracking-widest text-sky-700 dark:text-sky-300 uppercase">
                       {active.domain}
                     </span>
                     {active.tag && (
-                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/25">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700">
                         {active.tag}
                       </span>
                     )}
                   </div>
-                  <span className="text-sm font-mono font-bold text-slate-400">
+                  <span className="text-sm font-mono font-bold text-slate-600 dark:text-slate-400">
                     #{active.num}
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-950 dark:text-white mb-3 tracking-tight">
                   {active.name}
                 </h3>
 
                 {/* Clean, open description — NO nested box */}
                 {active.description && (
-                  <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base mb-6 leading-relaxed font-normal max-w-2xl">
+                  <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-base mb-6 leading-relaxed font-medium max-w-2xl">
                     {active.description}
                   </p>
                 )}
 
-                <div className="h-px bg-slate-200/80 dark:bg-slate-800/80 my-8 animate-expand-line" />
+                <div className="h-px bg-slate-300 dark:bg-slate-700 my-8 animate-expand-line" />
 
-                <div className="text-xs sm:text-sm font-bold tracking-widest text-slate-400 uppercase mb-5">
+                <div className="text-xs sm:text-sm font-extrabold tracking-widest text-slate-700 dark:text-slate-300 uppercase mb-5">
                   Key Deliverables &amp; Core Modules
                 </div>
 
@@ -417,10 +417,10 @@ export default function Projects() {
                   {active.bullets.map((b, idx) => (
                     <div
                       key={idx}
-                      className="p-4 sm:p-4.5 rounded-2xl bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-800/70 hover:border-sky-400/60 dark:hover:border-sky-500/60 transition-all duration-200 flex items-center gap-3 group/item cursor-default"
+                      className="p-4 sm:p-4.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-400 transition-all duration-200 flex items-center gap-3 group/item cursor-default"
                     >
-                      <CheckCircle2 size={18} className="text-sky-500 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
-                      <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 leading-snug">
+                      <CheckCircle2 size={18} className="text-sky-600 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
+                      <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug">
                         {b}
                       </span>
                     </div>
@@ -444,7 +444,7 @@ export default function Projects() {
         >
           {/* Backdrop overlay with blur & scroll prevention */}
           <div
-            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 animate-overlay-in overscroll-contain"
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity duration-300 animate-overlay-in overscroll-contain"
             onClick={() => setIsSidebarOpen(false)}
             onWheel={(e) => e.preventDefault()}
             aria-hidden="true"
@@ -452,25 +452,25 @@ export default function Projects() {
 
           {/* Slide-out Sidebar Panel from Right with deep elevation shadow */}
           <aside
-            className="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] md:w-[560px] max-w-full bg-white dark:bg-slate-900 border-l border-slate-200/90 dark:border-slate-800/80 sidebar-shadow flex flex-col animate-sidebar-in overflow-hidden overscroll-contain"
+            className="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] md:w-[560px] max-w-full bg-white dark:bg-slate-900 border-l border-slate-300 dark:border-slate-700 sidebar-shadow flex flex-col animate-sidebar-in overflow-hidden overscroll-contain"
             style={{ overscrollBehavior: 'contain' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Sidebar Header with maximum breathing space */}
-            <div className="flex items-center justify-between p-6 sm:px-8 sm:py-6 border-b border-slate-200/80 dark:border-slate-800 flex-shrink-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
+            <div className="flex items-center justify-between p-6 sm:px-8 sm:py-6 border-b border-slate-300 dark:border-slate-700 flex-shrink-0 bg-white dark:bg-slate-900">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/70 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 text-xs font-semibold mb-2">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200 text-xs font-bold mb-2">
                   <FileSpreadsheet size={12} />
                   <span>QA Directory</span>
                 </div>
-                <h3 id="all-projects-sidebar-title" className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                <h3 id="all-projects-sidebar-title" className="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white tracking-tight">
                   All Tested Projects
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsSidebarOpen(false)}
-                className="p-2.5 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                className="p-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 transition-colors cursor-pointer"
                 aria-label="Close sidebar"
               >
                 <X size={20} />
@@ -485,29 +485,29 @@ export default function Projects() {
               {ALL_TESTED_PROJECTS.map((p) => (
                 <div
                   key={p.num}
-                  className="p-5 rounded-2xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-800/70 shadow-xs hover:shadow-md hover:border-sky-300 dark:hover:border-sky-700/60 transition-all duration-200 flex flex-col justify-between"
+                  className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 shadow-xs hover:shadow-md hover:border-sky-500 dark:hover:border-sky-400 transition-all duration-200 flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-2">
-                      <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/60 dark:border-sky-800/40">
+                      <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700">
                         #{p.num}
                       </span>
                       {p.tag && (
                         <span
                           className={`text-[11px] truncate ${
                             p.tag === 'Team Lead'
-                              ? 'font-semibold text-amber-700 dark:text-amber-300 bg-amber-500/10 px-2.5 py-0.5 rounded-md border border-amber-500/25'
-                              : 'font-medium text-slate-500 dark:text-slate-400'
+                              ? 'font-bold text-amber-900 dark:text-amber-200 bg-amber-100 dark:bg-amber-950 px-2.5 py-0.5 rounded-md border border-amber-300 dark:border-amber-700'
+                              : 'font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 px-2 py-0.5 rounded-md'
                           }`}
                         >
                           {p.tag}
                         </span>
                       )}
                     </div>
-                    <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">
+                    <h4 className="text-base font-extrabold text-slate-950 dark:text-white mb-1.5">
                       {p.name}
                     </h4>
-                    <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">
                       {p.description}
                     </p>
                   </div>
@@ -516,14 +516,14 @@ export default function Projects() {
             </div>
 
             {/* Sidebar Footer with generous breathing space */}
-            <div className="flex items-center justify-between p-5 sm:px-8 border-t border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 flex-shrink-0">
-              <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between p-5 sm:px-8 border-t border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 flex-shrink-0">
+              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
                 QA Project Directory
               </span>
               <button
                 type="button"
                 onClick={() => setIsSidebarOpen(false)}
-                className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+                className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-bold transition-colors cursor-pointer"
               >
                 Close
               </button>

@@ -97,31 +97,31 @@ export default function Hero({ isDark = false }) {
       <div className="section-container relative">
         <div className="max-w-3xl mb-12 sm:mb-16">
           {/* Status pill with animated ping */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md max-w-full shadow-2xs ring-1 ring-slate-100 dark:ring-slate-800/50">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md max-w-full shadow-xs">
             <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="truncate sm:whitespace-normal">
-              QA Engineer at <strong className="text-sky-600 dark:text-sky-400 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
+              QA Engineer at <strong className="text-sky-700 dark:text-sky-300 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
             </span>
           </div>
 
           {/* H1 */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-4">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 dark:text-white tracking-tight leading-[1.1] mb-4">
             Dhaval M Kotak
           </h1>
 
           {/* Typed subtitle */}
-          <div className="text-base sm:text-xl md:text-2xl font-bold text-slate-600 dark:text-slate-300 mb-8 sm:mb-10 min-h-[36px] flex items-center">
+          <div className="text-base sm:text-xl md:text-2xl font-extrabold text-slate-800 dark:text-slate-100 mb-8 sm:mb-10 min-h-[36px] flex items-center">
             <TypedFocus />
           </div>
 
-          {/* Streamlined CTA Buttons */}
+          {/* Streamlined CTA Buttons with High-Contrast Outlines */}
           <div className="flex flex-col xs:flex-row flex-wrap gap-4 sm:gap-5">
             <button
               onClick={() => handleScroll('projects')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm sm:text-base transition-all shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/30 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm sm:text-base transition-all shadow-md shadow-sky-600/30 hover:shadow-lg hover:shadow-sky-500/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <span>Explore Projects</span>
               <ArrowRight size={16} />
@@ -129,7 +129,7 @@ export default function Hero({ isDark = false }) {
 
             <button
               onClick={() => handleScroll('contact')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-800/80 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 font-semibold text-sm sm:text-base transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold text-sm sm:text-base transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <Mail size={16} />
               <span>Get in Touch</span>
@@ -137,18 +137,18 @@ export default function Hero({ isDark = false }) {
           </div>
         </div>
 
-        {/* Stats Strip with Interactive Card Hover Gesture */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-10 border-t border-slate-200/90 dark:border-slate-800">
+        {/* Stats Strip with High-Contrast Borders & Crisp Text */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-10 border-t border-slate-300 dark:border-slate-700">
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="group bg-white/80 dark:bg-slate-800/40 border border-slate-200/90 dark:border-slate-700/50 rounded-2xl py-4 sm:py-5 px-3 sm:px-4 text-center backdrop-blur-sm hover:border-sky-400 dark:hover:border-sky-500/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 active:scale-95 transition-all duration-300 shadow-2xs cursor-default"
+              className="group bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl py-4 sm:py-5 px-3 sm:px-4 text-center backdrop-blur-sm hover:border-sky-500 dark:hover:border-sky-400 hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 active:scale-95 transition-all duration-300 shadow-xs cursor-default"
             >
               <div className="flex items-center justify-center gap-2 mb-2">
                 <span className="text-base sm:text-lg transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-6 inline-block" aria-hidden="true">{s.icon}</span>
-                <span className="text-xl sm:text-2xl font-extrabold text-sky-600 dark:text-sky-400 font-mono transition-colors duration-300 group-hover:text-sky-500">{s.value}</span>
+                <span className="text-xl sm:text-2xl font-extrabold text-sky-700 dark:text-sky-300 font-mono transition-colors duration-300 group-hover:text-sky-500">{s.value}</span>
               </div>
-              <p className="text-slate-500 dark:text-slate-400 font-semibold text-xs sm:text-[13px] truncate transition-colors duration-300 group-hover:text-slate-700 dark:group-hover:text-slate-200">{s.label}</p>
+              <p className="text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-[13px] truncate transition-colors duration-300 group-hover:text-slate-900 dark:group-hover:text-white">{s.label}</p>
             </div>
           ))}
         </div>
