@@ -121,7 +121,7 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '07',
-    name: 'VANI (wts product)',
+    name: 'VANI (core product)',
     tag: 'VFX Project Management',
     description:
       'Helps to manage your visual production film without navigating between spreadsheets, emails, and other tools. You can track everything with the best VFX project management tool like Vani Software from the first day to the completion.'
@@ -149,7 +149,7 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '11',
-    name: 'PMS (wts product)',
+    name: 'PMS (core product)',
     tag: 'Internal Management Tool',
     description:
       'This is the solution for employees management in our company. Handled task allocation workflows for developers and tested the whole project end-to-end.'
@@ -184,7 +184,7 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '16',
-    name: 'Alpha Ops (wts product)',
+    name: 'Alpha Ops (core product)',
     tag: 'Operations Workspace',
     description:
       'Enterprise workspace and operations management platform providing companies with facility booking, attendance, and administrative management tools.'
@@ -198,14 +198,14 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '18',
-    name: 'QuestWings (wts product)',
+    name: 'QuestWings (core product)',
     tag: 'Web Application QA',
     description:
       'Performed functional, regression, UI, and usability testing for the QuestWings web application, designed and executed test cases, reported defects, validated fixes, and collaborated with developers to ensure high-quality releases.'
   },
   {
     num: '19',
-    name: 'Finance (wts product)',
+    name: 'Finance (core product)',
     tag: 'Financial App',
     description:
       'Performed end-to-end manual testing of a financial management application, validating workflows, calculations, transactions, business rules, validations, UI, integrations, regression, data consistency, and negative scenarios.'
