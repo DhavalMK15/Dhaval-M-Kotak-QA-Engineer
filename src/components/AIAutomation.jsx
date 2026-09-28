@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Bot, Sparkles, CheckCircle2 } from 'lucide-react'
 
 const AI_WORKFLOWS = [
@@ -40,7 +39,6 @@ const AUTOMATION_PILLARS = [
 ]
 
 export default function AIAutomation() {
-  const [activePillarId, setActivePillarId] = useState(AUTOMATION_PILLARS[0].id)
 
   return (
     <section
@@ -111,58 +109,41 @@ export default function AIAutomation() {
             </div>
           </div>
 
-          {/* Right Column: Interactive Automation Pillars with keyword chips */}
+          {/* Right Column: Automation Pillars with keyword chips (hover-only) */}
           <div className="lg:col-span-6 w-full space-y-3 sm:space-y-3.5">
-            {AUTOMATION_PILLARS.map((p) => {
-              const isSelected = activePillarId === p.id
-
-              return (
-                <div
-                  key={p.id}
-                  onClick={() => setActivePillarId(p.id)}
-                  className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] ${
-                    isSelected
-                      ? 'bg-sky-50 dark:bg-sky-950/70 border-sky-500 dark:border-sky-400 shadow-md ring-1 ring-sky-500 -translate-y-0.5'
-                      : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/80 hover:border-sky-400 dark:hover:border-slate-600 sm:hover:translate-x-1'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-2.5 sm:gap-3 mb-3">
-                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
-                      <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
-                        {p.icon}
-                      </div>
-                      <h3 className={`text-sm sm:text-base font-extrabold leading-snug transition-colors duration-200 break-words ${
-                        isSelected
-                          ? 'text-sky-950 dark:text-sky-200'
-                          : 'text-slate-950 dark:text-white group-hover:text-sky-700 dark:group-hover:text-sky-400'
-                      }`}>
-                        {p.title}
-                      </h3>
+            {AUTOMATION_PILLARS.map((p) => (
+              <div
+                key={p.id}
+                className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/80 shadow-xs hover:border-sky-500 dark:hover:border-sky-400 hover:shadow-lg hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 sm:hover:translate-x-1 hover:-translate-y-0.5 transition-all duration-300 group cursor-default"
+              >
+                <div className="flex items-start justify-between gap-2.5 sm:gap-3 mb-3">
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+                      {p.icon}
                     </div>
-
-                    <span className="text-[10px] sm:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700 uppercase tracking-wide flex-shrink-0 mt-0.5">
-                      {p.badge}
-                    </span>
+                    <h3 className="text-sm sm:text-base font-extrabold leading-snug text-slate-950 dark:text-white group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors break-words">
+                      {p.title}
+                    </h3>
                   </div>
 
-                  {/* Clean Keyword Chips with responsive wrapping */}
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
-                    {p.keywords.map((k) => (
-                      <span
-                        key={k}
-                        className={`text-[11px] sm:text-[13px] font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl border transition-all duration-200 cursor-default leading-tight ${
-                          isSelected
-                            ? 'bg-white dark:bg-slate-900 text-sky-900 dark:text-sky-200 border-sky-400 dark:border-sky-600 shadow-2xs'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-300 dark:border-slate-700 group-hover:border-sky-300 dark:group-hover:border-sky-700'
-                        }`}
-                      >
-                        {k}
-                      </span>
-                    ))}
-                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700 uppercase tracking-wide flex-shrink-0 mt-0.5">
+                    {p.badge}
+                  </span>
                 </div>
-              )
-            })}
+
+                {/* Clean Keyword Chips with responsive wrapping */}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+                  {p.keywords.map((k) => (
+                    <span
+                      key={k}
+                      className="text-[11px] sm:text-[13px] font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:border-sky-300 dark:group-hover:border-sky-700 hover:border-sky-500 dark:hover:border-sky-400 hover:text-sky-700 dark:hover:text-sky-300 transition-all duration-200 cursor-default leading-tight"
+                    >
+                      {k}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
