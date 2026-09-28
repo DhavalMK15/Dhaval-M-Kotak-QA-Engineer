@@ -121,7 +121,7 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '07',
-    name: 'VANI (core product)',
+    name: 'VANI (Pore Product)',
     tag: 'VFX Project Management',
     description:
       'Helps to manage your visual production film without navigating between spreadsheets, emails, and other tools. You can track everything with the best VFX project management tool like Vani Software from the first day to the completion.'
@@ -149,7 +149,7 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '11',
-    name: 'PMS (core product)',
+    name: 'PMS (Pore Product)',
     tag: 'Internal Management Tool',
     description:
       'This is the solution for employees management in our company. Handled task allocation workflows for developers and tested the whole project end-to-end.'
@@ -184,7 +184,7 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '16',
-    name: 'Alpha Ops (core product)',
+    name: 'Alpha Ops (Pore Product)',
     tag: 'Operations Workspace',
     description:
       'Enterprise workspace and operations management platform providing companies with facility booking, attendance, and administrative management tools.'
@@ -198,14 +198,14 @@ const ALL_TESTED_PROJECTS = [
   },
   {
     num: '18',
-    name: 'QuestWings (core product)',
+    name: 'QuestWings (Pore Product)',
     tag: 'Web Application QA',
     description:
       'Performed functional, regression, UI, and usability testing for the QuestWings web application, designed and executed test cases, reported defects, validated fixes, and collaborated with developers to ensure high-quality releases.'
   },
   {
     num: '19',
-    name: 'Finance (core product)',
+    name: 'Finance (Pore Product)',
     tag: 'Financial App',
     description:
       'Performed end-to-end manual testing of a financial management application, validating workflows, calculations, transactions, business rules, validations, UI, integrations, regression, data consistency, and negative scenarios.'
