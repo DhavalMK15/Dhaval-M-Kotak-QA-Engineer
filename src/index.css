@@ -99,7 +99,7 @@ select {
 body {
   background-color: var(--color-bg-base);
   color: #334155;
-  font-size: 15px; /* Scaled up ~10% from 13.5-14px default */
+  font-size: 16px; /* Optimized base size for clear readability on mobile and laptops */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -299,20 +299,21 @@ body {
 }
 
 .card-modern:hover {
-  background: rgba(255, 255, 255, 0.92);
-  transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.6);
   box-shadow: 
-    0 20px 35px -10px rgba(14, 165, 233, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.03),
+    0 25px 40px -12px rgba(14, 165, 233, 0.16),
+    0 6px 16px rgba(0, 0, 0, 0.04),
     inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
 .dark .card-modern:hover {
   background: rgba(15, 23, 42, 0.95);
-  border-color: rgba(56, 189, 248, 0.5);
+  border-color: rgba(56, 189, 248, 0.55);
   box-shadow: 
-    0 20px 35px -10px rgba(14, 165, 233, 0.25),
+    0 25px 45px -12px rgba(14, 165, 233, 0.28),
+    0 6px 16px rgba(0, 0, 0, 0.4),
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
@@ -467,3 +468,73 @@ html.theme-transition *::after {
 .animate-overlay-in {
   animation: overlayIn 0.2s ease-out forwards;
 }
+
+/* ====================================================
+   Project Details Slide & Open Animation
+   ==================================================== */
+@keyframes projectSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.animate-project-slide {
+  animation: projectSlideIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Backwards-compatible alias */
+.animate-project-card {
+  animation: projectSlideIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes projectBulletSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-bullet-1 {
+  animation: projectBulletSlide 0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+}
+.animate-bullet-2 {
+  animation: projectBulletSlide 0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+.animate-bullet-3 {
+  animation: projectBulletSlide 0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+}
+.animate-bullet-4 {
+  animation: projectBulletSlide 0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+}
+
+@keyframes expandAccentLine {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.3;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 1;
+  }
+}
+
+.animate-expand-line {
+  animation: expandAccentLine 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+

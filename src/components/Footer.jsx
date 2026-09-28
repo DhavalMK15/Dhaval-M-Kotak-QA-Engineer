@@ -57,23 +57,23 @@ export default function Footer() {
               </span>
             </div>
 
-            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-[13px] leading-relaxed max-w-md font-medium">
+            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-md font-medium">
               QA Engineer at <span className="font-semibold text-slate-900 dark:text-white">{PROFILE.currentCompany}</span> specializing in Manual, API, Mobile, and ADA Accessibility Testing, powered by AI automation.
             </p>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-[11px] font-semibold max-w-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-semibold max-w-full">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
               <span className="truncate sm:whitespace-normal">Rajkot, Gujarat, India · Open for Remote & On-Site</span>
             </div>
           </div>
 
           {/* Quick Links with animated hover dots */}
           <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles size={12} className="text-sky-600 dark:text-sky-400" />
+            <h3 className="text-slate-900 dark:text-white text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles size={13} className="text-sky-600 dark:text-sky-400" />
               Quick Navigation
             </h3>
-            <ul className="grid grid-cols-2 gap-2 text-xs" role="list">
+            <ul className="grid grid-cols-2 gap-2 text-sm" role="list">
               {[
                 { label: 'Home', id: 'hero' },
                 { label: 'Skills', id: 'skills' },
@@ -83,7 +83,7 @@ export default function Footer() {
                 <li key={item.id}>
                   <button
                     onClick={() => handleNav(item.id)}
-                    className="w-full text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-semibold transition-colors flex items-center gap-2 py-1 text-left text-xs cursor-pointer group"
+                    className="w-full text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-semibold transition-colors flex items-center gap-2 py-1 text-left text-sm cursor-pointer group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-sky-500 transition-colors" />
                     <span>{item.label}</span>
@@ -95,27 +95,27 @@ export default function Footer() {
 
           {/* Interactive Connect & Social Badges */}
           <div className="lg:col-span-4 space-y-3">
-            <h3 className="text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles size={12} className="text-sky-600 dark:text-sky-400" />
+            <h3 className="text-slate-900 dark:text-white text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles size={13} className="text-sky-600 dark:text-sky-400" />
               Direct Connect
             </h3>
             <div className="space-y-2.5">
               {/* Interactive Email Copy / Click Bar */}
-              <div className="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xs group hover:border-sky-300 dark:hover:border-sky-500 transition-colors">
+              <div className="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xs group hover:border-sky-400 dark:hover:border-sky-500 hover:-translate-y-1 hover:shadow-md active:scale-[0.99] transition-all duration-300">
                 <a
                   href={`mailto:${PROFILE.contact.email}`}
-                  className="flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 text-xs font-mono font-medium truncate flex-1 min-w-0 mr-2"
+                  className="flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 text-xs sm:text-sm font-mono font-medium truncate flex-1 min-w-0 mr-2"
                 >
-                  <Mail size={14} className="text-sky-600 dark:text-sky-400 flex-shrink-0" />
+                  <Mail size={15} className="text-sky-600 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover:scale-110" />
                   <span className="truncate">{PROFILE.contact.email}</span>
                 </a>
                 <button
                   onClick={handleCopyEmail}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors flex-shrink-0 cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors flex-shrink-0 cursor-pointer active:scale-90"
                   title="Copy email"
                   aria-label="Copy email"
                 >
-                  {emailCopied ? <Check size={14} className="text-emerald-600 dark:text-emerald-400" /> : <Copy size={14} />}
+                  {emailCopied ? <Check size={15} className="text-emerald-600 dark:text-emerald-400" /> : <Copy size={15} />}
                 </button>
               </div>
 
@@ -125,10 +125,10 @@ export default function Footer() {
                   href={PROFILE.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-sky-700 dark:hover:text-sky-400 hover:border-sky-300 dark:hover:border-sky-500 text-xs font-bold shadow-2xs hover:shadow-xs transition-all duration-200 group"
+                  className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-sky-700 dark:hover:text-sky-400 hover:border-sky-400 dark:hover:border-sky-500 text-xs sm:text-sm font-bold shadow-2xs hover:shadow-lg hover:-translate-y-1.5 active:scale-95 transition-all duration-300 group"
                   aria-label="LinkedIn profile"
                 >
-                  <LinkedinIcon size={14} className="text-blue-600 dark:text-blue-400 transition-transform duration-200 group-hover:scale-110" />
+                  <LinkedinIcon size={16} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-6" />
                   <span>LinkedIn</span>
                 </a>
 
@@ -136,10 +136,10 @@ export default function Footer() {
                   href={PROFILE.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 text-xs font-bold shadow-2xs hover:shadow-xs transition-all duration-200 group"
+                  className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 text-xs sm:text-sm font-bold shadow-2xs hover:shadow-lg hover:-translate-y-1.5 active:scale-95 transition-all duration-300 group"
                   aria-label="GitHub profile"
                 >
-                  <GithubIcon size={14} className="text-slate-900 dark:text-white transition-transform duration-200 group-hover:scale-110" />
+                  <GithubIcon size={16} className="text-slate-900 dark:text-white transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6" />
                   <span>GitHub</span>
                 </a>
               </div>
@@ -148,15 +148,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar with Back-to-Top trigger */}
-        <div className="border-t border-slate-200/80 dark:border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+        <div className="border-t border-slate-200/80 dark:border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
           <p>© {currentYear} Dhaval M Kotak · QA Portfolio</p>
 
           <button
             onClick={handleScrollTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 text-xs font-bold transition-all duration-200 shadow-2xs group cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 text-xs sm:text-sm font-bold transition-all duration-200 shadow-2xs group cursor-pointer"
           >
             <span>Back to Top</span>
-            <ArrowUp size={12} className="transition-transform duration-200 group-hover:-translate-y-0.5 text-sky-600 dark:text-sky-400" />
+            <ArrowUp size={14} className="transition-transform duration-200 group-hover:-translate-y-0.5 text-sky-600 dark:text-sky-400" />
           </button>
         </div>
       </div>

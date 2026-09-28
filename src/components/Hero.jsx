@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Briefcase, Mail, Sparkles, CheckCircle2, Building2 } from 'lucide-react'
+import { ArrowRight, Mail } from 'lucide-react'
 import { PROFILE } from '../data/portfolioData'
 
 const KEY_FOCUSES = [
@@ -57,13 +57,6 @@ export default function Hero({ isDark = false }) {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const HIGHLIGHT_POINTS = [
-    '3+ Years Manual, API & Mobile QA',
-    'ADA / WCAG Accessibility Focus',
-    'Postman REST API Testing',
-    'AI-Assisted Automation (Selenium)',
-  ]
-
   const STATS = [
     { value: '3+ Yrs', label: 'QA Experience', icon: '🎯' },
     { value: '5+', label: 'Platforms Tested', icon: '🚀' },
@@ -74,7 +67,7 @@ export default function Hero({ isDark = false }) {
   return (
     <section
       id="hero"
-      className="relative pt-20 pb-8 sm:pt-24 sm:pb-10 overflow-hidden border-b border-slate-200/90 dark:border-slate-800 bg-gradient-to-b from-sky-50/70 via-blue-50/30 to-white dark:from-[#020817] dark:via-[#0a0f1e] dark:to-[#050d1a] transition-colors duration-300"
+      className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden border-b border-slate-200/90 dark:border-slate-800 bg-gradient-to-b from-sky-50/70 via-blue-50/30 to-white dark:from-[#020817] dark:via-[#0a0f1e] dark:to-[#050d1a] transition-colors duration-300"
       aria-label="Introduction"
     >
       {/* Aurora Ambient Glows */}
@@ -102,9 +95,9 @@ export default function Hero({ isDark = false }) {
       </div>
 
       <div className="section-container relative">
-        <div className="max-w-3xl mb-5 sm:mb-6">
+        <div className="max-w-3xl mb-8 sm:mb-10">
           {/* Status pill with animated ping */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-[11.5px] sm:text-[12px] font-semibold mb-3.5 backdrop-blur-md max-w-full shadow-2xs ring-1 ring-slate-100 dark:ring-slate-800/50">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold mb-4 backdrop-blur-md max-w-full shadow-2xs ring-1 ring-slate-100 dark:ring-slate-800/50">
             <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -115,68 +108,52 @@ export default function Hero({ isDark = false }) {
           </div>
 
           {/* H1 */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-2.5">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-3">
             Dhaval M Kotak
           </h1>
 
           {/* Typed subtitle */}
-          <div className="text-sm sm:text-xl font-bold text-slate-600 dark:text-slate-300 mb-4 min-h-[32px] flex items-center">
+          <div className="text-base sm:text-xl md:text-2xl font-bold text-slate-600 dark:text-slate-300 mb-4 min-h-[36px] flex items-center">
             <TypedFocus />
           </div>
 
-          {/* Highlight badges with Check icons and hover lift */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-w-2xl">
-            {HIGHLIGHT_POINTS.map((pt) => (
-              <div
-                key={pt}
-                className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/85 dark:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-[12.5px] sm:text-[13px] font-medium hover:border-sky-400/80 dark:hover:border-sky-500/70 hover:shadow-xs hover:-translate-y-0.5 hover:text-sky-700 dark:hover:text-white transition-all duration-200 backdrop-blur-sm"
-              >
-                <CheckCircle2 size={15} className="text-sky-500 dark:text-sky-400 flex-shrink-0" />
-                <span className="leading-snug">{pt}</span>
-              </div>
-            ))}
-          </div>
+          {/* Clean concise summary bio */}
+          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mb-8 max-w-2xl leading-relaxed">
+            QA Engineer specializing in Manual, API, Mobile, and ADA Accessibility Testing. Ensuring high reliability and regression-free software through systematic STLC execution.
+          </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col xs:flex-row flex-wrap gap-2.5 sm:gap-3">
+          {/* Streamlined CTA Buttons */}
+          <div className="flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4">
             <button
               onClick={() => handleScroll('projects')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-[13px] transition-all shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/30 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm sm:text-base transition-all shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/30 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
-              <span>Projects</span>
-              <ArrowRight size={15} />
-            </button>
-
-            <button
-              onClick={() => handleScroll('skills')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-800/80 dark:hover:bg-slate-750 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 font-semibold text-[13px] transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-            >
-              <Briefcase size={15} />
-              <span>Key Skills</span>
+              <span>Explore Projects</span>
+              <ArrowRight size={16} />
             </button>
 
             <button
               onClick={() => handleScroll('contact')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 border border-slate-900 dark:border-slate-700 text-white font-semibold text-[13px] transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="w-full xs:w-auto justify-center inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-800/80 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 font-semibold text-sm sm:text-base transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
-              <Mail size={15} />
-              <span>Contact</span>
+              <Mail size={16} />
+              <span>Get in Touch</span>
             </button>
           </div>
         </div>
 
-        {/* Stats Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 pt-5 border-t border-slate-200/90 dark:border-slate-800">
+        {/* Stats Strip with Interactive Card Hover Gesture */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-slate-200/90 dark:border-slate-800">
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="bg-white/80 dark:bg-slate-800/40 border border-slate-200/90 dark:border-slate-700/50 rounded-xl py-3 px-3 sm:px-4 text-center backdrop-blur-sm hover:border-sky-400/60 dark:hover:border-sky-500/50 hover:-translate-y-0.5 hover:shadow-xs transition-all duration-200 shadow-2xs"
+              className="group bg-white/80 dark:bg-slate-800/40 border border-slate-200/90 dark:border-slate-700/50 rounded-2xl py-3.5 px-3 sm:px-4 text-center backdrop-blur-sm hover:border-sky-400 dark:hover:border-sky-500/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 active:scale-95 transition-all duration-300 shadow-2xs cursor-default"
             >
-              <div className="flex items-center justify-center gap-1.5 mb-1">
-                <span className="text-xs" aria-hidden="true">{s.icon}</span>
-                <span className="text-base sm:text-xl font-extrabold text-sky-600 dark:text-sky-400 font-mono">{s.value}</span>
+              <div className="flex items-center justify-center gap-2 mb-1.5">
+                <span className="text-base sm:text-lg transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-6 inline-block" aria-hidden="true">{s.icon}</span>
+                <span className="text-lg sm:text-2xl font-extrabold text-sky-600 dark:text-sky-400 font-mono transition-colors duration-300 group-hover:text-sky-500">{s.value}</span>
               </div>
-              <p className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-[11.5px] truncate">{s.label}</p>
+              <p className="text-slate-500 dark:text-slate-400 font-medium text-xs sm:text-[13px] truncate transition-colors duration-300 group-hover:text-slate-700 dark:group-hover:text-slate-200">{s.label}</p>
             </div>
           ))}
         </div>

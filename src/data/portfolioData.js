@@ -1,5 +1,5 @@
 // ====================================================
-// Portfolio Data – Dhaval M Kotak | QA Engineer
+// Portfolio Data – Dhaval Kotak | QA Engineer
 // ====================================================
 
 export const PROFILE = {
@@ -14,9 +14,9 @@ export const PROFILE = {
   role: 'QA Engineer / Software Quality Assurance Engineer',
   focusAreas: ['Manual Testing', 'API Testing', 'Mobile Testing', 'Accessibility Testing', 'AI-Assisted Automation'],
   contact: {
-    email: 'dhavalkotak0150@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/dhaval-kotak-a6b3ab24a',
-    github: 'https://github.com/DhavalMK15',
+    email: 'YOUR_EMAIL@example.com',
+    linkedin: 'https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME',
+    github: 'https://github.com/YOUR_GITHUB_USERNAME',
   },
 }
 
@@ -31,22 +31,13 @@ export const SKILL_CATEGORIES = [
     level: 'Primary',
     levelClass: 'badge-primary',
     icon: 'CheckSquare',
-    barWidth: 90,
     skills: [
-      'Functional Testing',
-      'Regression Testing',
-      'Smoke Testing',
-      'Sanity Testing',
-      'System Testing',
-      'Integration Testing',
-      'UAT',
-      'Web Application Testing',
-      'Mobile Application Testing',
+      'Functional & System',
+      'Regression & Smoke',
+      'Exploratory & UAT',
       'End-to-End Testing',
-      'Exploratory Testing',
-      'Cross-browser Testing',
-      'UI Testing',
-      'Compatibility Testing',
+      'Cross-Browser Testing',
+      'Integration Testing',
     ],
   },
   {
@@ -55,15 +46,12 @@ export const SKILL_CATEGORIES = [
     level: 'Primary',
     levelClass: 'badge-primary',
     icon: 'Zap',
-    barWidth: 82,
     skills: [
-      'Postman',
+      'Postman Collections',
       'REST API Testing',
-      'Request/Response Validation',
-      'Status Code Validation',
-      'JSON Validation',
-      'API Error Handling',
-      'CRUD API Testing',
+      'JSON Schema Validation',
+      'Status & Error Codes',
+      'Environment Variables',
     ],
   },
   {
@@ -72,15 +60,12 @@ export const SKILL_CATEGORIES = [
     level: 'Primary',
     levelClass: 'badge-primary',
     icon: 'Eye',
-    barWidth: 78,
     skills: [
-      'ADA Testing',
-      'WCAG Testing',
-      'Accessibility Validation',
-      'Keyboard Navigation Testing',
+      'ADA Compliance',
+      'WCAG 2.1 Standards',
+      'Keyboard Navigation',
       'Screen Reader Checks',
-      'Focus Management',
-      'Color/Contrast Validation',
+      'Contrast & Focus Checks',
     ],
   },
   {
@@ -89,13 +74,11 @@ export const SKILL_CATEGORIES = [
     level: 'Primary',
     levelClass: 'badge-primary',
     icon: 'Smartphone',
-    barWidth: 75,
     skills: [
-      'iOS Testing',
-      'Android Testing',
-      'Mobile Application Testing',
-      'Cross-device Testing',
-      'Responsive Testing',
+      'iOS & Android QA',
+      'Cross-Device Testing',
+      'Responsive Validation',
+      'Mobile WebKit Checks',
     ],
   },
   {
@@ -104,13 +87,11 @@ export const SKILL_CATEGORIES = [
     level: 'Working Knowledge',
     levelClass: 'badge-secondary',
     icon: 'Database',
-    barWidth: 62,
     skills: [
-      'SQL',
-      'Data Validation',
-      'Database Testing',
-      'Basic Queries',
-      'Backend Data Verification',
+      'SQL Queries',
+      'Data Integrity',
+      'Schema Verification',
+      'Backend CRUD Testing',
     ],
   },
   {
@@ -119,15 +100,11 @@ export const SKILL_CATEGORIES = [
     level: 'Learning',
     levelClass: 'badge-muted',
     icon: 'Bot',
-    barWidth: 45,
     skills: [
       'Selenium WebDriver',
-      'Python',
-      'Pytest',
-      'AI-Assisted Test Automation',
-      'Prompt Engineering for Testing',
-      'Antigravity AI',
-      'Automation Script Generation',
+      'Pytest Framework',
+      'AI Prompt Engineering',
+      'Script Scaffolding',
     ],
   },
 ]
@@ -656,7 +633,7 @@ export const QA_REPOSITORIES = [
     forks: '9',
     badge: 'Automation',
     primaryMetric: '85+ Tests',
-    repoUrl: 'https://github.com/DhavalMK15/selenium-pytest-crm-framework',
+    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/selenium-pytest-crm-framework',
   },
   {
     id: 'rest-api-suite',
@@ -668,7 +645,7 @@ export const QA_REPOSITORIES = [
     forks: '6',
     badge: 'API Testing',
     primaryMetric: '40+ Endpoints',
-    repoUrl: 'https://github.com/DhavalMK15/rest-api-postman-test-suite',
+    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/rest-api-postman-test-suite',
   },
   {
     id: 'qa-artifacts',
@@ -680,7 +657,7 @@ export const QA_REPOSITORIES = [
     forks: '12',
     badge: 'Templates',
     primaryMetric: '5 Templates',
-    repoUrl: 'https://github.com/DhavalMK15/enterprise-qa-artifacts-templates',
+    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/enterprise-qa-artifacts-templates',
   },
 ]
 

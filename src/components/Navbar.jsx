@@ -90,7 +90,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
               className="flex items-center gap-2.5 group"
-              aria-label="Dhaval M Kotak - Home"
+              aria-label="Dhaval Kotak - Home"
             >
               <div className="relative">
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
@@ -102,10 +102,10 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                 </span>
               </div>
               <div className="hidden sm:block">
-                <span className="font-extrabold text-slate-900 dark:text-white tracking-tight text-[15px] group-hover:text-sky-600 transition-colors">
+                <span className="font-extrabold text-slate-900 dark:text-white tracking-tight text-[15px] sm:text-base group-hover:text-sky-600 transition-colors">
                   Dhaval M <span className="text-sky-600 dark:text-sky-400">Kotak</span>
                 </span>
-                <span className="block text-[10.5px] font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase -mt-0.5">
+                <span className="block text-xs font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase">
                   QA Engineer
                 </span>
               </div>
@@ -121,7 +121,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                     <a
                       href={item.href}
                       onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }}
-                      className={`relative px-3.5 py-1.5 text-[13px] font-semibold rounded-xl transition-all duration-200 block ${
+                      className={`relative px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-200 block ${
                         isActive
                           ? 'text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/70 shadow-xs font-bold'
                           : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
@@ -179,10 +179,10 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
-                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white text-xs font-bold shadow-xs hover:shadow-md btn-hover transition-all duration-200 group"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white text-sm font-bold shadow-xs hover:shadow-md btn-hover transition-all duration-200 group"
               >
                 <span>Get in Touch</span>
-                <Send size={12} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <Send size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
               <button
@@ -272,7 +272,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                 <span className="block text-xs font-bold text-slate-900 dark:text-white">
                   {isDark ? 'Dark Mode' : 'Light Mode'}
                 </span>
-                <span className="block text-[11px] text-slate-500 dark:text-slate-400">
+                <span className="block text-xs text-slate-500 dark:text-slate-400">
                   {isDark ? 'Switch to light theme' : 'Switch to dark theme'}
                 </span>
               </div>
