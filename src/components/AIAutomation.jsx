@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Bot, Sparkles, CheckCircle2, ChevronRight, Terminal, Cpu } from 'lucide-react'
+import { Bot, Sparkles, CheckCircle2 } from 'lucide-react'
 
 const AI_WORKFLOWS = [
   'Test Scenarios & Edge Cases',
@@ -126,36 +126,23 @@ export default function AIAutomation() {
                       : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/80 hover:border-sky-400 dark:hover:border-slate-600 sm:hover:translate-x-1'
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="flex items-center gap-3 min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-2.5 sm:gap-3 mb-3">
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                       <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
                         {p.icon}
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-1.5 mb-1 sm:hidden">
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700 uppercase tracking-wide">
-                            {p.badge}
-                          </span>
-                        </div>
-                        <h3 className={`text-sm sm:text-base font-extrabold leading-snug transition-colors duration-200 break-words ${
-                          isSelected
-                            ? 'text-sky-950 dark:text-sky-200'
-                            : 'text-slate-950 dark:text-white group-hover:text-sky-700 dark:group-hover:text-sky-400'
-                        }`}>
-                          {p.title}
-                        </h3>
-                      </div>
+                      <h3 className={`text-sm sm:text-base font-extrabold leading-snug transition-colors duration-200 break-words ${
+                        isSelected
+                          ? 'text-sky-950 dark:text-sky-200'
+                          : 'text-slate-950 dark:text-white group-hover:text-sky-700 dark:group-hover:text-sky-400'
+                      }`}>
+                        {p.title}
+                      </h3>
                     </div>
 
-                    <div className="flex items-center gap-2 flex-shrink-0 mt-0.5 sm:mt-0">
-                      <span className="hidden sm:inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700 uppercase tracking-wide">
-                        {p.badge}
-                      </span>
-                      <ChevronRight
-                        size={16}
-                        className={`transition-all duration-200 ${isSelected ? 'rotate-90 text-sky-600 dark:text-sky-400' : 'text-slate-500 dark:text-slate-400 group-hover:translate-x-1 group-hover:text-sky-600'}`}
-                      />
-                    </div>
+                    <span className="text-[10px] sm:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700 uppercase tracking-wide flex-shrink-0 mt-0.5">
+                      {p.badge}
+                    </span>
                   </div>
 
                   {/* Clean Keyword Chips with responsive wrapping */}
