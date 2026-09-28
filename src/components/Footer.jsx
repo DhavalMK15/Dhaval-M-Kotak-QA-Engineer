@@ -44,10 +44,10 @@ export default function Footer() {
       {/* Background ambient light */}
       <div className="absolute top-0 right-1/4 w-72 h-72 bg-sky-100/20 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="section-container py-6 sm:py-8 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 mb-6 items-start">
+      <div className="section-container py-14 sm:py-20 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-10 sm:mb-14 items-start">
           {/* Brand & QA Overview */}
-          <div className="md:col-span-2 lg:col-span-5 space-y-3">
+          <div className="md:col-span-2 lg:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-xs shadow-sm transition-transform duration-300 hover:scale-105">
                 DK
@@ -57,13 +57,13 @@ export default function Footer() {
               </span>
             </div>
 
-            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-md font-medium">
-              QA Engineer at <span className="font-semibold text-slate-900 dark:text-white">{PROFILE.currentCompany}</span> specializing in Manual, API, Mobile, and ADA Accessibility Testing, powered by AI automation.
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed max-w-md font-medium">
+              Manual · REST APIs · Mobile QA · ADA/WCAG · AI-Assisted QA at <span className="font-semibold text-slate-900 dark:text-white">{PROFILE.currentCompany}</span>.
             </p>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-semibold max-w-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-semibold max-w-full">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
-              <span className="truncate sm:whitespace-normal">Rajkot, Gujarat, India · Open for Remote & On-Site</span>
+              <span className="truncate sm:whitespace-normal">Rajkot, India · Open for Remote &amp; On-Site</span>
             </div>
           </div>
 

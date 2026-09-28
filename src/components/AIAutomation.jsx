@@ -1,116 +1,118 @@
 import { useState } from 'react'
-import { Bot, Sparkles, CheckCircle2, ChevronRight, Terminal, ArrowRight } from 'lucide-react'
+import { Bot, Sparkles, CheckCircle2, ChevronRight, Terminal, Cpu } from 'lucide-react'
 
 const AI_WORKFLOWS = [
-  'Test Scenarios & Matrices Generation from Specifications',
-  'Negative & Boundary Value Test Data Synthesis',
-  'ADA / WCAG Accessibility Checklist Drafting',
-  'Selenium WebDriver + Pytest Script Scaffolding',
+  'Test Scenarios & Edge Cases',
+  'Negative & Boundary Data Synthesis',
+  'ADA / WCAG Accessibility Checklists',
+  'Selenium & Pytest Script Scaffolding',
 ]
 
 const AUTOMATION_PILLARS = [
   {
     id: 'selenium',
     title: 'Selenium WebDriver + Python',
-    desc: 'Automating core smoke and regression critical paths across web portals (ClientTracker).',
     badge: 'Hands-on',
     icon: '🤖',
-    highlights: ['Page Object Model (POM) architecture', 'Explicit & Fluent waits synchronization', 'Headless Chrome CI/CD execution'],
+    keywords: ['Page Object Model (POM)', 'Fluent Waits', 'Headless CI/CD'],
   },
   {
     id: 'pytest',
     title: 'Pytest Framework',
-    desc: 'Structuring test fixtures, parameterization, and assertion logic for reliable test runs.',
     badge: 'Framework',
     icon: '🧪',
-    highlights: ['Fixtures for clean setup & teardown', 'Parameterized multi-dataset test suites', 'HTML test execution reporting'],
+    keywords: ['Test Fixtures', 'Parameterized Tests', 'HTML Reports'],
   },
   {
     id: 'postman',
     title: 'Postman Collections',
-    desc: 'API regression automation via automated test collections and environment variables.',
     badge: 'API Suite',
     icon: '📮',
-    highlights: ['Pre-request scripts & dynamic tokens', 'Status code and JSON schema assertion tests', 'Multi-environment variables switching'],
+    keywords: ['Dynamic Variables', 'Schema Assertions', 'Automated Suites'],
   },
   {
     id: 'ai-prompt',
     title: 'AI Productivity (Antigravity)',
-    desc: 'Prompt-driven generation of test cases, edge cases, and automation code templates.',
     badge: 'AI Multiplier',
     icon: '✨',
-    highlights: ['Prompt-engineered boundary scenarios', 'Accessibility checklist generation', 'Rapid script boilerplate scaffolding'],
+    keywords: ['Prompt Engineering', 'Edge Case Synthesis', 'Script Scaffolding'],
   },
 ]
 
 export default function AIAutomation() {
   const [activePillarId, setActivePillarId] = useState(AUTOMATION_PILLARS[0].id)
-  const activePillar = AUTOMATION_PILLARS.find((p) => p.id === activePillarId)
 
   return (
     <section
       id="ai-automation"
-      className="py-10 sm:py-14 bg-white dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 transition-colors duration-300"
+      className="py-20 sm:py-28 lg:py-32 bg-white dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 transition-colors duration-300"
       aria-labelledby="ai-heading"
     >
       <div className="section-container">
-        {/* Header */}
-        <div className="mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/70 border border-sky-100 dark:border-sky-800 text-sky-700 dark:text-sky-300 text-xs sm:text-[13px] font-bold tracking-wide uppercase mb-2">
+        {/* Header with generous blank space */}
+        <div className="mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/70 border border-sky-100 dark:border-sky-800 text-sky-700 dark:text-sky-300 text-xs sm:text-[13px] font-bold tracking-wide uppercase mb-3">
             <Sparkles size={13} className="text-sky-600 dark:text-sky-400" />
             <span>Modern QA Capabilities</span>
           </div>
           <h2
             id="ai-heading"
-            className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+            className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight"
           >
-            AI-Assisted QA & <span className="text-sky-600 dark:text-sky-400">Automation</span>
+            AI-Assisted QA &amp; <span className="text-sky-600 dark:text-sky-400">Automation</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-1 max-w-xl leading-relaxed">
-            How I accelerate manual precision using AI productivity workflows and script scaffolding.
+          <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base mt-2.5 max-w-xl leading-relaxed">
+            Prompt engineering, test data synthesis, and script scaffolding.
           </p>
         </div>
 
-        {/* 2-Column Compact UI Layout */}
-        <div className="grid lg:grid-cols-12 gap-4 sm:gap-5 items-start">
+        {/* 2-Column UI Layout with generous gap */}
+        <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-start">
           {/* Left Column: AI-Assisted Workflows */}
-          <div className="lg:col-span-6 space-y-3">
-            <div className="card-modern card-top-accent p-4 sm:p-5 group hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:border-sky-400/80 dark:hover:border-sky-500/60 active:scale-[0.99] transition-all duration-300">
-              <div className="flex items-center gap-2.5 mb-3.5">
-                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 border border-sky-100 dark:border-slate-700 text-sky-600 dark:text-sky-400 flex items-center justify-center flex-shrink-0 shadow-2xs transition-all duration-300 group-hover:scale-125 group-hover:-rotate-6 group-hover:shadow-md group-hover:border-sky-300 dark:group-hover:border-sky-600">
-                  <Bot size={19} />
+          <div className="lg:col-span-6">
+            <div className="relative rounded-3xl p-7 sm:p-8 bg-white/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-md shadow-xs hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:border-sky-400/80 dark:hover:border-sky-500/60 transition-all duration-300 group overflow-hidden cursor-default">
+              {/* Subtle top accent gradient bar on hover */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="w-11 h-11 rounded-2xl bg-sky-500/10 dark:bg-sky-500/15 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-105 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                  <Bot size={22} />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors duration-200">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                     AI as a QA Multiplier
                   </h3>
-                  <p className="text-sky-600 dark:text-sky-400 font-semibold text-xs sm:text-sm">Antigravity AI · Prompt Engineering</p>
+                  <p className="text-sky-600 dark:text-sky-400 font-semibold text-xs sm:text-[13px] mt-0.5">
+                    Antigravity AI · Prompt Engineering
+                  </p>
                 </div>
               </div>
 
-              {/* Bullet points scaled */}
-              <ul className="space-y-2.5 mb-4">
+              {/* Keyword Deliverables */}
+              <div className="space-y-3 mb-8">
                 {AI_WORKFLOWS.map((w) => (
-                  <li key={w} className="flex items-start gap-2.5 text-slate-700 dark:text-slate-300 text-sm sm:text-[15px] font-medium leading-snug transition-all duration-200 hover:translate-x-1.5 hover:text-sky-600 dark:hover:text-sky-400 cursor-default group/item">
-                    <CheckCircle2 size={16} className="text-sky-500 dark:text-sky-400 flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover/item:scale-125" />
-                    <span>{w}</span>
-                  </li>
+                  <div
+                    key={w}
+                    className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-800/70 flex items-center gap-3 hover:border-sky-300 dark:hover:border-sky-600 transition-all duration-200 group/item"
+                  >
+                    <CheckCircle2 size={17} className="text-sky-500 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
+                    <span className="text-slate-700 dark:text-slate-200 text-sm font-semibold">
+                      {w}
+                    </span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              {/* Status Note */}
-              <div className="p-3.5 rounded-xl bg-amber-50/90 dark:bg-amber-950/40 border border-amber-200/90 dark:border-amber-800/80 text-amber-900 dark:text-amber-200 text-xs sm:text-sm font-medium leading-relaxed flex items-start gap-2.5 transition-all duration-200 hover:border-amber-300 dark:hover:border-amber-700">
-                <span className="text-sm sm:text-base flex-shrink-0 mt-0.5">🎯</span>
-                <div>
-                  <strong className="font-bold text-amber-950 dark:text-amber-100">Honest Positioning:</strong>{' '}
-                  My core strength is Manual QA. Automation is an actively growing technical capability powered by AI tooling.
-                </div>
+              {/* Clean Minimal Focus Pill */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-800 dark:text-amber-300 text-xs sm:text-sm font-semibold">
+                <span>🎯</span>
+                <span>Manual QA Core · Expanding Automation &amp; AI</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Automation Pillars */}
-          <div className="lg:col-span-6 space-y-2.5">
+          {/* Right Column: Interactive Automation Pillars with keyword chips */}
+          <div className="lg:col-span-6 space-y-3.5">
             {AUTOMATION_PILLARS.map((p) => {
               const isSelected = activePillarId === p.id
 
@@ -118,50 +120,51 @@ export default function AIAutomation() {
                 <div
                   key={p.id}
                   onClick={() => setActivePillarId(p.id)}
-                  className={`p-3.5 sm:p-4 rounded-xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] ${
+                  className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] ${
                     isSelected
-                      ? 'bg-sky-50/90 dark:bg-sky-950/40 border-sky-400 dark:border-sky-500/80 border-l-4 border-l-sky-500 dark:border-l-sky-400 shadow-md ring-1 ring-sky-300 dark:ring-sky-500/30 -translate-y-1'
-                      : 'bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-300 dark:hover:border-slate-600 hover:-translate-y-1.5 hover:shadow-lg'
+                      ? 'bg-sky-50/70 dark:bg-sky-950/40 border-sky-400 dark:border-sky-500/80 shadow-md ring-1 ring-sky-300/60 dark:ring-sky-500/30 -translate-y-0.5'
+                      : 'bg-white/80 dark:bg-slate-900/60 border-slate-200/80 dark:border-slate-800/80 hover:bg-slate-50/80 dark:hover:bg-slate-800/60 hover:border-sky-300 dark:hover:border-slate-700 hover:translate-x-1'
                   }`}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs transition-all duration-300 group-hover:scale-125 group-hover:rotate-6 group-hover:shadow-md group-hover:border-sky-300 dark:group-hover:border-sky-600">
-                      {p.icon}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-2 mb-1">
-                        <h3 className={`text-base sm:text-lg font-bold transition-colors duration-200 ${isSelected ? 'text-sky-950 dark:text-sky-200 font-black' : 'text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400'}`}>
-                          {p.title}
-                        </h3>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border border-sky-100 dark:border-sky-800 transition-all duration-200 group-hover:scale-105">
-                            {p.badge}
-                          </span>
-                          <ChevronRight
-                            size={15}
-                            className={`text-slate-400 transition-all duration-200 ${isSelected ? 'rotate-90 text-sky-500' : 'group-hover:translate-x-1 group-hover:text-sky-500'}`}
-                          />
-                        </div>
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+                        {p.icon}
                       </div>
-                      <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed font-normal mb-2.5">
-                        {p.desc}
-                      </p>
-
-                      {/* Interactive Drawer for selected pillar */}
-                      {isSelected && (
-                        <div className="pt-2.5 border-t border-sky-200/60 dark:border-sky-800/60 grid grid-cols-1 sm:grid-cols-3 gap-1.5 animate-fade-in">
-                          {p.highlights.map((h) => (
-                            <span
-                              key={h}
-                              className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-semibold text-sky-800 dark:text-sky-200 bg-white/95 dark:bg-slate-900/90 border border-sky-200 dark:border-sky-800 px-2.5 py-1.5 rounded-lg leading-tight shadow-2xs hover:scale-105 transition-transform duration-150 cursor-default"
-                            >
-                              <CheckCircle2 size={13} className="text-sky-500 dark:text-sky-400 flex-shrink-0" />
-                              <span>{h}</span>
-                            </span>
-                          ))}
-                        </div>
-                      )}
+                      <h3 className={`text-sm sm:text-base font-bold truncate transition-colors duration-200 ${
+                        isSelected
+                          ? 'text-sky-900 dark:text-sky-200 font-extrabold'
+                          : 'text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400'
+                      }`}>
+                        {p.title}
+                      </h3>
                     </div>
+
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border border-sky-200/60 dark:border-sky-800/60 uppercase tracking-wide">
+                        {p.badge}
+                      </span>
+                      <ChevronRight
+                        size={16}
+                        className={`text-slate-400 transition-all duration-200 ${isSelected ? 'rotate-90 text-sky-500' : 'group-hover:translate-x-1 group-hover:text-sky-500'}`}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Clean Keyword Chips with generous breathing room */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {p.keywords.map((k) => (
+                      <span
+                        key={k}
+                        className={`text-xs sm:text-[13px] font-medium px-3 py-1.5 rounded-xl border transition-all duration-200 cursor-default ${
+                          isSelected
+                            ? 'bg-white dark:bg-slate-900 text-sky-900 dark:text-sky-200 border-sky-300/80 dark:border-sky-700/80 shadow-2xs'
+                            : 'bg-slate-50/80 dark:bg-slate-800/40 text-slate-600 dark:text-slate-300 border-slate-200/60 dark:border-slate-700/50 group-hover:border-sky-200 dark:group-hover:border-sky-800'
+                        }`}
+                      >
+                        {k}
+                      </span>
+                    ))}
                   </div>
                 </div>
               )

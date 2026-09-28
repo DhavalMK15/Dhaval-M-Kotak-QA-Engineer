@@ -14,9 +14,9 @@ export const PROFILE = {
   role: 'QA Engineer / Software Quality Assurance Engineer',
   focusAreas: ['Manual Testing', 'API Testing', 'Mobile Testing', 'Accessibility Testing', 'AI-Assisted Automation'],
   contact: {
-    email: 'YOUR_EMAIL@example.com',
-    linkedin: 'https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME',
-    github: 'https://github.com/YOUR_GITHUB_USERNAME',
+    email: 'dhavalkotak0150@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/dhaval-kotak-a6b3ab24a',
+    github: 'https://github.com/DhavalMK15',
   },
 }
 
@@ -608,7 +608,7 @@ export const QA_REPOSITORIES = [
     forks: '9',
     badge: 'Automation',
     primaryMetric: '85+ Tests',
-    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/selenium-pytest-crm-framework',
+    repoUrl: 'https://github.com/DhavalMK15/selenium-pytest-crm-framework',
   },
   {
     id: 'rest-api-suite',
@@ -620,7 +620,7 @@ export const QA_REPOSITORIES = [
     forks: '6',
     badge: 'API Testing',
     primaryMetric: '40+ Endpoints',
-    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/rest-api-postman-test-suite',
+    repoUrl: 'https://github.com/DhavalMK15/rest-api-postman-test-suite',
   },
   {
     id: 'qa-artifacts',
@@ -632,7 +632,7 @@ export const QA_REPOSITORIES = [
     forks: '12',
     badge: 'Templates',
     primaryMetric: '5 Templates',
-    repoUrl: 'https://github.com/YOUR_GITHUB_USERNAME/enterprise-qa-artifacts-templates',
+    repoUrl: 'https://github.com/DhavalMK15/enterprise-qa-artifacts-templates',
   },
 ]
 
