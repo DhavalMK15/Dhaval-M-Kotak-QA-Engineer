@@ -227,19 +227,96 @@ const ALL_TESTED_PROJECTS = [
   }
 ]
 
+const projectSlideVariants = {
+  enter: (dir) => ({
+    x: dir > 0 ? 44 : -44,
+    opacity: 0,
+    filter: 'blur(4px)',
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.42,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+  exit: (dir) => ({
+    x: dir > 0 ? -44 : 44,
+    opacity: 0,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.24,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+}
+
 export default function Projects() {
   const [activeId, setActiveId] = useState('resident-connect')
+  const [direction, setDirection] = useState(1) // 1: next, -1: prev
   const [isSidebarMounted, setIsSidebarMounted] = useState(false)
   const [isSidebarVisible, setIsSidebarVisible] = useState(false)
   const [dragOffset, setDragOffset] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
 
-  const touchStartX = useRef(0)
-  const touchStartY = useRef(0)
+  // Touch gesture refs for project swipe on mobile
+  const projectTouchStartX = useRef(0)
+  const projectTouchStartY = useRef(0)
+  const mobilePillRefs = useRef({})
+
+  // Touch gesture refs for sidebar swipe-to-close
+  const sidebarTouchStartX = useRef(0)
+  const sidebarTouchStartY = useRef(0)
   const isHorizontalSwipe = useRef(null)
   const panelRef = useRef(null)
 
   const active = SHOWCASE_PROJECTS.find((p) => p.id === activeId) || SHOWCASE_PROJECTS[0]
+
+  // Switch project with directional indicator
+  const handleSelectProject = (newId, customDir) => {
+    if (newId === activeId) return
+    const currentIndex = SHOWCASE_PROJECTS.findIndex((p) => p.id === activeId)
+    const newIndex = SHOWCASE_PROJECTS.findIndex((p) => p.id === newId)
+    setDirection(customDir !== undefined ? customDir : (newIndex > currentIndex ? 1 : -1))
+    setActiveId(newId)
+  }
+
+  // Smoothly center the active pill in horizontal scroll on mobile
+  useEffect(() => {
+    if (mobilePillRefs.current[activeId]) {
+      mobilePillRefs.current[activeId].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+  }, [activeId])
+
+  // Project swipe handlers (for mobile responsive gestures)
+  const handleProjectTouchStart = (e) => {
+    projectTouchStartX.current = e.touches[0].clientX
+    projectTouchStartY.current = e.touches[0].clientY
+  }
+
+  const handleProjectTouchEnd = (e) => {
+    const diffX = e.changedTouches[0].clientX - projectTouchStartX.current
+    const diffY = e.changedTouches[0].clientY - projectTouchStartY.current
+
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+      const currentIndex = SHOWCASE_PROJECTS.findIndex((p) => p.id === activeId)
+      if (diffX < 0) {
+        // Swiped left -> Next project
+        const nextIndex = (currentIndex + 1) % SHOWCASE_PROJECTS.length
+        handleSelectProject(SHOWCASE_PROJECTS[nextIndex].id, 1)
+      } else if (diffX > 0) {
+        // Swiped right -> Previous project
+        const prevIndex = (currentIndex - 1 + SHOWCASE_PROJECTS.length) % SHOWCASE_PROJECTS.length
+        handleSelectProject(SHOWCASE_PROJECTS[prevIndex].id, -1)
+      }
+    }
+  }
 
   // Open sidebar smoothly with gesture transition
   const openSidebar = () => {
@@ -263,19 +340,19 @@ export default function Projects() {
     }, 400)
   }
 
-  // Touch gesture handlers for mobile swipe-right to close
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX
-    touchStartY.current = e.touches[0].clientY
+  // Touch gesture handlers for mobile sidebar swipe-right to close
+  const handleSidebarTouchStart = (e) => {
+    sidebarTouchStartX.current = e.touches[0].clientX
+    sidebarTouchStartY.current = e.touches[0].clientY
     isHorizontalSwipe.current = null
     setIsDragging(false)
   }
 
-  const handleTouchMove = (e) => {
+  const handleSidebarTouchMove = (e) => {
     const currentX = e.touches[0].clientX
     const currentY = e.touches[0].clientY
-    const diffX = currentX - touchStartX.current
-    const diffY = currentY - touchStartY.current
+    const diffX = currentX - sidebarTouchStartX.current
+    const diffY = currentY - sidebarTouchStartY.current
 
     // Determine gesture direction on initial threshold
     if (isHorizontalSwipe.current === null) {
@@ -293,7 +370,7 @@ export default function Projects() {
     }
   }
 
-  const handleTouchEnd = () => {
+  const handleSidebarTouchEnd = () => {
     if (isDragging) {
       const panelWidth = panelRef.current ? panelRef.current.offsetWidth : 360
       if (dragOffset > 75 || dragOffset > panelWidth * 0.2) {
@@ -364,7 +441,8 @@ export default function Projects() {
               return (
                 <button
                   key={p.id}
-                  onClick={() => setActiveId(p.id)}
+                  ref={(el) => { mobilePillRefs.current[p.id] = el }}
+                  onClick={() => handleSelectProject(p.id)}
                   className="relative flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer overflow-hidden transition-colors"
                 >
                   {isActive && (
@@ -393,6 +471,11 @@ export default function Projects() {
             </button>
           </div>
 
+          {/* Mobile Swipe Gesture Helper */}
+          <div className="flex lg:hidden items-center justify-center gap-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400 mt-1 mb-2 select-none">
+            <span>← Swipe left / right to switch projects →</span>
+          </div>
+
           {/* Desktop: Vertical project list with airy cards */}
           <div className="hidden lg:flex lg:col-span-5 flex-col gap-3.5">
             {SHOWCASE_PROJECTS.map((p) => {
@@ -400,7 +483,7 @@ export default function Projects() {
               return (
                 <button
                   key={p.id}
-                  onClick={() => setActiveId(p.id)}
+                  onClick={() => handleSelectProject(p.id)}
                   className="relative w-full text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-sky-400 dark:hover:border-slate-600 overflow-hidden"
                 >
                   {/* Shared Layout Active Indicator Pill */}
@@ -459,15 +542,20 @@ export default function Projects() {
           </div>
 
           {/* Right: details card with generous internal blank space & 2-column deliverable cards */}
-          <div className="lg:col-span-7 overflow-x-clip min-h-[460px]">
-            <AnimatePresence mode="wait">
+          <div
+            className="lg:col-span-7 overflow-x-clip min-h-[460px]"
+            onTouchStart={handleProjectTouchStart}
+            onTouchEnd={handleProjectTouchEnd}
+          >
+            <AnimatePresence mode="wait" custom={direction}>
               {active && (
                 <motion.div
                   key={activeId}
-                  initial={{ opacity: 0, y: 16, filter: 'blur(4px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: -14, filter: 'blur(4px)' }}
-                  transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
+                  custom={direction}
+                  variants={projectSlideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
                   className="relative overflow-hidden p-8 sm:p-10 lg:p-12 rounded-3xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-md hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:border-sky-500 dark:hover:border-sky-500 transition-all duration-300"
                 >
                   {/* Glowing subtle top accent bar */}
@@ -600,9 +688,9 @@ export default function Projects() {
                 ? 'translate3d(0, 0, 0)'
                 : 'translate3d(100%, 0, 0)'
             }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            onTouchStart={handleSidebarTouchStart}
+            onTouchMove={handleSidebarTouchMove}
+            onTouchEnd={handleSidebarTouchEnd}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Swipe Gesture Handle Bar */}
