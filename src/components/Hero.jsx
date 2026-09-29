@@ -142,8 +142,10 @@ export default function Hero({ isDark = false }) {
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="group bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl py-4 sm:py-5 px-3 sm:px-4 text-center backdrop-blur-sm hover:border-sky-500 dark:hover:border-sky-400 hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 active:scale-95 transition-all duration-300 shadow-xs cursor-default"
+              className="relative rounded-2xl py-4 sm:py-5 px-3 sm:px-4 text-center bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 shadow-sm hover:border-sky-500 dark:hover:border-sky-400 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 active:scale-95 transition-all duration-300 group overflow-hidden cursor-default"
             >
+              {/* Subtle top accent gradient bar on hover */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="flex items-center justify-center gap-2 mb-2">
                 <span className="text-base sm:text-lg transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-6 inline-block" aria-hidden="true">{s.icon}</span>
                 <span className="text-xl sm:text-2xl font-extrabold text-sky-700 dark:text-sky-300 font-mono transition-colors duration-300 group-hover:text-sky-500">{s.value}</span>

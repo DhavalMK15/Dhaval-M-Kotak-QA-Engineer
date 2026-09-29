@@ -456,7 +456,6 @@ export default function Projects() {
                       }}
                     />
                   )}
-                  <span className={`relative z-10 font-mono text-xs ${isActive ? 'text-sky-900 dark:text-sky-200 font-extrabold' : 'text-slate-700 dark:text-slate-300'}`}>{p.num}</span>
                   <span className={`relative z-10 ${isActive ? 'text-sky-950 dark:text-white font-extrabold' : 'text-slate-800 dark:text-slate-200'}`}>{p.name}</span>
                 </button>
               )
@@ -484,8 +483,11 @@ export default function Projects() {
                 <button
                   key={p.id}
                   onClick={() => handleSelectProject(p.id)}
-                  className="relative w-full text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-sky-400 dark:hover:border-slate-600 overflow-hidden"
+                  className="relative w-full text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-sky-500 dark:hover:border-sky-400 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:-translate-y-1 overflow-hidden"
                 >
+                  {/* Subtle top accent gradient bar on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none" />
+
                   {/* Shared Layout Active Indicator Pill */}
                   {isActive && (
                     <motion.div
@@ -515,13 +517,6 @@ export default function Projects() {
                         {p.name}
                       </div>
                     </div>
-                    <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg transition-colors border ${
-                      isActive
-                        ? 'bg-sky-600 text-white border-sky-600 shadow-xs'
-                        : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 group-hover:text-slate-950 dark:group-hover:text-white'
-                    }`}>
-                      {p.num}
-                    </span>
                   </div>
                 </button>
               )
@@ -578,9 +573,6 @@ export default function Projects() {
                         </span>
                       )}
                     </div>
-                    <span className="text-sm font-mono font-bold text-slate-600 dark:text-slate-400">
-                      #{active.num}
-                    </span>
                   </div>
 
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-950 dark:text-white mb-3 tracking-tight">
@@ -627,9 +619,9 @@ export default function Projects() {
                             transition: { duration: 0.38, ease: [0.16, 1, 0.3, 1] },
                           },
                         }}
-                        className="p-4 sm:p-4.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-400 transition-all duration-200 flex items-center gap-3 group/item cursor-default"
+                        className="interactive-deliverable p-4 sm:p-4.5 flex items-center gap-3 group/item"
                       >
-                        <CheckCircle2 size={18} className="text-sky-600 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
+                        <CheckCircle2 size={18} className="text-sky-600 dark:text-sky-400 flex-shrink-0" />
                         <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug">
                           {b}
                         </span>
@@ -728,14 +720,14 @@ export default function Projects() {
               {ALL_TESTED_PROJECTS.map((p) => (
                 <div
                   key={p.num}
-                  className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 shadow-xs hover:shadow-md hover:border-sky-500 dark:hover:border-sky-400 transition-all duration-200 flex flex-col justify-between"
+                  className="relative p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:border-sky-500 dark:hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-default"
                 >
+                  {/* Subtle top accent gradient bar on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                   <div>
-                    <div className="flex items-center justify-between gap-3 mb-2">
-                      <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700">
-                        #{p.num}
-                      </span>
-                      {p.tag && (
+                    {p.tag && (
+                      <div className="flex items-center justify-start gap-2 mb-2">
                         <span
                           className={`text-[11px] truncate ${
                             p.tag === 'Team Lead'
@@ -745,8 +737,8 @@ export default function Projects() {
                         >
                           {p.tag}
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    )}
                     <h4 className="text-base font-extrabold text-slate-950 dark:text-white mb-1.5">
                       {p.name}
                     </h4>

@@ -91,9 +91,9 @@ export default function AIAutomation() {
                 {AI_WORKFLOWS.map((w) => (
                   <div
                     key={w}
-                    className="p-3 sm:p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 flex items-start sm:items-center gap-2.5 sm:gap-3 hover:border-sky-400 dark:hover:border-sky-600 transition-all duration-200 group/item"
+                    className="interactive-deliverable p-3.5 sm:p-4 flex items-start sm:items-center gap-3 group/item"
                   >
-                    <CheckCircle2 size={17} className="text-sky-600 dark:text-sky-400 flex-shrink-0 mt-0.5 sm:mt-0 transition-transform duration-200 group-hover/item:scale-110" />
+                    <CheckCircle2 size={18} className="text-sky-600 dark:text-sky-400 flex-shrink-0 mt-0.5 sm:mt-0" />
                     <span className="text-slate-900 dark:text-slate-100 text-xs sm:text-sm font-bold leading-snug">
                       {w}
                     </span>
@@ -114,11 +114,14 @@ export default function AIAutomation() {
             {AUTOMATION_PILLARS.map((p) => (
               <div
                 key={p.id}
-                className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/80 shadow-xs hover:border-sky-500 dark:hover:border-sky-400 hover:shadow-lg hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 sm:hover:translate-x-1 hover:-translate-y-0.5 transition-all duration-300 group cursor-default"
+                className="relative rounded-3xl p-5 sm:p-6 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:border-sky-500 dark:hover:border-sky-500 hover:-translate-y-1.5 transition-all duration-300 group overflow-hidden cursor-default"
               >
+                {/* Subtle top accent gradient bar on hover */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                 <div className="flex items-start justify-between gap-2.5 sm:gap-3 mb-3">
                   <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950 border border-sky-300 dark:border-sky-700 text-sky-700 dark:text-sky-300 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
                       {p.icon}
                     </div>
                     <h3 className="text-sm sm:text-base font-extrabold leading-snug text-slate-950 dark:text-white group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors break-words">
@@ -126,17 +129,17 @@ export default function AIAutomation() {
                     </h3>
                   </div>
 
-                  <span className="text-[10px] sm:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700 uppercase tracking-wide flex-shrink-0 mt-0.5">
+                  <span className="text-[10px] sm:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border border-sky-300 dark:border-sky-700 uppercase tracking-wide flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105">
                     {p.badge}
                   </span>
                 </div>
 
                 {/* Clean Keyword Chips with responsive wrapping */}
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+                <div className="flex flex-wrap gap-2 pt-1">
                   {p.keywords.map((k) => (
                     <span
                       key={k}
-                      className="text-[11px] sm:text-[13px] font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:border-sky-300 dark:group-hover:border-sky-700 hover:border-sky-500 dark:hover:border-sky-400 hover:text-sky-700 dark:hover:text-sky-300 transition-all duration-200 cursor-default leading-tight"
+                      className="interactive-chip"
                     >
                       {k}
                     </span>

@@ -378,10 +378,34 @@ body {
 }
 
 [class*="hover:scale-"] {
-  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease, border-color 300ms ease !important;
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease, border-color 300ms ease, color 250ms ease, box-shadow 300ms ease !important;
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+/* ====================================================
+   Unified Non-Clickable Interactive Elements (Chips & Rows)
+   Harmonizes design, focus/hover physics, and smooth animations
+   ==================================================== */
+.interactive-chip {
+  @apply px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-xs sm:text-[13px] font-bold cursor-default select-none;
+  outline: none !important;
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.interactive-chip:hover {
+  @apply border-sky-500 dark:border-sky-400 bg-slate-200/70 dark:bg-slate-700/80;
+}
+
+.interactive-deliverable {
+  @apply rounded-xl sm:rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 cursor-default select-none;
+  outline: none !important;
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.interactive-deliverable:hover {
+  @apply border-sky-500 dark:border-sky-400 bg-slate-200/60 dark:bg-slate-700/60;
 }
 
 .card-top-accent {

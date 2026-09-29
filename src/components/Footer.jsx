@@ -101,7 +101,10 @@ export default function Footer() {
             </h3>
             <div className="space-y-2.5">
               {/* Interactive Email Copy / Click Bar */}
-              <div className="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-2xs group hover:border-sky-500 dark:hover:border-sky-400 hover:-translate-y-1 hover:shadow-md active:scale-[0.99] transition-all duration-300">
+              <div className="relative overflow-hidden flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 shadow-sm group hover:border-sky-500 dark:hover:border-sky-400 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 active:scale-[0.99] transition-all duration-300">
+                {/* Subtle top accent gradient bar on hover */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                 <a
                   href={`mailto:${PROFILE.contact.email}`}
                   className="flex items-center gap-2 text-slate-900 dark:text-slate-100 hover:text-sky-700 dark:hover:text-sky-300 text-xs sm:text-sm font-mono font-bold truncate flex-1 min-w-0 mr-2"
@@ -125,9 +128,12 @@ export default function Footer() {
                   href={PROFILE.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:text-sky-700 dark:hover:text-sky-300 hover:border-sky-500 dark:hover:border-sky-400 text-xs sm:text-sm font-bold shadow-2xs hover:shadow-lg hover:-translate-y-1.5 active:scale-95 transition-all duration-300 group"
+                  className="relative overflow-hidden flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 text-slate-900 dark:text-slate-100 hover:text-sky-700 dark:hover:text-sky-300 hover:border-sky-500 dark:hover:border-sky-400 text-xs sm:text-sm font-bold shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:-translate-y-1.5 active:scale-95 transition-all duration-300 group"
                   aria-label="LinkedIn profile"
                 >
+                  {/* Subtle top accent gradient bar on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                   <LinkedinIcon size={16} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-6" />
                   <span>LinkedIn</span>
                 </a>
@@ -136,9 +142,12 @@ export default function Footer() {
                   href={PROFILE.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:text-sky-700 dark:hover:text-white hover:border-sky-500 dark:hover:border-slate-500 text-xs sm:text-sm font-bold shadow-2xs hover:shadow-lg hover:-translate-y-1.5 active:scale-95 transition-all duration-300 group"
+                  className="relative overflow-hidden flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 text-slate-900 dark:text-slate-100 hover:text-sky-700 dark:hover:text-white hover:border-sky-500 dark:hover:border-slate-500 text-xs sm:text-sm font-bold shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:-translate-y-1.5 active:scale-95 transition-all duration-300 group"
                   aria-label="GitHub profile"
                 >
+                  {/* Subtle top accent gradient bar on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                   <GithubIcon size={16} className="text-slate-900 dark:text-white transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6" />
                   <span>GitHub</span>
                 </a>
