@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { PROFILE } from '../data/portfolioData'
 import { Mail, ArrowUp, Sparkles, Check, Copy } from 'lucide-react'
+import { scrollToSection, smoothScrollTo } from '../utils/scroll'
 
 function LinkedinIcon({ size = 15, className = '' }) {
   return (
@@ -25,12 +26,11 @@ export default function Footer() {
   const [emailCopied, setEmailCopied] = useState(false)
 
   const handleNav = (id) => {
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    scrollToSection(id, 72, 600)
   }
 
   const handleScrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    smoothScrollTo(0, 600)
   }
 
   const handleCopyEmail = () => {

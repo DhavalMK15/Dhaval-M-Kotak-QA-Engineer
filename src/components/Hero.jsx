@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Mail } from 'lucide-react'
 import { PROFILE } from '../data/portfolioData'
+import { scrollToSection } from '../utils/scroll'
 
 const KEY_FOCUSES = [
   'Manual Testing',
@@ -53,8 +54,7 @@ function TypedFocus() {
 
 export default function Hero({ isDark = false }) {
   const handleScroll = (sectionId) => {
-    const el = document.getElementById(sectionId)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    scrollToSection(sectionId, 72, 600)
   }
 
   const STATS = [

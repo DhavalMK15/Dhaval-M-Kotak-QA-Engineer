@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Sparkles, CheckCircle2, FileSpreadsheet, X, Layers, ArrowRight } from 'lucide-react'
 
 const SHOWCASE_PROJECTS = [
@@ -228,12 +228,85 @@ const ALL_TESTED_PROJECTS = [
 
 export default function Projects() {
   const [activeId, setActiveId] = useState('resident-connect')
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isSidebarMounted, setIsSidebarMounted] = useState(false)
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false)
+  const [dragOffset, setDragOffset] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+
+  const touchStartX = useRef(0)
+  const touchStartY = useRef(0)
+  const isHorizontalSwipe = useRef(null)
+  const panelRef = useRef(null)
 
   const active = SHOWCASE_PROJECTS.find((p) => p.id === activeId) || SHOWCASE_PROJECTS[0]
 
+  // Open sidebar smoothly with gesture transition
+  const openSidebar = () => {
+    setIsSidebarMounted(true)
+    setDragOffset(0)
+    setIsDragging(false)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setIsSidebarVisible(true)
+      })
+    })
+  }
+
+  // Close sidebar smoothly with exit animation
+  const closeSidebar = () => {
+    setIsDragging(false)
+    setIsSidebarVisible(false)
+    setDragOffset(0)
+    setTimeout(() => {
+      setIsSidebarMounted(false)
+    }, 400)
+  }
+
+  // Touch gesture handlers for mobile swipe-right to close
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+    isHorizontalSwipe.current = null
+    setIsDragging(false)
+  }
+
+  const handleTouchMove = (e) => {
+    const currentX = e.touches[0].clientX
+    const currentY = e.touches[0].clientY
+    const diffX = currentX - touchStartX.current
+    const diffY = currentY - touchStartY.current
+
+    // Determine gesture direction on initial threshold
+    if (isHorizontalSwipe.current === null) {
+      if (Math.abs(diffX) > 8 || Math.abs(diffY) > 8) {
+        isHorizontalSwipe.current = Math.abs(diffX) > Math.abs(diffY) && diffX > 0
+      }
+    }
+
+    if (isHorizontalSwipe.current && diffX > 0) {
+      setIsDragging(true)
+      setDragOffset(diffX)
+      if (e.cancelable) {
+        e.preventDefault()
+      }
+    }
+  }
+
+  const handleTouchEnd = () => {
+    if (isDragging) {
+      const panelWidth = panelRef.current ? panelRef.current.offsetWidth : 360
+      if (dragOffset > 75 || dragOffset > panelWidth * 0.2) {
+        closeSidebar()
+      } else {
+        setIsDragging(false)
+        setDragOffset(0)
+      }
+    }
+    isHorizontalSwipe.current = null
+  }
+
   useEffect(() => {
-    if (isSidebarOpen) {
+    if (isSidebarMounted) {
       const originalBodyOverflow = document.body.style.overflow
       const originalHtmlOverflow = document.documentElement.style.overflow
       const originalBodyOverscroll = document.body.style.overscrollBehavior
@@ -245,7 +318,7 @@ export default function Projects() {
       document.documentElement.style.overscrollBehavior = 'none'
 
       const handleKeyDown = (e) => {
-        if (e.key === 'Escape') setIsSidebarOpen(false)
+        if (e.key === 'Escape') closeSidebar()
       }
       window.addEventListener('keydown', handleKeyDown)
 
@@ -257,7 +330,7 @@ export default function Projects() {
         window.removeEventListener('keydown', handleKeyDown)
       }
     }
-  }, [isSidebarOpen])
+  }, [isSidebarMounted])
 
   return (
     <section
@@ -304,7 +377,7 @@ export default function Projects() {
             })}
             <button
               type="button"
-              onClick={() => setIsSidebarOpen(true)}
+              onClick={openSidebar}
               className="flex-shrink-0 flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-dashed border-emerald-400 dark:border-emerald-600 bg-emerald-100/70 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-900/60 transition-all cursor-pointer"
             >
               <Layers size={13} className="text-emerald-700 dark:text-emerald-400" />
@@ -357,7 +430,7 @@ export default function Projects() {
             {/* Button to Open All Tested Projects Sidebar */}
             <button
               type="button"
-              onClick={() => setIsSidebarOpen(true)}
+              onClick={openSidebar}
               className="mt-3 flex items-center justify-between w-full p-4 sm:p-4.5 rounded-2xl border border-dashed border-emerald-400 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-900 dark:text-emerald-200 transition-all duration-200 group text-sm font-bold cursor-pointer"
             >
               <div className="flex items-center gap-2.5 min-w-0">
@@ -435,29 +508,58 @@ export default function Projects() {
       </div>
 
       {/* Slide-out Sidebar Drawer: All Tested Projects */}
-      {isSidebarOpen && (
+      {isSidebarMounted && (
         <div
           className="fixed inset-0 z-50 overflow-hidden overscroll-contain"
           role="dialog"
           aria-modal="true"
           aria-labelledby="all-projects-sidebar-title"
         >
-          {/* Backdrop overlay with blur & scroll prevention */}
+          {/* Backdrop overlay with blur & smooth transition */}
           <div
-            className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity duration-300 animate-overlay-in overscroll-contain"
-            onClick={() => setIsSidebarOpen(false)}
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm overscroll-contain"
+            style={{
+              transition: isDragging
+                ? 'none'
+                : 'opacity 400ms cubic-bezier(0.32, 0.72, 0, 1)',
+              opacity: isDragging
+                ? Math.max(0, 1 - dragOffset / (panelRef.current?.offsetWidth || 360))
+                : isSidebarVisible
+                ? 1
+                : 0,
+              pointerEvents: isSidebarVisible ? 'auto' : 'none'
+            }}
+            onClick={closeSidebar}
             onWheel={(e) => e.preventDefault()}
             aria-hidden="true"
           />
 
-          {/* Slide-out Sidebar Panel from Right with deep elevation shadow */}
+          {/* Slide-out Sidebar Panel from Right with gesture-tracking & matched 400ms smooth transition */}
           <aside
-            className="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] md:w-[560px] max-w-full bg-white dark:bg-slate-900 border-l border-slate-300 dark:border-slate-700 sidebar-shadow flex flex-col animate-sidebar-in overflow-hidden overscroll-contain"
-            style={{ overscrollBehavior: 'contain' }}
+            ref={panelRef}
+            className="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] md:w-[560px] max-w-full bg-white dark:bg-slate-900 border-l border-slate-300 dark:border-slate-700 sidebar-shadow flex flex-col overflow-hidden overscroll-contain"
+            style={{
+              overscrollBehavior: 'contain',
+              willChange: 'transform',
+              transition: isDragging
+                ? 'none'
+                : 'transform 400ms cubic-bezier(0.32, 0.72, 0, 1)',
+              transform: isDragging
+                ? `translate3d(${dragOffset}px, 0, 0)`
+                : isSidebarVisible
+                ? 'translate3d(0, 0, 0)'
+                : 'translate3d(100%, 0, 0)'
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Mobile Swipe Gesture Handle Bar */}
+            <div className="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mt-2.5 mb-1 sm:hidden flex-shrink-0 cursor-grab active:cursor-grabbing" />
+
             {/* Sidebar Header with maximum breathing space */}
-            <div className="flex items-center justify-between p-6 sm:px-8 sm:py-6 border-b border-slate-300 dark:border-slate-700 flex-shrink-0 bg-white dark:bg-slate-900">
+            <div className="flex items-center justify-between p-5 sm:px-8 sm:py-6 border-b border-slate-300 dark:border-slate-700 flex-shrink-0 bg-white dark:bg-slate-900">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200 text-xs font-bold mb-2">
                   <FileSpreadsheet size={12} />
@@ -466,10 +568,13 @@ export default function Projects() {
                 <h3 id="all-projects-sidebar-title" className="text-xl sm:text-2xl font-extrabold text-slate-950 dark:text-white tracking-tight">
                   All Tested Projects
                 </h3>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium sm:hidden block mt-0.5">
+                  👉 Swipe right or tap close
+                </span>
               </div>
               <button
                 type="button"
-                onClick={() => setIsSidebarOpen(false)}
+                onClick={closeSidebar}
                 className="p-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 transition-colors cursor-pointer"
                 aria-label="Close sidebar"
               >
@@ -522,7 +627,7 @@ export default function Projects() {
               </span>
               <button
                 type="button"
-                onClick={() => setIsSidebarOpen(false)}
+                onClick={closeSidebar}
                 className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-bold transition-colors cursor-pointer"
               >
                 Close

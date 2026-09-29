@@ -5,6 +5,7 @@ import Skills from './components/Skills'
 import AIAutomation from './components/AIAutomation'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
+import { smoothScrollTo } from './utils/scroll'
 
 export default function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -73,7 +74,7 @@ function BackToTop() {
   if (!visible) return null
 
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    smoothScrollTo(0, 600)
     document.getElementById('hero')?.focus()
   }
 

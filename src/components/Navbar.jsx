@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useActiveSection } from '../hooks/useInView'
 import { Menu, X, Sparkles, Send, Sun, Moon } from 'lucide-react'
 import { PROFILE } from '../data/portfolioData'
+import { scrollToSection } from '../utils/scroll'
 
 const NAV_ITEMS = [
   { label: 'Home', href: '#hero' },
@@ -12,27 +13,6 @@ const NAV_ITEMS = [
 ]
 
 const SECTION_IDS = ['hero', 'skills', 'ai-automation', 'projects', 'contact']
-
-// Ease-in-out cubic for buttery smooth scroll
-function easeInOutCubic(t) {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
-}
-
-function smoothScrollTo(targetY, duration = 600) {
-  const startY = window.pageYOffset
-  const diff = targetY - startY
-  let startTime = null
-
-  function step(currentTime) {
-    if (!startTime) startTime = currentTime
-    const elapsed = currentTime - startTime
-    const progress = Math.min(elapsed / duration, 1)
-    window.scrollTo(0, startY + diff * easeInOutCubic(progress))
-    if (progress < 1) requestAnimationFrame(step)
-  }
-
-  requestAnimationFrame(step)
-}
 
 export default function Navbar({ isDark = false, onToggleDarkMode }) {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -53,19 +33,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
 
   const handleNavClick = (href) => {
     setMobileOpen(false)
-    const id = href.replace('#', '')
-
-    if (id === 'hero') {
-      smoothScrollTo(0, 600)
-      return
-    }
-
-    const el = document.getElementById(id)
-    if (!el) return
-
-    const navOffset = 72
-    const target = el.getBoundingClientRect().top + window.pageYOffset - navOffset
-    smoothScrollTo(target, 600)
+    scrollToSection(href, 72, 600)
   }
 
 
