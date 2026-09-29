@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import { useActiveSection } from '../hooks/useInView'
-import { Menu, X, Sparkles, Send, Sun, Moon } from 'lucide-react'
-import { PROFILE } from '../data/portfolioData'
+import { Menu, X, Send, Sun, Moon } from 'lucide-react'
 import { scrollToSection } from '../utils/scroll'
 
 const NAV_ITEMS = [
@@ -16,7 +16,17 @@ const SECTION_IDS = ['hero', 'skills', 'ai-automation', 'projects', 'contact']
 
 export default function Navbar({ isDark = false, onToggleDarkMode }) {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const activeSection = useActiveSection(SECTION_IDS)
+  const activeSectionFromScroll = useActiveSection(SECTION_IDS)
+  const [clickedSection, setClickedSection] = useState(null)
+  const clickTimeoutRef = useRef(null)
+
+  const activeSection = clickedSection || activeSectionFromScroll
+
+  useEffect(() => {
+    return () => {
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current)
+    }
+  }, [])
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +42,15 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
   }, [mobileOpen])
 
   const handleNavClick = (href) => {
+    const sectionId = href.replace('#', '')
     setMobileOpen(false)
+    setClickedSection(sectionId)
+
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current)
+    clickTimeoutRef.current = setTimeout(() => {
+      setClickedSection(null)
+    }, 700)
+
     scrollToSection(href, 72, 600)
   }
 
@@ -80,23 +98,36 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
             </a>
 
             {/* Desktop Nav with Floating Glass Indicator */}
-            <ul className="hidden md:flex items-center gap-1.5 p-1 rounded-2xl glass-panel border border-slate-300/80 dark:border-slate-700/80 shadow-2xs" role="list">
+            <ul className="hidden md:flex items-center gap-1.5 p-1 rounded-2xl glass-panel border border-slate-300/80 dark:border-slate-700/80 shadow-2xs relative" role="list">
               {NAV_ITEMS.map((item) => {
                 const sectionId = item.href.replace('#', '')
                 const isActive = activeSection === sectionId
                 return (
-                  <li key={item.href}>
+                  <li key={item.href} className="relative">
                     <a
                       href={item.href}
                       onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }}
-                      className={`relative px-4 py-2 text-sm font-bold rounded-xl transition-all duration-200 block ${
+                      className={`relative px-4 py-2 text-sm font-bold rounded-xl transition-colors duration-200 block z-10 ${
                         isActive
-                          ? 'text-sky-700 dark:text-sky-300 bg-sky-100/80 dark:bg-sky-950/80 border border-sky-300 dark:border-sky-800 shadow-xs'
-                          : 'text-slate-800 dark:text-slate-200 hover:text-sky-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/80'
+                          ? 'text-sky-700 dark:text-sky-300'
+                          : 'text-slate-800 dark:text-slate-200 hover:text-sky-700 dark:hover:text-white hover:bg-slate-100/60 dark:hover:bg-slate-800/60'
                       }`}
                       aria-current={isActive ? 'page' : undefined}
                     >
-                      {item.label}
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeNavPill"
+                          className="absolute inset-0 rounded-xl bg-sky-100/90 dark:bg-sky-950/85 border border-sky-300/90 dark:border-sky-800 shadow-xs pointer-events-none"
+                          transition={{
+                            type: 'spring',
+                            stiffness: 380,
+                            damping: 32,
+                            mass: 0.8,
+                          }}
+                          style={{ zIndex: -1 }}
+                        />
+                      )}
+                      <span className="relative z-10">{item.label}</span>
                     </a>
                   </li>
                 )
@@ -203,17 +234,29 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                 const sectionId = item.href.replace('#', '')
                 const isActive = activeSection === sectionId
                 return (
-                  <li key={item.href}>
+                  <li key={item.href} className="relative">
                     <a
                       href={item.href}
                       onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }}
-                      className={`flex items-center px-4 py-3 rounded-xl font-bold text-sm transition-all ${
+                      className={`relative flex items-center px-4 py-3 rounded-xl font-bold text-sm transition-colors duration-200 z-10 ${
                         isActive
-                          ? 'bg-sky-100/90 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 border-l-4 border-sky-600 pl-3'
+                          ? 'text-sky-800 dark:text-sky-300 font-extrabold'
                           : 'text-slate-800 dark:text-slate-100 hover:text-sky-700 dark:hover:text-sky-300 hover:bg-slate-100 dark:hover:bg-slate-800/80'
                       }`}
                     >
-                      {item.label}
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeMobileNavPill"
+                          className="absolute inset-0 rounded-xl bg-sky-100/90 dark:bg-sky-950/80 border-l-4 border-sky-600 shadow-xs pointer-events-none"
+                          transition={{
+                            type: 'spring',
+                            stiffness: 380,
+                            damping: 32,
+                          }}
+                          style={{ zIndex: -1 }}
+                        />
+                      )}
+                      <span className="relative z-10">{item.label}</span>
                     </a>
                   </li>
                 )
