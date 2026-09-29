@@ -256,7 +256,10 @@ body {
     0 2px 6px -1px rgba(0, 0, 0, 0.02),
     inset 0 1px 1px rgba(255, 255, 255, 0.95);
   border-radius: 1.25rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1), border-color 350ms cubic-bezier(0.16, 1, 0.3, 1), background-color 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .dark .glass-card {
@@ -269,10 +272,10 @@ body {
 
 .glass-card:hover {
   background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-3px);
+  transform: translateY(-4px) translateZ(0);
   border-color: rgba(56, 189, 248, 0.6);
   box-shadow: 
-    0 20px 40px -15px rgba(2, 132, 199, 0.12),
+    0 20px 40px -15px rgba(2, 132, 199, 0.14),
     0 4px 12px rgba(0, 0, 0, 0.04),
     inset 0 1px 2px rgba(255, 255, 255, 1);
 }
@@ -281,7 +284,7 @@ body {
   background: rgba(15, 23, 42, 0.95);
   border-color: rgba(56, 189, 248, 0.5);
   box-shadow: 
-    0 20px 40px -15px rgba(2, 132, 199, 0.25),
+    0 20px 40px -15px rgba(2, 132, 199, 0.28),
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
@@ -289,7 +292,8 @@ body {
    Modern UI Card Styles
    ================================ */
 .card-modern {
-  @apply relative rounded-2xl transition-all duration-300 ease-out;
+  position: relative;
+  border-radius: 1rem;
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px) saturate(170%);
   -webkit-backdrop-filter: blur(16px) saturate(170%);
@@ -298,6 +302,10 @@ body {
     0 10px 25px -5px rgba(0, 0, 0, 0.04),
     0 1px 3px rgba(0, 0, 0, 0.02),
     inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1), border-color 350ms cubic-bezier(0.16, 1, 0.3, 1), background-color 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .dark .card-modern {
@@ -310,10 +318,10 @@ body {
 
 .card-modern:hover {
   background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-6px);
+  transform: translateY(-4px) translateZ(0);
   border-color: rgba(56, 189, 248, 0.6);
   box-shadow: 
-    0 25px 40px -12px rgba(14, 165, 233, 0.16),
+    0 22px 42px -12px rgba(14, 165, 233, 0.18),
     0 6px 16px rgba(0, 0, 0, 0.04),
     inset 0 1px 2px rgba(255, 255, 255, 1);
 }
@@ -322,9 +330,58 @@ body {
   background: rgba(15, 23, 42, 0.95);
   border-color: rgba(56, 189, 248, 0.55);
   box-shadow: 
-    0 25px 45px -12px rgba(14, 165, 233, 0.28),
+    0 24px 45px -12px rgba(14, 165, 233, 0.28),
     0 6px 16px rgba(0, 0, 0, 0.4),
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* ====================================================
+   Universal Ultra-Smooth Card Hover Physics
+   ==================================================== */
+[class*="hover:-translate-y-"],
+[class*="hover:translate-y-"],
+[class*="hover:translate-x-"],
+[class*="hover:shadow-"] {
+  transition: 
+    transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+[class*="hover:-translate-y-"]:hover,
+[class*="hover:translate-y-"]:hover,
+[class*="hover:translate-x-"]:hover,
+[class*="hover:shadow-"]:hover {
+  transition: 
+    transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 250ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Smooth Icon & Chip Reactions on Card Hover */
+[class*="group-hover:scale-"],
+[class*="group-hover:-rotate-"],
+[class*="group-hover:rotate-"],
+[class*="group-hover:translate-"] {
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1), color 300ms ease, background-color 300ms ease, border-color 300ms ease !important;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+[class*="hover:scale-"] {
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease, border-color 300ms ease !important;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .card-top-accent {
@@ -570,4 +627,58 @@ html.theme-transition *::after {
 .animate-expand-line {
   animation: expandAccentLine 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* ====================================================
+   Directional Slide & Tab Switch Animations
+   ==================================================== */
+.tab-pill-slider {
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+@keyframes tabSlideFromRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(36px, 12px, 0) scale(0.96);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes tabSlideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-36px, 12px, 0) scale(0.96);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-slide-from-right {
+  animation: tabSlideFromRight 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity, filter;
+}
+
+.animate-slide-from-left {
+  animation: tabSlideFromLeft 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity, filter;
+}
+
+
+
+
 

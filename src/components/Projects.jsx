@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Sparkles, CheckCircle2, FileSpreadsheet, X, Layers, ArrowRight } from 'lucide-react'
 
 const SHOWCASE_PROJECTS = [
@@ -364,14 +365,21 @@ export default function Projects() {
                 <button
                   key={p.id}
                   onClick={() => setActiveId(p.id)}
-                  className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all border cursor-pointer ${
-                    isActive
-                      ? 'bg-sky-100 dark:bg-sky-950 border-sky-400 dark:border-sky-500 text-sky-900 dark:text-sky-200 shadow-xs'
-                      : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-slate-400'
-                  }`}
+                  className="relative flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer overflow-hidden transition-colors"
                 >
-                  <span className="font-mono text-xs opacity-90">{p.num}</span>
-                  <span>{p.name}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeMobileProjectIndicator"
+                      className="absolute inset-0 rounded-xl bg-sky-100 dark:bg-sky-950 border-2 border-sky-400 dark:border-sky-500 shadow-xs pointer-events-none"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 380,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                  <span className={`relative z-10 font-mono text-xs ${isActive ? 'text-sky-900 dark:text-sky-200 font-extrabold' : 'text-slate-700 dark:text-slate-300'}`}>{p.num}</span>
+                  <span className={`relative z-10 ${isActive ? 'text-sky-950 dark:text-white font-extrabold' : 'text-slate-800 dark:text-slate-200'}`}>{p.name}</span>
                 </button>
               )
             })}
@@ -393,13 +401,22 @@ export default function Projects() {
                 <button
                   key={p.id}
                   onClick={() => setActiveId(p.id)}
-                  className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] ${
-                    isActive
-                      ? 'bg-sky-50 dark:bg-sky-950/70 border-2 border-sky-500 dark:border-sky-400 shadow-lg shadow-sky-500/10 dark:shadow-sky-500/10 -translate-y-0.5'
-                      : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/80 hover:border-sky-400 dark:hover:border-slate-600 hover:translate-x-1'
-                  }`}
+                  className="relative w-full text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer group active:scale-[0.99] border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-sky-400 dark:hover:border-slate-600 overflow-hidden"
                 >
-                  <div className="flex items-center justify-between gap-3">
+                  {/* Shared Layout Active Indicator Pill */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeProjectIndicator"
+                      className="absolute inset-0 rounded-2xl border-2 border-sky-500 dark:border-sky-400 bg-sky-50 dark:bg-sky-950/70 shadow-lg shadow-sky-500/10 dark:shadow-sky-500/10 pointer-events-none"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 380,
+                        damping: 32,
+                      }}
+                    />
+                  )}
+
+                  <div className="relative z-10 flex items-center justify-between gap-3">
                     <div className="min-w-0 flex-1">
                       <div className="text-[11px] font-extrabold tracking-widest uppercase text-sky-700 dark:text-sky-300 mb-1.5 flex items-center gap-2">
                         <span>{p.domain}</span>
@@ -442,65 +459,98 @@ export default function Projects() {
           </div>
 
           {/* Right: details card with generous internal blank space & 2-column deliverable cards */}
-          <div className="lg:col-span-7 overflow-x-clip">
-            {active && (
-              <div
-                key={activeId}
-                className="animate-project-slide relative overflow-hidden p-8 sm:p-10 lg:p-12 rounded-3xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-md hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:border-sky-500 dark:hover:border-sky-500 transition-all duration-300"
-              >
-                {/* Glowing subtle top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 animate-expand-line" />
+          <div className="lg:col-span-7 overflow-x-clip min-h-[460px]">
+            <AnimatePresence mode="wait">
+              {active && (
+                <motion.div
+                  key={activeId}
+                  initial={{ opacity: 0, y: 16, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, y: -14, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative overflow-hidden p-8 sm:p-10 lg:p-12 rounded-3xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-md hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:border-sky-500 dark:hover:border-sky-500 transition-all duration-300"
+                >
+                  {/* Glowing subtle top accent bar */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 origin-left"
+                  />
 
-                {/* Card Header */}
-                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
-                  <div className="flex items-center gap-2.5 flex-wrap">
-                    <span className="text-xs sm:text-[13px] font-extrabold tracking-widest text-sky-700 dark:text-sky-300 uppercase">
-                      {active.domain}
-                    </span>
-                    {active.tag && (
-                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700">
-                        {active.tag}
+                  {/* Card Header */}
+                  <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <span className="text-xs sm:text-[13px] font-extrabold tracking-widest text-sky-700 dark:text-sky-300 uppercase">
+                        {active.domain}
                       </span>
-                    )}
-                  </div>
-                  <span className="text-sm font-mono font-bold text-slate-600 dark:text-slate-400">
-                    #{active.num}
-                  </span>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-950 dark:text-white mb-3 tracking-tight">
-                  {active.name}
-                </h3>
-
-                {/* Clean, open description — NO nested box */}
-                {active.description && (
-                  <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-base mb-6 leading-relaxed font-medium max-w-2xl">
-                    {active.description}
-                  </p>
-                )}
-
-                <div className="h-px bg-slate-300 dark:bg-slate-700 my-8 animate-expand-line" />
-
-                <div className="text-xs sm:text-sm font-extrabold tracking-widest text-slate-700 dark:text-slate-300 uppercase mb-5">
-                  Key Deliverables &amp; Core Modules
-                </div>
-
-                {/* 2-Column Grid of Deliverables with maximum breathing space */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {active.bullets.map((b, idx) => (
-                    <div
-                      key={idx}
-                      className="p-4 sm:p-4.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-400 transition-all duration-200 flex items-center gap-3 group/item cursor-default"
-                    >
-                      <CheckCircle2 size={18} className="text-sky-600 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
-                      <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug">
-                        {b}
-                      </span>
+                      {active.tag && (
+                        <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700">
+                          {active.tag}
+                        </span>
+                      )}
                     </div>
-                  ))}
-                </div>
-              </div>
-            )}
+                    <span className="text-sm font-mono font-bold text-slate-600 dark:text-slate-400">
+                      #{active.num}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-950 dark:text-white mb-3 tracking-tight">
+                    {active.name}
+                  </h3>
+
+                  {/* Clean, open description — NO nested box */}
+                  {active.description && (
+                    <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-base mb-6 leading-relaxed font-medium max-w-2xl">
+                      {active.description}
+                    </p>
+                  )}
+
+                  <div className="h-px bg-slate-300 dark:bg-slate-700 my-8" />
+
+                  <div className="text-xs sm:text-sm font-extrabold tracking-widest text-slate-700 dark:text-slate-300 uppercase mb-5">
+                    Key Deliverables &amp; Core Modules
+                  </div>
+
+                  {/* 2-Column Grid of Deliverables with staggered entrance */}
+                  <motion.div
+                    initial="hidden"
+                    animate="show"
+                    variants={{
+                      hidden: {},
+                      show: {
+                        transition: {
+                          staggerChildren: 0.045,
+                          delayChildren: 0.08,
+                        },
+                      },
+                    }}
+                    className="grid sm:grid-cols-2 gap-4"
+                  >
+                    {active.bullets.map((b, idx) => (
+                      <motion.div
+                        key={idx}
+                        variants={{
+                          hidden: { opacity: 0, y: 12, scale: 0.98 },
+                          show: {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            transition: { duration: 0.38, ease: [0.16, 1, 0.3, 1] },
+                          },
+                        }}
+                        className="p-4 sm:p-4.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-400 transition-all duration-200 flex items-center gap-3 group/item cursor-default"
+                      >
+                        <CheckCircle2 size={18} className="text-sky-600 dark:text-sky-400 flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
+                        <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug">
+                          {b}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
         </div>
