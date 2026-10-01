@@ -8,6 +8,7 @@ const SHOWCASE_PROJECTS = [
     num: '01',
     domain: 'PROPERTY MANAGEMENT',
     name: 'Resident Connect',
+    logo: '/projects/resident-connect-favicon.png',
     tag: 'Team Lead',
     description:
       'Property management and tenant portal ecosystem across mobile and web platforms.',
@@ -23,6 +24,8 @@ const SHOWCASE_PROJECTS = [
     num: '02',
     domain: 'LEGAL SERVICES',
     name: 'U.S. Legal Services',
+    logo: '/projects/us-legal-dark.png',
+    logoDark: '/projects/us-legal-light.png',
     description:
       'Legal attorney network with 6 dedicated portals covering Matters and CDL case lifecycles.',
     bullets: [
@@ -37,6 +40,8 @@ const SHOWCASE_PROJECTS = [
     num: '03',
     domain: 'REAL ESTATE CRM',
     name: 'Clientracker',
+    logo: '/projects/clientracker-dark.png',
+    logoDark: '/projects/clientracker-light.png',
     tag: 'Team Lead',
     description:
       'Real estate broker CRM for client management, property listings, and commission tracking.',
@@ -52,6 +57,7 @@ const SHOWCASE_PROJECTS = [
     num: '04',
     domain: 'GOVERNMENT / PUBLIC SECTOR',
     name: 'Railway Recruitment Board',
+    logo: '/projects/railway-recruitment-board.png',
     description:
       'Public sector examination management, candidate verification, and secure data processing.',
     bullets: [
@@ -66,6 +72,7 @@ const SHOWCASE_PROJECTS = [
     num: '05',
     domain: 'AUGMENTED REALITY / EVENT TECH',
     name: 'Jio: QR to AR',
+    logo: '/projects/jio-qr-to-ar.png',
     description:
       'Augmented reality interactive event platform converting static QR codes into 3D experiences.',
     bullets: [
@@ -81,6 +88,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '01',
     name: 'Resident Connect',
+    logo: '/projects/resident-connect-favicon.png',
     tag: 'Team Lead',
     description:
       'Tenant & manager portal, task automation, work orders, iOS & Android apps.'
@@ -88,6 +96,8 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '02',
     name: 'U.S. Legal Services',
+    logo: '/projects/us-legal-dark.png',
+    logoDark: '/projects/us-legal-light.png',
     tag: '6 Integrated Portals',
     description:
       '6 integrated portals, attorney case workflows, Stripe billing, WCAG accessibility.'
@@ -95,6 +105,8 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '03',
     name: 'Clientracker',
+    logo: '/projects/clientracker-dark.png',
+    logoDark: '/projects/clientracker-light.png',
     tag: 'Team Lead',
     description:
       'Broker CRM, property inventory, deal matching, commission & revenue analytics.'
@@ -102,6 +114,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '04',
     name: 'Railway Recruitment Board',
+    logo: '/projects/railway-recruitment-board.png',
     tag: 'Examination Support',
     description:
       'Exam portal regression testing, candidate verification, secure data processing.'
@@ -109,6 +122,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '05',
     name: 'Jio: QR to AR',
+    logo: '/projects/jio-qr-to-ar.png',
     tag: 'Augmented Reality',
     description:
       'Augmented reality camera experiences, marker tracking, 3D interactive assets.'
@@ -116,6 +130,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '06',
     name: 'Brooon',
+    logo: '/projects/brooon.png',
     tag: 'Team Lead',
     description:
       'Real estate mobile app, property buy/sell/lease workflows, regression QA.'
@@ -123,6 +138,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '07',
     name: 'VANI (Core Product)',
+    logo: '/projects/vani.png',
     tag: 'VFX Project Management',
     description:
       'VFX film project management, pipeline tracking, production workflows.'
@@ -130,6 +146,8 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '08',
     name: 'AirBrush',
+    logo: '/projects/airbrush-dark.png',
+    logoDark: '/projects/airbrush-light.png',
     tag: 'Module QA Coverage',
     description:
       'Push notifications, role-based access control (RBAC), user permissions.'
@@ -137,6 +155,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '09',
     name: 'Nunu tv',
+    logo: '/projects/nunu-tv.png',
     tag: 'iOS Kids App',
     description:
       'iOS educational gaming app, alphabet & numbers interactive learning.'
@@ -144,6 +163,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '10',
     name: "Let's get happi",
+    logo: '/projects/lets-get-happi.png',
     tag: 'Mental Health App',
     description:
       'Mental health wellness app, real-time chat, voice & video therapy sessions.'
@@ -151,6 +171,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '11',
     name: 'PMS (Core Product)',
+    logo: '/projects/pms.png',
     tag: 'Internal Management Tool',
     description:
       'Internal enterprise resource & task allocation platform, developer workflows.'
@@ -456,7 +477,31 @@ export default function Projects() {
                       }}
                     />
                   )}
-                  <span className={`relative z-10 ${isActive ? 'text-sky-950 dark:text-white font-extrabold' : 'text-slate-800 dark:text-slate-200'}`}>{p.name}</span>
+                  <span className={`relative z-10 flex items-center gap-2 ${isActive ? 'text-sky-950 dark:text-white font-extrabold' : 'text-slate-800 dark:text-slate-200'}`}>
+                    {p.logo && (
+                      p.logoDark ? (
+                        <>
+                          <img
+                            src={p.logo}
+                            alt=""
+                            className="w-5 h-5 rounded-md object-contain flex-shrink-0 dark:hidden"
+                          />
+                          <img
+                            src={p.logoDark}
+                            alt=""
+                            className="w-5 h-5 rounded-md object-contain flex-shrink-0 hidden dark:block"
+                          />
+                        </>
+                      ) : (
+                        <img
+                          src={p.logo}
+                          alt=""
+                          className="w-5 h-5 rounded-md object-contain flex-shrink-0"
+                        />
+                      )
+                    )}
+                    <span>{p.name}</span>
+                  </span>
                 </button>
               )
             })}
@@ -511,10 +556,32 @@ export default function Projects() {
                           </span>
                         )}
                       </div>
-                      <div className={`text-sm sm:text-[15px] font-extrabold truncate transition-colors ${
+                      <div className={`text-sm sm:text-[15px] font-extrabold truncate transition-colors flex items-center gap-2.5 ${
                         isActive ? 'text-slate-950 dark:text-white' : 'text-slate-800 dark:text-slate-200 group-hover:text-sky-700 dark:group-hover:text-sky-300'
                       }`}>
-                        {p.name}
+                        {p.logo && (
+                          p.logoDark ? (
+                            <>
+                              <img
+                                src={p.logo}
+                                alt=""
+                                className="w-6 h-6 rounded-md object-contain flex-shrink-0 dark:hidden"
+                              />
+                              <img
+                                src={p.logoDark}
+                                alt=""
+                                className="w-6 h-6 rounded-md object-contain flex-shrink-0 hidden dark:block"
+                              />
+                            </>
+                          ) : (
+                            <img
+                              src={p.logo}
+                              alt=""
+                              className="w-6 h-6 rounded-md object-contain flex-shrink-0"
+                            />
+                          )
+                        )}
+                        <span className="truncate">{p.name}</span>
                       </div>
                     </div>
                   </div>
@@ -739,8 +806,30 @@ export default function Projects() {
                         </span>
                       </div>
                     )}
-                    <h4 className="text-base font-extrabold text-slate-950 dark:text-white mb-1.5">
-                      {p.name}
+                    <h4 className="text-base font-extrabold text-slate-950 dark:text-white mb-1.5 flex items-center gap-2.5">
+                      {p.logo && (
+                        p.logoDark ? (
+                          <>
+                            <img
+                              src={p.logo}
+                              alt=""
+                              className="w-6 h-6 rounded-md object-contain flex-shrink-0 dark:hidden"
+                            />
+                            <img
+                              src={p.logoDark}
+                              alt=""
+                              className="w-6 h-6 rounded-md object-contain flex-shrink-0 hidden dark:block"
+                            />
+                          </>
+                        ) : (
+                          <img
+                            src={p.logo}
+                            alt=""
+                            className="w-6 h-6 rounded-md object-contain flex-shrink-0"
+                          />
+                        )
+                      )}
+                      <span>{p.name}</span>
                     </h4>
                     <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">
                       {p.description}
