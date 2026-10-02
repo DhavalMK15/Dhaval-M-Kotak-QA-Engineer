@@ -202,6 +202,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '15',
     name: 'Look for Lease',
+    logo: '/projects/look4lease.png',
     tag: 'Team Lead',
     description:
       'Direct renter-to-landlord rental marketplace, listings, inquiry messaging.'
@@ -241,6 +242,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '20',
     name: 'ARS',
+    logo: '/projects/ars.png',
     tag: 'Field Operations & Surveys',
     description:
       'Field representative site surveys, admin audit workflows, role validations.'
@@ -248,6 +250,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '21',
     name: 'DiCare',
+    logo: '/projects/dicare.png',
     tag: 'Healthcare · AI-Assisted QA',
     description:
       'Healthcare admin portal, Doctor/Nurse/Staff RBAC, AI-assisted QA.'
