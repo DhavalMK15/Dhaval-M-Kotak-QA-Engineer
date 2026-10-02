@@ -179,6 +179,8 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '12',
     name: 'BigToe',
+    logo: '/projects/bigtoe-dark.png',
+    logoDark: '/projects/bigtoe-light.png',
     tag: 'Web & Mobile Platform',
     description:
       'Web & mobile on-demand booking platform, UAT execution, bug tracking.'
@@ -207,6 +209,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '16',
     name: 'Alpha Ops (Core Product)',
+    logo: '/projects/alpha-ops.png',
     tag: 'Operations Workspace',
     description:
       'Enterprise operations workspace, facility reservations, attendance tracking.'
@@ -214,6 +217,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '17',
     name: 'Rajkot Nagrik Sahakari Bank Ltd.',
+    logo: '/projects/rajkot-nagrik-bank.png',
     tag: 'Banking · BA & QA Role',
     description:
       'Core banking services, BRD requirements analysis & QA verification.'
@@ -221,6 +225,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '18',
     name: 'QuestWings (Core Product)',
+    logo: '/projects/questwings.png',
     tag: 'Web Application QA',
     description:
       'Web application functional testing, regression suites, defect reporting.'
@@ -228,6 +233,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '19',
     name: 'Finance (Core Product)',
+    logo: '/projects/finance.png',
     tag: 'Financial App',
     description:
       'Financial accounting, transaction calculations, business rules & audit validation.'
