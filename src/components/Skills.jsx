@@ -24,12 +24,12 @@ const CATEGORY_ICONS = {
 function getBadgeStyle(level = '') {
   const norm = level.toLowerCase()
   if (norm.includes('primary')) {
-    return 'bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-200 border-sky-300 dark:border-sky-700 font-bold'
+    return 'bg-sky-50 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
   }
   if (norm.includes('working') || norm.includes('knowledge')) {
-    return 'bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-200 border-amber-300 dark:border-amber-700 font-bold'
+    return 'bg-amber-50 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-800'
   }
-  return 'bg-purple-100 dark:bg-purple-950 text-purple-900 dark:text-purple-200 border-purple-300 dark:border-purple-700 font-bold'
+  return 'bg-purple-50 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800'
 }
 
 const slideVariants = {
@@ -236,26 +236,33 @@ export default function Skills() {
                       key={cat.id}
                       custom={direction}
                       variants={itemVariants}
-                      className="relative rounded-3xl p-6 sm:p-7 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:border-sky-500 dark:hover:border-sky-500 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between overflow-hidden cursor-default"
+                      className="relative rounded-3xl p-6 sm:p-7 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:border-sky-500 dark:hover:border-sky-500 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between overflow-hidden cursor-default"
                     >
                       {/* Subtle top accent gradient bar on hover */}
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                       <div>
-                        {/* Header with Icon, Category Title, and Level Badge without wrapping */}
-                        <div className="flex items-center justify-between gap-3 mb-5">
-                          <div className="flex items-center gap-3 min-w-0">
-                            <div className="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950 border border-sky-300 dark:border-sky-700 text-sky-700 dark:text-sky-300 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 shadow-2xs">
-                              <IconComp size={19} />
-                            </div>
-                            <h3 className="text-base sm:text-lg font-extrabold text-slate-950 dark:text-white group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors truncate">
-                              {cat.label}
-                            </h3>
+                        {/* Top Bar: Icon on Left, Level Badge on Right */}
+                        <div className="flex items-center justify-between gap-3 mb-4">
+                          <div className="w-11 h-11 rounded-2xl bg-sky-50 dark:bg-sky-950/80 border border-sky-200 dark:border-sky-800 text-sky-600 dark:text-sky-300 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white group-hover:border-sky-600 transition-all duration-300 shadow-2xs">
+                            <IconComp size={20} />
                           </div>
-                          <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border whitespace-nowrap flex-shrink-0 uppercase tracking-wider transition-transform duration-200 group-hover:scale-105 ${getBadgeStyle(cat.level)}`}>
+                          <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full border whitespace-nowrap uppercase tracking-wider transition-all duration-200 group-hover:scale-105 ${getBadgeStyle(cat.level)}`}>
+                            <span className={`w-1.5 h-1.5 rounded-full ${
+                              cat.level.toLowerCase().includes('primary')
+                                ? 'bg-sky-500'
+                                : cat.level.toLowerCase().includes('working')
+                                ? 'bg-amber-500'
+                                : 'bg-purple-500'
+                            }`} />
                             {cat.level}
                           </span>
                         </div>
+
+                        {/* Category Title */}
+                        <h3 className="text-lg sm:text-xl font-extrabold text-slate-950 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors tracking-tight mb-4">
+                          {cat.label}
+                        </h3>
 
                         {/* Airy Skill Chips with generous spacing */}
                         <div className="flex flex-wrap gap-2 pt-1">
