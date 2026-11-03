@@ -1,7 +1,7 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { PROFILE } from '../data/portfolioData'
-import { Mail, ArrowUp, Sparkles, Check, Copy } from 'lucide-react'
-import { scrollToSection, smoothScrollTo } from '../utils/scroll'
+import { Mail, Sparkles, Check, Copy } from 'lucide-react'
+import { scrollToSection } from '../utils/scroll'
 
 function LinkedinIcon({ size = 15, className = '' }) {
   return (
@@ -27,10 +27,6 @@ export default function Footer() {
 
   const handleNav = (id) => {
     scrollToSection(id, 72, 600)
-  }
-
-  const handleScrollTop = () => {
-    smoothScrollTo(0, 600)
   }
 
   const handleCopyEmail = () => {
@@ -156,17 +152,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar with Back-to-Top trigger */}
+        {/* Bottom bar */}
         <div className="border-t border-slate-300 dark:border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-bold">
           <p>© {currentYear} Dhaval M Kotak · QA Portfolio</p>
-
-          <button
-            onClick={handleScrollTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:text-sky-700 dark:hover:text-sky-300 text-xs sm:text-sm font-bold transition-all duration-200 shadow-2xs group cursor-pointer"
-          >
-            <span>Back to Top</span>
-            <ArrowUp size={14} className="transition-transform duration-200 group-hover:-translate-y-0.5 text-sky-700 dark:text-sky-400" />
-          </button>
         </div>
       </div>
     </footer>
