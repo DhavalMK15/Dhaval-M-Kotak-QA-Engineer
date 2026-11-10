@@ -3,7 +3,7 @@
 // ====================================================
 
 export const PROFILE = {
-  name: 'Dhaval M Kotak',
+  name: 'Dhaval Kotak',
   title: 'QA Engineer',
   currentCompany: 'WebTech Solutions', // Current Employer
   tagline: 'QA Engineer | Manual Testing | API | Mobile | Accessibility | AI-Assisted Automation',

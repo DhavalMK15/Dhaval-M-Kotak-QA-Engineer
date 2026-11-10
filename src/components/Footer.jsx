@@ -154,7 +154,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-slate-300 dark:border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-bold">
-          <p>© {currentYear} Dhaval M Kotak · QA Portfolio</p>
+          <p>© {currentYear} Dhaval Kotak · QA Portfolio</p>
         </div>
       </div>
     </footer>
