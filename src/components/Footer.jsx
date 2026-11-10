@@ -49,7 +49,7 @@ export default function Footer() {
                 DK
               </div>
               <span className="font-extrabold text-slate-950 dark:text-white text-base tracking-tight">
-                Dhaval M <span className="text-sky-700 dark:text-sky-400">Kotak</span>
+                Dhaval <span className="text-sky-700 dark:text-sky-400">Kotak</span>
               </span>
             </div>
 

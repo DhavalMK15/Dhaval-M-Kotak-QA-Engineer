@@ -89,7 +89,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
               </div>
               <div className="hidden sm:block">
                 <span className="font-extrabold text-slate-900 dark:text-white tracking-tight text-[15px] sm:text-base group-hover:text-sky-600 transition-colors">
-                  Dhaval M <span className="text-sky-600 dark:text-sky-400">Kotak</span>
+                  Dhaval <span className="text-sky-600 dark:text-sky-400">Kotak</span>
                 </span>
                 <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 tracking-wider uppercase">
                   QA Engineer
