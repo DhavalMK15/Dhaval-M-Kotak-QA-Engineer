@@ -163,11 +163,11 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '09',
     name: 'Nunu tv',
-    domain: 'Education & E-Learning',
+    domain: 'Gaming & Entertainment',
     logo: '/projects/nunu-tv.png',
-    tag: 'iOS Kids App',
+    tag: 'Gaming & Entertainment',
     description:
-      'iOS educational gaming app, alphabet & numbers interactive learning.'
+      'iOS kids gaming & entertainment app, interactive gameplay, audio/SFX and animations.'
   },
   {
     num: '10',
@@ -190,12 +190,12 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '12',
     name: 'BigToe',
-    domain: 'Gaming & Entertainment',
+    domain: 'Healthcare',
     logo: '/projects/bigtoe-dark.png',
     logoDark: '/projects/bigtoe-light.png',
-    tag: 'Web & Mobile Platform',
+    tag: 'Gym & Fitness App',
     description:
-      'Web & mobile on-demand booking platform, UAT execution, bug tracking.'
+      'Gym & fitness on-demand booking platform, workout scheduling, UAT & mobile QA.'
   },
   {
     num: '13',

@@ -167,15 +167,15 @@ export const DOMAINS_DATA = [
     id: 'healthcare',
     name: 'Healthcare',
     icon: 'HeartPulse',
-    count: 2,
-    tagline: 'Clinical administration, doctor/nurse/staff permissions, and tele-therapy wellness platforms.',
+    count: 3,
+    tagline: 'Clinical administration, doctor/nurse RBAC, tele-therapy wellness, and gym & fitness booking platforms.',
     qaFocus: [
       'HIPAA Data Integrity',
       'Doctor/Nurse RBAC',
       'WebRTC Audio/Video',
-      'Clinical Audit Trails'
+      'Workout & Booking Flows'
     ],
-    projects: ['DiCare', "Let's get happi"],
+    projects: ['DiCare', "Let's get happi", 'BigToe'],
     showcaseId: null,
   },
   {
@@ -212,15 +212,15 @@ export const DOMAINS_DATA = [
     id: 'education-elearning',
     name: 'Education & E-Learning',
     icon: 'GraduationCap',
-    count: 2,
-    tagline: 'Public examination candidate validation and interactive early childhood gamified learning.',
+    count: 1,
+    tagline: 'Public examination candidate validation, score cards, and high-concurrency recruitment delivery.',
     qaFocus: [
       'High-Concurrency Delivery',
       'Candidate Verification',
-      'Interactive Touch Curves',
-      'Student Progress State'
+      'Score Card Verification',
+      'System Load Resiliency'
     ],
-    projects: ['Railway Recruitment Board', 'Nunu tv'],
+    projects: ['Railway Recruitment Board'],
     showcaseId: 'railway-recruitment-board',
   },
   {
@@ -242,15 +242,15 @@ export const DOMAINS_DATA = [
     id: 'gaming-entertainment',
     name: 'Gaming & Entertainment',
     icon: 'Gamepad2',
-    count: 2,
-    tagline: 'Interactive children entertainment mini-games, responsive animations, and booking platforms.',
+    count: 1,
+    tagline: 'Interactive children entertainment mini-games, responsive animations, and audio/SFX verification.',
     qaFocus: [
       'Frame Rate & Animation',
       'Child-Safe UX Checks',
       'Asset Preloading',
       'Interactive Audio/SFX'
     ],
-    projects: ['Nunu tv', 'BigToe'],
+    projects: ['Nunu tv'],
     showcaseId: null,
   },
   {
