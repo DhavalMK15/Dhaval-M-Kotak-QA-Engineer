@@ -73,6 +73,7 @@ export default function Footer() {
               {[
                 { label: 'Home', id: 'hero' },
                 { label: 'Skills', id: 'skills' },
+                { label: 'Domains', id: 'domains' },
                 { label: 'AI & Auto', id: 'ai-automation' },
                 { label: 'Projects', id: 'projects' },
               ].map((item) => (

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Skills from './components/Skills'
 import AIAutomation from './components/AIAutomation'
+import Domains from './components/Domains'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
 import { smoothScrollTo } from './utils/scroll'
@@ -48,6 +49,7 @@ export default function App() {
       <main id="main-content" tabIndex={-1}>
         <Hero isDark={isDark} />
         <Skills />
+        <Domains />
         <AIAutomation />
         <Projects />
       </main>

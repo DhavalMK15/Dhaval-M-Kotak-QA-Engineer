@@ -7,12 +7,13 @@ import { scrollToSection } from '../utils/scroll'
 const NAV_ITEMS = [
   { label: 'Home', href: '#hero' },
   { label: 'Skills & Tools', href: '#skills' },
+  { label: 'Domains', href: '#domains' },
   { label: 'AI & Automation', href: '#ai-automation' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
 
-const SECTION_IDS = ['hero', 'skills', 'ai-automation', 'projects', 'contact']
+const SECTION_IDS = ['hero', 'skills', 'domains', 'ai-automation', 'projects', 'contact']
 
 export default function Navbar({ isDark = false, onToggleDarkMode }) {
   const [mobileOpen, setMobileOpen] = useState(false)

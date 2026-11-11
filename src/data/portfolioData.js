@@ -129,6 +129,163 @@ export const TOOLS = [
 ]
 
 // ====================================================
+// DOMAINS & INDUSTRY EXPERTISE
+// ====================================================
+
+export const DOMAINS_DATA = [
+  {
+    id: 'real-estate',
+    name: 'Real Estate & Property Management',
+    icon: 'Building2',
+    count: 5,
+    tagline: 'Tenant-manager portals, broker CRMs, lease lifecycles, and facility booking ecosystems.',
+    qaFocus: [
+      'Multi-Tenant Permissions',
+      'Lease Lifecycles',
+      'Payment Gateways',
+      'Mobile Offline Sync'
+    ],
+    projects: ['Resident Connect', 'Clientracker', 'Brooon', 'Look for Lease', 'Modular For Kitchen'],
+    showcaseId: 'resident-connect',
+  },
+  {
+    id: 'legal-services',
+    name: 'Legal Services',
+    icon: 'Scale',
+    count: 2,
+    tagline: 'Attorney networks, multi-portal case dockets, Stripe billing, and ADA/WCAG accessibility.',
+    qaFocus: [
+      'Matters & CDL Workflows',
+      '6 Integrated Portals',
+      'Stripe Token Billing',
+      'WCAG 2.1 AA Compliance'
+    ],
+    projects: ['U.S. Legal Services', 'Immi Dreams'],
+    showcaseId: 'us-legal-services',
+  },
+  {
+    id: 'healthcare',
+    name: 'Healthcare',
+    icon: 'HeartPulse',
+    count: 2,
+    tagline: 'Clinical administration, doctor/nurse/staff permissions, and tele-therapy wellness platforms.',
+    qaFocus: [
+      'HIPAA Data Integrity',
+      'Doctor/Nurse RBAC',
+      'WebRTC Audio/Video',
+      'Clinical Audit Trails'
+    ],
+    projects: ['DiCare', "Let's get happi"],
+    showcaseId: null,
+  },
+  {
+    id: 'banking-finance',
+    name: 'Banking & Financial Services',
+    icon: 'Landmark',
+    count: 2,
+    tagline: 'Core banking requirements analysis, financial ledger rules, and transaction auditing.',
+    qaFocus: [
+      'BRD Requirements QA',
+      'Transaction Integrity',
+      'Interest Calculations',
+      'Financial Audit Logs'
+    ],
+    projects: ['Rajkot Nagrik Sahakari Bank Ltd.', 'Finance (Core Product)'],
+    showcaseId: null,
+  },
+  {
+    id: 'hr-workforce',
+    name: 'HR & Workforce Management',
+    icon: 'Users',
+    count: 2,
+    tagline: 'Enterprise resource allocation, attendance tracking, shift scheduling, and team workflows.',
+    qaFocus: [
+      'Resource Pipelines',
+      'Attendance Biometrics',
+      'Facility Booking Locks',
+      'Org Permission Levels'
+    ],
+    projects: ['PMS (Core Product)', 'Alpha Ops (Core Product)'],
+    showcaseId: null,
+  },
+  {
+    id: 'education-elearning',
+    name: 'Education & E-Learning',
+    icon: 'GraduationCap',
+    count: 2,
+    tagline: 'Public examination candidate validation and interactive early childhood gamified learning.',
+    qaFocus: [
+      'High-Concurrency Delivery',
+      'Candidate Verification',
+      'Interactive Touch Curves',
+      'Student Progress State'
+    ],
+    projects: ['Railway Recruitment Board', 'Nunu tv'],
+    showcaseId: 'railway-recruitment-board',
+  },
+  {
+    id: 'saas-operations',
+    name: 'Business Operations & SaaS',
+    icon: 'Briefcase',
+    count: 3,
+    tagline: 'Field audit site surveys, enterprise operational workspaces, and push notification services.',
+    qaFocus: [
+      'Field Audit Workflows',
+      'Offline Data Queuing',
+      'Enterprise RBAC Config',
+      'Push Alert Triggers'
+    ],
+    projects: ['ARS', 'AirBrush', 'QuestWings (Core Product)'],
+    showcaseId: null,
+  },
+  {
+    id: 'gaming-entertainment',
+    name: 'Gaming & Entertainment',
+    icon: 'Gamepad2',
+    count: 2,
+    tagline: 'Interactive children entertainment mini-games, responsive animations, and booking platforms.',
+    qaFocus: [
+      'Frame Rate & Animation',
+      'Child-Safe UX Checks',
+      'Asset Preloading',
+      'Interactive Audio/SFX'
+    ],
+    projects: ['Nunu tv', 'BigToe'],
+    showcaseId: null,
+  },
+  {
+    id: 'media-vfx',
+    name: 'Media & VFX',
+    icon: 'Film',
+    count: 1,
+    tagline: 'Film production pipeline management, visual effects shot tracking, and studio milestone reviews.',
+    qaFocus: [
+      'Heavy Asset Pipelines',
+      'Shot Revision Cycles',
+      'Sequence Approvals',
+      'VFX Metadata Integrity'
+    ],
+    projects: ['VANI (Core Product)'],
+    showcaseId: null,
+  },
+  {
+    id: 'ar-event-tech',
+    name: 'AR & Event Technology',
+    icon: 'Sparkles',
+    count: 1,
+    tagline: 'Augmented reality camera experiences, marker recognition, and interactive QR event platforms.',
+    qaFocus: [
+      '3D Marker Tracking',
+      'Camera Stream Latency',
+      'High-Speed QR Scanning',
+      'Gyro & Orientation QA'
+    ],
+    projects: ['Jio: QR to AR'],
+    showcaseId: 'jio-qr-to-ar',
+  },
+]
+
+// ====================================================
 // PROJECTS
 // ====================================================
 

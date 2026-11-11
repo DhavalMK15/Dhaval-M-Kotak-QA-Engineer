@@ -6,7 +6,7 @@ const SHOWCASE_PROJECTS = [
   {
     id: 'resident-connect',
     num: '01',
-    domain: 'PROPERTY MANAGEMENT',
+    domain: 'REAL ESTATE & PROPERTY MANAGEMENT',
     name: 'Resident Connect',
     logo: '/projects/resident-connect-favicon.png',
     tag: 'Team Lead',
@@ -38,7 +38,7 @@ const SHOWCASE_PROJECTS = [
   {
     id: 'clientracker',
     num: '03',
-    domain: 'REAL ESTATE CRM',
+    domain: 'REAL ESTATE & PROPERTY MANAGEMENT',
     name: 'Clientracker',
     logo: '/projects/clientracker-dark.png',
     logoDark: '/projects/clientracker-light.png',
@@ -55,7 +55,7 @@ const SHOWCASE_PROJECTS = [
   {
     id: 'railway-recruitment-board',
     num: '04',
-    domain: 'GOVERNMENT / PUBLIC SECTOR',
+    domain: 'EDUCATION & E-LEARNING',
     name: 'Railway Recruitment Board',
     logo: '/projects/railway-recruitment-board.png',
     description:
@@ -70,7 +70,7 @@ const SHOWCASE_PROJECTS = [
   {
     id: 'jio-qr-to-ar',
     num: '05',
-    domain: 'AUGMENTED REALITY / EVENT TECH',
+    domain: 'AR & EVENT TECHNOLOGY',
     name: 'Jio: QR to AR',
     logo: '/projects/jio-qr-to-ar.png',
     description:
@@ -88,6 +88,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '01',
     name: 'Resident Connect',
+    domain: 'Real Estate & Property Management',
     logo: '/projects/resident-connect-favicon.png',
     tag: 'Team Lead',
     description:
@@ -96,6 +97,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '02',
     name: 'U.S. Legal Services',
+    domain: 'Legal Services',
     logo: '/projects/us-legal-dark.png',
     logoDark: '/projects/us-legal-light.png',
     tag: '6 Integrated Portals',
@@ -105,6 +107,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '03',
     name: 'Clientracker',
+    domain: 'Real Estate & Property Management',
     logo: '/projects/clientracker-dark.png',
     logoDark: '/projects/clientracker-light.png',
     tag: 'Team Lead',
@@ -114,6 +117,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '04',
     name: 'Railway Recruitment Board',
+    domain: 'Education & E-Learning',
     logo: '/projects/railway-recruitment-board.png',
     tag: 'Examination Support',
     description:
@@ -122,6 +126,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '05',
     name: 'Jio: QR to AR',
+    domain: 'AR & Event Technology',
     logo: '/projects/jio-qr-to-ar.png',
     tag: 'Augmented Reality',
     description:
@@ -130,6 +135,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '06',
     name: 'Brooon',
+    domain: 'Real Estate & Property Management',
     logo: '/projects/brooon.png',
     tag: 'Team Lead',
     description:
@@ -138,6 +144,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '07',
     name: 'VANI (Core Product)',
+    domain: 'Media & VFX',
     logo: '/projects/vani.png',
     tag: 'VFX Project Management',
     description:
@@ -146,6 +153,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '08',
     name: 'AirBrush',
+    domain: 'Business Operations & SaaS',
     logo: '/projects/airbrush-dark.png',
     logoDark: '/projects/airbrush-light.png',
     tag: 'Module QA Coverage',
@@ -155,6 +163,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '09',
     name: 'Nunu tv',
+    domain: 'Education & E-Learning',
     logo: '/projects/nunu-tv.png',
     tag: 'iOS Kids App',
     description:
@@ -163,6 +172,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '10',
     name: "Let's get happi",
+    domain: 'Healthcare',
     logo: '/projects/lets-get-happi.png',
     tag: 'Mental Health App',
     description:
@@ -171,6 +181,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '11',
     name: 'PMS (Core Product)',
+    domain: 'HR & Workforce Management',
     logo: '/projects/pms.png',
     tag: 'Internal Management Tool',
     description:
@@ -179,6 +190,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '12',
     name: 'BigToe',
+    domain: 'Gaming & Entertainment',
     logo: '/projects/bigtoe-dark.png',
     logoDark: '/projects/bigtoe-light.png',
     tag: 'Web & Mobile Platform',
@@ -188,6 +200,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '13',
     name: 'Modular For Kitchen',
+    domain: 'Real Estate & Property Management',
     tag: '2D / 3D Visualization',
     description:
       '2D & 3D interactive kitchen layout visualization and scenario validation.'
@@ -195,6 +208,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '14',
     name: 'Immi Dreams',
+    domain: 'Legal Services',
     tag: 'Legal Services',
     description:
       'Immigration legal services portal, client journeys, functional verification.'
@@ -202,6 +216,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '15',
     name: 'Look for Lease',
+    domain: 'Real Estate & Property Management',
     logo: '/projects/look4lease.png',
     tag: 'Team Lead',
     description:
@@ -210,6 +225,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '16',
     name: 'Alpha Ops (Core Product)',
+    domain: 'HR & Workforce Management',
     logo: '/projects/alpha-ops.png',
     tag: 'Operations Workspace',
     description:
@@ -218,6 +234,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '17',
     name: 'Rajkot Nagrik Sahakari Bank Ltd.',
+    domain: 'Banking & Financial Services',
     logo: '/projects/rajkot-nagrik-bank.png',
     tag: 'Banking · BA & QA Role',
     description:
@@ -226,6 +243,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '18',
     name: 'QuestWings (Core Product)',
+    domain: 'Business Operations & SaaS',
     logo: '/projects/questwings.png',
     tag: 'Web Application QA',
     description:
@@ -234,6 +252,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '19',
     name: 'Finance (Core Product)',
+    domain: 'Banking & Financial Services',
     logo: '/projects/finance.png',
     tag: 'Financial App',
     description:
@@ -242,6 +261,7 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '20',
     name: 'ARS',
+    domain: 'Business Operations & SaaS',
     logo: '/projects/ars.png',
     tag: 'Field Operations & Surveys',
     description:
@@ -250,11 +270,26 @@ const ALL_TESTED_PROJECTS = [
   {
     num: '21',
     name: 'DiCare',
+    domain: 'Healthcare',
     logo: '/projects/dicare.png',
     tag: 'Healthcare · AI-Assisted QA',
     description:
       'Healthcare admin portal, Doctor/Nurse/Staff RBAC, AI-assisted QA.'
   }
+]
+
+const DOMAIN_OPTIONS = [
+  'All',
+  'Real Estate & Property Management',
+  'Legal Services',
+  'Healthcare',
+  'Banking & Financial Services',
+  'HR & Workforce Management',
+  'Education & E-Learning',
+  'Business Operations & SaaS',
+  'Gaming & Entertainment',
+  'Media & VFX',
+  'AR & Event Technology',
 ]
 
 const projectSlideVariants = {
@@ -290,6 +325,7 @@ export default function Projects() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false)
   const [dragOffset, setDragOffset] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
+  const [sidebarDomainFilter, setSidebarDomainFilter] = useState('all')
 
   // Touch gesture refs for project swipe on mobile
   const projectTouchStartX = useRef(0)
@@ -369,6 +405,39 @@ export default function Projects() {
       setIsSidebarMounted(false)
     }, 400)
   }
+
+  // Listen to custom events from Domains component
+  useEffect(() => {
+    const handleDomainFilterEvent = (e) => {
+      const { domainName, showcaseId } = e.detail || {}
+      if (showcaseId) {
+        handleSelectProject(showcaseId)
+      } else if (domainName) {
+        setSidebarDomainFilter(domainName)
+        openSidebar()
+      }
+    }
+
+    const handleProjectSelectEvent = (e) => {
+      const { projectName, domainName, showcaseId } = e.detail || {}
+      const matchedShowcase = SHOWCASE_PROJECTS.find(
+        (p) => p.name.toLowerCase() === projectName?.toLowerCase() || p.id === showcaseId
+      )
+      if (matchedShowcase) {
+        handleSelectProject(matchedShowcase.id)
+      } else {
+        if (domainName) setSidebarDomainFilter(domainName)
+        openSidebar()
+      }
+    }
+
+    window.addEventListener('dk_select_domain_filter', handleDomainFilterEvent)
+    window.addEventListener('dk_select_project_from_domain', handleProjectSelectEvent)
+    return () => {
+      window.removeEventListener('dk_select_domain_filter', handleDomainFilterEvent)
+      window.removeEventListener('dk_select_project_from_domain', handleProjectSelectEvent)
+    }
+  }, [])
 
   // Touch gesture handlers for mobile sidebar swipe-right to close
   const handleSidebarTouchStart = (e) => {
@@ -788,12 +857,42 @@ export default function Projects() {
               </button>
             </div>
 
+            {/* Domain Filter Bar in Sidebar Drawer */}
+            <div className="px-5 sm:px-8 py-3 bg-slate-50 dark:bg-slate-950/70 border-b border-slate-300 dark:border-slate-800 flex items-center gap-1.5 overflow-x-auto flex-shrink-0">
+              {DOMAIN_OPTIONS.map((dom) => {
+                const isSelected = sidebarDomainFilter === (dom === 'All' ? 'all' : dom)
+                const count = dom === 'All'
+                  ? ALL_TESTED_PROJECTS.length
+                  : ALL_TESTED_PROJECTS.filter((p) => p.domain === dom).length
+                return (
+                  <button
+                    key={dom}
+                    type="button"
+                    onClick={() => setSidebarDomainFilter(dom === 'All' ? 'all' : dom)}
+                    className={`flex-shrink-0 text-xs font-bold px-3 py-1.5 rounded-xl border transition-all cursor-pointer whitespace-nowrap ${
+                      isSelected
+                        ? 'bg-sky-600 text-white border-sky-600 shadow-sm'
+                        : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-sky-500'
+                    }`}
+                  >
+                    <span>{dom}</span>
+                    <span className={`ml-1.5 text-[10px] px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-sky-700 text-sky-100' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}>
+                      {count}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+
             {/* Scrollable Project Cards List with contained overscroll */}
             <div
               className="overflow-y-auto overscroll-contain p-6 sm:p-8 space-y-4 sm:space-y-5 flex-1"
               style={{ overscrollBehavior: 'contain' }}
             >
-              {ALL_TESTED_PROJECTS.map((p) => (
+              {(sidebarDomainFilter === 'all'
+                ? ALL_TESTED_PROJECTS
+                : ALL_TESTED_PROJECTS.filter((p) => p.domain === sidebarDomainFilter)
+              ).map((p) => (
                 <div
                   key={p.num}
                   className="relative p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/90 shadow-sm hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-sky-500/10 hover:border-sky-500 dark:hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-default"
@@ -802,10 +901,13 @@ export default function Projects() {
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   <div>
-                    {p.tag && (
-                      <div className="flex items-center justify-start gap-2 mb-2">
+                    <div className="flex items-center justify-start flex-wrap gap-2 mb-2">
+                      <span className="text-[10px] sm:text-[11px] font-bold text-sky-800 dark:text-sky-300 bg-sky-100 dark:bg-sky-950/90 border border-sky-300 dark:border-sky-800 px-2 py-0.5 rounded-md truncate">
+                        {p.domain}
+                      </span>
+                      {p.tag && (
                         <span
-                          className={`text-[11px] truncate ${
+                          className={`text-[10px] sm:text-[11px] truncate ${
                             p.tag === 'Team Lead'
                               ? 'font-bold text-amber-900 dark:text-amber-200 bg-amber-100 dark:bg-amber-950 px-2.5 py-0.5 rounded-md border border-amber-300 dark:border-amber-700'
                               : 'font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 px-2 py-0.5 rounded-md'
@@ -813,8 +915,8 @@ export default function Projects() {
                         >
                           {p.tag}
                         </span>
-                      </div>
-                    )}
+                      )}
+                    </div>
                     <h4 className="text-base font-extrabold text-slate-950 dark:text-white mb-1.5 flex items-center gap-2.5">
                       {p.logo && (
                         p.logoDark ? (
