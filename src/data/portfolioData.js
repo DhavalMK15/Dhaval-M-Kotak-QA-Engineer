@@ -5,7 +5,7 @@
 export const PROFILE = {
   name: 'Dhaval Kotak',
   title: 'QA Engineer',
-  currentCompany: 'WebTech Solutions', // Current Employer
+  currentCompany: 'Wings Tech Solutions', // Current Employer
   tagline: 'QA Engineer | Manual Testing | API | Mobile | Accessibility | AI-Assisted Automation',
   summary:
     "I'm a QA Engineer with 3+ years of hands-on experience in manual testing, API testing, mobile application testing, and accessibility validation. I work across diverse domains including healthcare, fintech, real estate, and enterprise applications — ensuring software quality through systematic testing, clear bug reporting, and thorough regression coverage. I'm currently expanding into AI-assisted test automation to bring modern productivity tools into my QA workflow.",
