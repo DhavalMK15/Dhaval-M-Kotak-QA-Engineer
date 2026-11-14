@@ -158,12 +158,12 @@ export default function Footer() {
         <div className="border-t border-slate-300 dark:border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-bold">
           <p>© {currentYear} Dhaval Kotak · QA Portfolio</p>
           <a
-            href="/Dhaval_Kotak_CV.pdf"
-            download="Dhaval_Kotak_CV.pdf"
+            href="/Dhaval_Kotak_QA_Engineer_CV.pdf"
+            download="Dhaval_Kotak_QA_Engineer_CV.pdf"
             className="inline-flex items-center gap-1.5 text-sky-700 dark:text-sky-400 hover:text-sky-600 dark:hover:text-sky-300 hover:underline transition-colors"
           >
-            {/* <Download size={14} />
-            <span>Download CV</span> */}
+            <Download size={14} />
+            <span>Download CV</span>
           </a>
         </div>
       </div>
