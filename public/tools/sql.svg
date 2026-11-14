@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <defs>
+    <linearGradient id="sql-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+  </defs>
+  <path d="M4 6C4 3.79 7.58 2 12 2C16.42 2 20 3.79 20 6V18C20 20.21 16.42 22 12 22C7.58 22 4 20.21 4 18V6Z" fill="url(#sql-grad)" opacity="0.15" />
+  <ellipse cx="12" cy="6" rx="8" ry="3.5" fill="none" stroke="#0284C7" stroke-width="2" />
+  <path d="M4 6V12C4 13.93 7.58 15.5 12 15.5C16.42 15.5 20 13.93 20 12V6" fill="none" stroke="#0284C7" stroke-width="2" />
+  <path d="M4 12V18C4 19.93 7.58 21.5 12 21.5C16.42 21.5 20 19.93 20 18V12" fill="none" stroke="#0284C7" stroke-width="2" />
+  <path d="M8.5 11L10 12.5L15 7.5" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

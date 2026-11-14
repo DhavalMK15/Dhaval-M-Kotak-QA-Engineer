@@ -67,7 +67,11 @@ export default function Tools() {
               }`}
               style={{ transitionDelay: `${i * 50}ms`, transitionProperty: 'opacity, transform, border-color, background-color' }}
             >
-              <span className="text-3xl" aria-hidden="true">{tool.icon}</span>
+              {typeof tool.icon === 'string' && (tool.icon.startsWith('/') || tool.icon.endsWith('.svg')) ? (
+                <img src={tool.icon} alt={tool.name} className="w-8 h-8 object-contain" />
+              ) : (
+                <span className="text-3xl" aria-hidden="true">{tool.icon}</span>
+              )}
               <div className="text-center">
                 <p className="text-white text-sm font-medium group-hover:text-cyan-400 transition-colors">{tool.name}</p>
                 <p className="text-slate-500 text-xs mt-0.5">{tool.category}</p>

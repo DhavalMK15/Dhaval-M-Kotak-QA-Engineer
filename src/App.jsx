@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Skills from './components/Skills'
 import AIAutomation from './components/AIAutomation'
 import Domains from './components/Domains'
+import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
 import { smoothScrollTo } from './utils/scroll'
@@ -50,6 +51,7 @@ export default function App() {
         <Hero isDark={isDark} />
         <Skills />
         <Domains />
+        <Experience />
         <AIAutomation />
         <Projects />
       </main>

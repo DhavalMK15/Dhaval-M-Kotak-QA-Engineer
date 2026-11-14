@@ -300,8 +300,17 @@ export default function Skills() {
                     {/* Subtle top accent gradient bar on hover */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    <div className="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950 border border-sky-300 dark:border-sky-700 text-sky-700 dark:text-sky-300 flex items-center justify-center text-xl flex-shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white shadow-2xs">
-                      {tool.icon}
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center p-2 flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:border-sky-500 dark:group-hover:border-sky-400 shadow-2xs">
+                      {typeof tool.icon === 'string' && (tool.icon.startsWith('/') || tool.icon.endsWith('.svg')) ? (
+                        <img
+                          src={tool.icon}
+                          alt={`${tool.name} logo`}
+                          className="w-6 h-6 object-contain"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span className="text-xl">{tool.icon}</span>
+                      )}
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="text-slate-950 dark:text-white text-sm sm:text-[15px] font-extrabold truncate group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors">

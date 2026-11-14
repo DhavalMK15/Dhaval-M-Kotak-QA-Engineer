@@ -1,17 +1,18 @@
 // ====================================================
-// Portfolio Data – Dhaval Kotak | QA Engineer
+// Portfolio Data – Dhaval Kotak | QA Analyst
 // ====================================================
 
 export const PROFILE = {
   name: 'Dhaval Kotak',
-  title: 'QA Engineer',
+  title: 'QA Analyst',
   currentCompany: 'Wings Tech Solutions', // Current Employer
-  tagline: 'QA Engineer | Manual Testing | API | Mobile | Accessibility | AI-Assisted Automation',
+  tagline: 'QA Analyst | Manual Testing | API | Mobile | Accessibility | AI-Assisted Automation',
   summary:
-    "I'm a QA Engineer with 3+ years of hands-on experience in manual testing, API testing, mobile application testing, and accessibility validation. I work across diverse domains including healthcare, fintech, real estate, and enterprise applications — ensuring software quality through systematic testing, clear bug reporting, and thorough regression coverage. I'm currently expanding into AI-assisted test automation to bring modern productivity tools into my QA workflow.",
+    "I'm a QA Analyst with 3+ years of hands-on experience in manual testing, API testing, mobile application testing, and accessibility validation. I work across diverse domains including healthcare, fintech, real estate, and enterprise applications — ensuring software quality through systematic testing, clear bug reporting, and thorough regression coverage. I'm currently expanding into AI-assisted test automation to bring modern productivity tools into my QA workflow.",
   experience: '3+ Years',
   location: 'Rajkot, Gujarat, India',
-  role: 'QA Engineer / Software Quality Assurance Engineer',
+  role: 'QA Analyst / Software Quality Assurance Analyst',
+  relocationText: 'Open to relocate to UAE (Dubai / Abu Dhabi)', // ##| Available to join in 45 days
   focusAreas: ['Manual Testing', 'API Testing', 'Mobile Testing', 'Accessibility Testing', 'AI-Assisted Automation'],
   contact: {
     email: 'dhavalkotak0150@gmail.com',
@@ -89,6 +90,7 @@ export const SKILL_CATEGORIES = [
     icon: 'Database',
     skills: [
       'SQL Queries',
+      'MySQL Workbench',
       'Data Integrity',
       'Schema Verification',
       'Backend CRUD Testing',
@@ -114,18 +116,37 @@ export const SKILL_CATEGORIES = [
 // ====================================================
 
 export const TOOLS = [
-  { name: 'Postman', category: 'API Testing', icon: '📮' },
-  { name: 'Selenium WebDriver', category: 'Automation', icon: '🤖' },
-  { name: 'Python', category: 'Automation', icon: '🐍' },
-  { name: 'Pytest', category: 'Automation', icon: '🧪' },
-  { name: 'Antigravity AI', category: 'AI Tools', icon: '✨' },
-  { name: 'Jira', category: 'Project Management', icon: '📋' },
-  { name: 'Trello', category: 'Project Management', icon: '📌' },
-  { name: 'Chrome DevTools', category: 'Browser Tools', icon: '🔧' },
-  { name: 'PyCharm', category: 'IDE', icon: '💻' },
-  { name: 'Git', category: 'Version Control', icon: '🔀' },
-  { name: 'Excel', category: 'Documentation', icon: '📊' },
-  { name: 'SQL', category: 'Database', icon: '🗄️' },
+  { name: 'Postman', category: 'API Testing', icon: '/tools/postman.svg' },
+  { name: 'Trello', category: 'Project Management', icon: '/tools/trello.svg' },
+  { name: 'JIRA', category: 'Project Management', icon: '/tools/jira.svg' },
+  { name: 'Antigravity AI', category: 'AI Tools', icon: '/tools/antigravity.svg' },
+  { name: 'MySQL Workbench', category: 'Database', icon: '/tools/mysql.svg' },
+  { name: 'SQL', category: 'Database', icon: '/tools/sql.svg' },
+  { name: 'Selenium WebDriver', category: 'Automation', icon: '/tools/selenium.svg' },
+  { name: 'PyCharm', category: 'IDE', icon: '/tools/pycharm.svg' },
+  { name: 'Python', category: 'Automation', icon: '/tools/python.svg' },
+  { name: 'Pytest', category: 'Automation', icon: '/tools/pytest.svg' },
+  { name: 'Chrome DevTools', category: 'Browser Tools', icon: '/tools/chrome.svg' },
+  { name: 'Git', category: 'Version Control', icon: '/tools/git.svg' },
+]
+
+// ====================================================
+// WORK EXPERIENCE
+// ====================================================
+
+export const WORK_EXPERIENCE = [
+  {
+    id: 'webtech-solutions',
+    role: 'QA Analyst',
+    company: 'Wings Tech Solutions',
+    location: 'Rajkot, India',
+    period: 'Aug 2023 – Present',
+    points: [
+      'Manual, API and mobile testing across diverse web and mobile platforms.',
+      'Test case design and execution with comprehensive scenario and regression coverage.',
+      'Team coordination and mentoring across cross-functional engineering sprints.',
+    ],
+  },
 ]
 
 // ====================================================
@@ -294,7 +315,7 @@ export const PROJECTS = [
     id: 'resident-connect',
     name: 'Resident Connect',
     domain: 'Property Management & Community Tech',
-    role: 'QA Engineer',
+    role: 'QA Analyst',
     shortDescription:
       'Digital platform facilitating communication between property managers and tenants, streamlining tasks, handling requests, and fostering community engagement across sub-products look4lease, immi dreams, and clientracker.',
     tags: ['Team Lead', 'Property Portal', 'Mobile App', 'iOS', 'Android', 'Workflows'],
@@ -353,7 +374,7 @@ export const PROJECTS = [
     id: 'usl',
     name: 'U.S. Legal Services',
     domain: 'Legal / Membership Services',
-    role: 'QA Engineer',
+    role: 'QA Analyst',
     shortDescription:
       'Comprehensive QA coverage for U.S. Legal Services providing attorney support for legal cases (e.g., Matters or CDL cases) across 6 dedicated login portals.',
     tags: ['Legal Portal', '6 Portals', 'API Testing', 'ADA/Accessibility'],
@@ -414,7 +435,7 @@ export const PROJECTS = [
     id: 'clientracker',
     name: 'Clientracker',
     domain: 'Real Estate CRM & Revenue Tracking',
-    role: 'QA Engineer',
+    role: 'QA Analyst',
     shortDescription:
       'Dedicated platform for property brokers and agents to manage clients, handle properties, and track their commission revenue.',
     tags: ['Team Lead', 'Broker CRM', 'Revenue Tracking', 'Property Management', 'Web App'],
@@ -472,7 +493,7 @@ export const PROJECTS = [
     id: 'rrb',
     name: 'Railway Recruitment Board',
     domain: 'Government / Public Sector Examination',
-    role: 'QA Engineer',
+    role: 'QA Analyst',
     shortDescription:
       'Quality assurance and operational support for the Railway Recruitment Board examination system, ensuring high-stakes exam readiness, candidate verification, and data integrity.',
     tags: ['Public Sector', 'Examination Support', 'Regression Testing', 'Data Integrity'],
@@ -530,7 +551,7 @@ export const PROJECTS = [
     id: 'jio-qr-ar',
     name: 'Jio: QR to AR',
     domain: 'Augmented Reality / Event Tech',
-    role: 'QA Engineer',
+    role: 'QA Analyst',
     shortDescription:
       'Interactive Augmented Reality experience transforming static QR codes into immersive AR experiences, enhancing event engagement and delivering dynamic multimedia content.',
     tags: ['Augmented Reality', 'WebAR / Mobile', 'QR Tech', 'Event Experience'],

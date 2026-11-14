@@ -1,6 +1,6 @@
 ﻿import { useState } from 'react'
 import { PROFILE } from '../data/portfolioData'
-import { Mail, Sparkles, Check, Copy } from 'lucide-react'
+import { Mail, Sparkles, Check, Copy, Download } from 'lucide-react'
 import { scrollToSection } from '../utils/scroll'
 
 function LinkedinIcon({ size = 15, className = '' }) {
@@ -22,7 +22,7 @@ function GithubIcon({ size = 15, className = '' }) {
 }
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = 2026
   const [emailCopied, setEmailCopied] = useState(false)
 
   const handleNav = (id) => {
@@ -59,7 +59,7 @@ export default function Footer() {
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-700 text-emerald-950 dark:text-emerald-200 text-xs sm:text-sm font-bold max-w-full">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse flex-shrink-0" />
-              <span className="truncate sm:whitespace-normal">Rajkot, India · Open for Remote &amp; On-Site</span>
+              <span className="truncate sm:whitespace-normal">Rajkot, India · Open to relocate to UAE</span>
             </div>
           </div>
 
@@ -74,6 +74,7 @@ export default function Footer() {
                 { label: 'Home', id: 'hero' },
                 { label: 'Skills', id: 'skills' },
                 { label: 'Domains', id: 'domains' },
+                { label: 'Experience', id: 'experience' },
                 { label: 'AI & Auto', id: 'ai-automation' },
                 { label: 'Projects', id: 'projects' },
               ].map((item) => (
@@ -156,6 +157,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-slate-300 dark:border-slate-800 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-bold">
           <p>© {currentYear} Dhaval Kotak · QA Portfolio</p>
+          <a
+            href="/Dhaval_Kotak_CV.pdf"
+            download="Dhaval_Kotak_CV.pdf"
+            className="inline-flex items-center gap-1.5 text-sky-700 dark:text-sky-400 hover:text-sky-600 dark:hover:text-sky-300 hover:underline transition-colors"
+          >
+            <Download size={14} />
+            <span>Download CV</span>
+          </a>
         </div>
       </div>
     </footer>

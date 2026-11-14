@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Mail } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { PROFILE } from '../data/portfolioData'
 import { scrollToSection } from '../utils/scroll'
 
@@ -103,7 +103,7 @@ export default function Hero({ isDark = false }) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="truncate sm:whitespace-normal">
-              QA Engineer at <strong className="text-sky-700 dark:text-sky-300 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
+              QA Analyst at <strong className="text-sky-700 dark:text-sky-300 font-bold">{PROFILE.currentCompany}</strong> · Rajkot, India
             </span>
           </div>
 
@@ -113,26 +113,45 @@ export default function Hero({ isDark = false }) {
           </h1>
 
           {/* Typed subtitle */}
-          <div className="text-base sm:text-xl md:text-2xl font-extrabold text-slate-800 dark:text-slate-100 mb-8 sm:mb-10 min-h-[36px] flex items-center">
+          <div className="text-base sm:text-xl md:text-2xl font-extrabold text-slate-800 dark:text-slate-100 mb-4 min-h-[36px] flex items-center">
             <TypedFocus />
           </div>
 
-          {/* Streamlined CTA Buttons with High-Contrast Outlines */}
-          <div className="flex flex-col xs:flex-row flex-wrap gap-4 sm:gap-5">
+          {/* UAE Relocation Status Line */}
+          <div className="flex items-center gap-2 mb-8 sm:mb-10">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/80 border border-sky-300 dark:border-sky-800 text-sky-900 dark:text-sky-200 text-xs sm:text-sm font-bold tracking-tight shadow-2xs max-w-full">
+              <MapPin size={14} className="text-sky-600 dark:text-sky-400 flex-shrink-0" />
+              <span className="break-words">
+                {PROFILE.relocationText || 'Open to relocate to UAE (Dubai / Abu Dhabi) | Available to join in [X] days'}
+              </span>
+            </span>
+          </div>
+
+          {/* Streamlined CTA Buttons */}
+          <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-3 sm:gap-4">
+            {/* Primary: Explore Projects */}
             <button
               onClick={() => handleScroll('projects')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm sm:text-base transition-all shadow-md shadow-sky-600/30 hover:shadow-lg hover:shadow-sky-500/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm sm:text-[15px] shadow-md shadow-sky-600/25 hover:shadow-lg hover:shadow-sky-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer text-center"
             >
-              <span>Explore Projects</span>
-              <ArrowRight size={16} />
+              Explore Projects
             </button>
 
+            {/* Secondary: Download CV */}
+            <a
+              href="/Dhaval_Kotak_CV.pdf"
+              download="Dhaval_Kotak_CV.pdf"
+              className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/90 text-slate-900 dark:text-slate-100 hover:text-sky-600 dark:hover:text-sky-400 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 font-bold text-sm sm:text-[15px] shadow-xs hover:shadow-md hover:shadow-sky-500/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer text-center"
+            >
+              Download CV
+            </a>
+
+            {/* Tertiary: Get in Touch */}
             <button
               onClick={() => handleScroll('contact')}
-              className="w-full xs:w-auto justify-center inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold text-sm sm:text-base transition-all backdrop-blur-sm shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/90 text-slate-900 dark:text-slate-100 hover:text-sky-600 dark:hover:text-sky-400 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 font-bold text-sm sm:text-[15px] shadow-xs hover:shadow-md hover:shadow-sky-500/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer text-center"
             >
-              <Mail size={16} />
-              <span>Get in Touch</span>
+              Get in Touch
             </button>
           </div>
         </div>

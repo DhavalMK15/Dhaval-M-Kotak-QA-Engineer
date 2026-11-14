@@ -1,6 +1,6 @@
-# Dhaval Kotak | QA Engineer Portfolio
+# Dhaval Kotak | QA Analyst Portfolio
 
-A modern, professional portfolio website for a QA Engineer built with React + Vite + Tailwind CSS.
+A modern, professional portfolio website for a QA Analyst built with React + Vite + Tailwind CSS.
 
 ## 🚀 Getting Started
 
@@ -140,4 +140,4 @@ dhaval-kotak-portfolio/
 
 ---
 
-Built for Dhaval Kotak | QA Engineer | Rajkot, Gujarat, India
+Built for Dhaval Kotak | QA Analyst | Rajkot, Gujarat, India

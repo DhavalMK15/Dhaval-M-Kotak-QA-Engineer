@@ -8,12 +8,13 @@ const NAV_ITEMS = [
   { label: 'Home', href: '#hero' },
   { label: 'Skills & Tools', href: '#skills' },
   { label: 'Domains', href: '#domains' },
+  { label: 'Experience', href: '#experience' },
   { label: 'AI & Automation', href: '#ai-automation' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
 
-const SECTION_IDS = ['hero', 'skills', 'domains', 'ai-automation', 'projects', 'contact']
+const SECTION_IDS = ['hero', 'skills', 'domains', 'experience', 'ai-automation', 'projects', 'contact']
 
 export default function Navbar({ isDark = false, onToggleDarkMode }) {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -93,7 +94,7 @@ export default function Navbar({ isDark = false, onToggleDarkMode }) {
                   Dhaval <span className="text-sky-600 dark:text-sky-400">Kotak</span>
                 </span>
                 <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 tracking-wider uppercase">
-                  QA Engineer
+                  QA Analyst
                 </span>
               </div>
             </a>

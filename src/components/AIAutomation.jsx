@@ -11,14 +11,14 @@ const AUTOMATION_PILLARS = [
   {
     id: 'selenium',
     title: 'Selenium WebDriver + Python',
-    badge: 'Hands-on',
+    badge: 'BASIC',
     icon: '🤖',
     keywords: ['Page Object Model (POM)', 'Fluent Waits', 'Headless CI/CD'],
   },
   {
     id: 'pytest',
     title: 'Pytest Framework',
-    badge: 'Framework',
+    badge: 'BASIC',
     icon: '🧪',
     keywords: ['Test Fixtures', 'Parameterized Tests', 'HTML Reports'],
   },
