@@ -137,7 +137,7 @@ export default function Hero({ isDark = false }) {
               Explore Projects
             </button>
 
-            Secondary: Download CV
+            {/* Secondary: Download CV */}
             <a
               href="/Dhaval_Kotak_CV.pdf"
               download="Dhaval_Kotak_QA_Engineer_CV.pdf"
