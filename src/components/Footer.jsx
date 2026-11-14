@@ -163,7 +163,7 @@ export default function Footer() {
             className="inline-flex items-center gap-1.5 text-sky-700 dark:text-sky-400 hover:text-sky-600 dark:hover:text-sky-300 hover:underline transition-colors"
           >
             <Download size={14} />
-            <span>Download CV</span>
+            {/* <span>Download CV</span> */}
           </a>
         </div>
       </div>
