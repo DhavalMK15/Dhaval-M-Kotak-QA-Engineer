@@ -138,13 +138,13 @@ export default function Hero({ isDark = false }) {
             </button>
 
             {/* Secondary: Download CV */}
-            <a
+            {/* <a
               href="/Dhaval_Kotak_CV.pdf"
               download="Dhaval_Kotak_CV.pdf"
               className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/90 text-slate-900 dark:text-slate-100 hover:text-sky-600 dark:hover:text-sky-400 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 font-bold text-sm sm:text-[15px] shadow-xs hover:shadow-md hover:shadow-sky-500/10 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer text-center"
             >
               Download CV
-            </a>
+            </a> */}
 
             {/* Tertiary: Get in Touch */}
             <button
