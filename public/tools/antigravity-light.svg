@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="agy-light-arch" x1="60" y1="90" x2="60" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#2563EB"/>
+      <stop offset="35%"  stop-color="#3B82F6"/>
+      <stop offset="58%"  stop-color="#22C55E"/>
+      <stop offset="72%"  stop-color="#EAB308"/>
+      <stop offset="84%"  stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <clipPath id="agy-light-rr">
+      <rect x="0" y="0" width="120" height="120" rx="26" ry="26"/>
+    </clipPath>
+    <!-- Soft radial glow behind arch for depth -->
+    <radialGradient id="agy-light-bg" cx="50%" cy="50%" r="60%" gradientUnits="userSpaceOnUse" fx="60" fy="60">
+      <stop offset="0%"   stop-color="#E5E5EA"/>
+      <stop offset="100%" stop-color="#F2F2F7"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Light background -->
+  <rect x="0" y="0" width="120" height="120" rx="26" ry="26" fill="url(#agy-light-bg)"/>
+
+  <!-- The "A" arch shape (no grid on light variant) -->
+  <path
+    d="
+      M60 18
+      C60 18, 60 18, 60 18
+      C55 28, 42 42, 32 58
+      C26 68, 22 76, 20 88
+      C20 92, 22 95, 26 95
+      C31 95, 34 91, 36 87
+      C39 80, 43 72, 50 65
+      C53 61, 56 58, 60 56
+      C64 58, 67 61, 70 65
+      C77 72, 81 80, 84 87
+      C86 91, 89 95, 94 95
+      C98 95, 100 92, 100 88
+      C98 76, 94 68, 88 58
+      C78 42, 65 28, 60 18
+      Z
+    "
+    fill="url(#agy-light-arch)"
+    clip-path="url(#agy-light-rr)"
+  />
+</svg>

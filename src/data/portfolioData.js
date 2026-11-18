@@ -119,7 +119,7 @@ export const TOOLS = [
   { name: 'Postman', category: 'API Testing', icon: '/tools/postman.svg' },
   { name: 'Trello', category: 'Project Management', icon: '/tools/trello.svg' },
   { name: 'JIRA', category: 'Project Management', icon: '/tools/jira.svg' },
-  { name: 'Antigravity AI', category: 'AI Tools', icon: '/tools/antigravity.svg' },
+  { name: 'Antigravity AI', category: 'AI Tools', icon: '/tools/antigravity-light.svg', iconDark: '/tools/antigravity-dark.svg' },
   { name: 'MySQL Workbench', category: 'Database', icon: '/tools/mysql.svg' },
   { name: 'SQL', category: 'Database', icon: '/tools/sql.svg' },
   { name: 'Selenium WebDriver', category: 'Automation', icon: '/tools/selenium.svg' },
@@ -128,6 +128,8 @@ export const TOOLS = [
   { name: 'Pytest', category: 'Automation', icon: '/tools/pytest.svg' },
   { name: 'Chrome DevTools', category: 'Browser Tools', icon: '/tools/chrome.svg' },
   { name: 'Git', category: 'Version Control', icon: '/tools/git.svg' },
+  { name: 'OWASP ZAP', category: 'Security Testing', icon: '/tools/zaproxy.svg' },
+  { name: 'MS Office', category: 'Documentation', icon: '/tools/msoffice.svg' },
 ]
 
 // ====================================================

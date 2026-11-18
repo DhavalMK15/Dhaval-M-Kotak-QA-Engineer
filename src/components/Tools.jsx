@@ -1,13 +1,25 @@
 import { useInView } from '../hooks/useInView'
 import { TOOLS } from '../data/portfolioData'
 
-const TOOL_CATEGORIES = ['All', 'API Testing', 'Automation', 'AI Tools', 'Project Management', 'Browser Tools', 'IDE', 'Version Control', 'Database', 'Documentation']
+const TOOL_CATEGORIES = ['All', 'API Testing', 'Automation', 'AI Tools', 'Project Management', 'Browser Tools', 'IDE', 'Version Control', 'Database', 'Security Testing', 'Documentation']
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Tools() {
   const [ref, inView] = useInView()
   const [activeCategory, setActiveCategory] = useState('All')
+
+  // Track dark mode via the <html> class so tool icons update live on theme toggle
+  const [isDark, setIsDark] = useState(() =>
+    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  )
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    })
+    observer.observe(document.documentElement, { attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
 
   const filtered = activeCategory === 'All' ? TOOLS : TOOLS.filter((t) => t.category === activeCategory)
   const categories = ['All', ...new Set(TOOLS.map((t) => t.category))]
@@ -68,7 +80,11 @@ export default function Tools() {
               style={{ transitionDelay: `${i * 50}ms`, transitionProperty: 'opacity, transform, border-color, background-color' }}
             >
               {typeof tool.icon === 'string' && (tool.icon.startsWith('/') || tool.icon.endsWith('.svg')) ? (
-                <img src={tool.icon} alt={tool.name} className="w-8 h-8 object-contain" />
+                <img
+                  src={isDark && tool.iconDark ? tool.iconDark : tool.icon}
+                  alt={tool.name}
+                  className="w-8 h-8 object-contain"
+                />
               ) : (
                 <span className="text-3xl" aria-hidden="true">{tool.icon}</span>
               )}

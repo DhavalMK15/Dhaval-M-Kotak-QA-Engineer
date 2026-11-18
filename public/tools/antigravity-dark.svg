@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <!-- Background grid lines color -->
+    <linearGradient id="agy-dark-arch" x1="60" y1="90" x2="60" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#2563EB"/>
+      <stop offset="35%"  stop-color="#3B82F6"/>
+      <stop offset="58%"  stop-color="#22C55E"/>
+      <stop offset="72%"  stop-color="#EAB308"/>
+      <stop offset="84%"  stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <clipPath id="agy-dark-rr">
+      <rect x="0" y="0" width="120" height="120" rx="26" ry="26"/>
+    </clipPath>
+  </defs>
+
+  <!-- Dark background -->
+  <rect x="0" y="0" width="120" height="120" rx="26" ry="26" fill="#1C1C1E"/>
+
+  <!-- Subtle grid lines -->
+  <g clip-path="url(#agy-dark-rr)" stroke="#2A2A2D" stroke-width="0.8" fill="none" opacity="0.9">
+    <!-- Vertical lines -->
+    <line x1="10" y1="0" x2="10" y2="120"/>
+    <line x1="20" y1="0" x2="20" y2="120"/>
+    <line x1="30" y1="0" x2="30" y2="120"/>
+    <line x1="40" y1="0" x2="40" y2="120"/>
+    <line x1="50" y1="0" x2="50" y2="120"/>
+    <line x1="60" y1="0" x2="60" y2="120"/>
+    <line x1="70" y1="0" x2="70" y2="120"/>
+    <line x1="80" y1="0" x2="80" y2="120"/>
+    <line x1="90" y1="0" x2="90" y2="120"/>
+    <line x1="100" y1="0" x2="100" y2="120"/>
+    <line x1="110" y1="0" x2="110" y2="120"/>
+    <!-- Horizontal lines -->
+    <line x1="0" y1="10" x2="120" y2="10"/>
+    <line x1="0" y1="20" x2="120" y2="20"/>
+    <line x1="0" y1="30" x2="120" y2="30"/>
+    <line x1="0" y1="40" x2="120" y2="40"/>
+    <line x1="0" y1="50" x2="120" y2="50"/>
+    <line x1="0" y1="60" x2="120" y2="60"/>
+    <line x1="0" y1="70" x2="120" y2="70"/>
+    <line x1="0" y1="80" x2="120" y2="80"/>
+    <line x1="0" y1="90" x2="120" y2="90"/>
+    <line x1="0" y1="100" x2="120" y2="100"/>
+    <line x1="0" y1="110" x2="120" y2="110"/>
+  </g>
+
+  <!-- The "A" arch shape -->
+  <path
+    d="
+      M60 18
+      C60 18, 60 18, 60 18
+      C55 28, 42 42, 32 58
+      C26 68, 22 76, 20 88
+      C20 92, 22 95, 26 95
+      C31 95, 34 91, 36 87
+      C39 80, 43 72, 50 65
+      C53 61, 56 58, 60 56
+      C64 58, 67 61, 70 65
+      C77 72, 81 80, 84 87
+      C86 91, 89 95, 94 95
+      C98 95, 100 92, 100 88
+      C98 76, 94 68, 88 58
+      C78 42, 65 28, 60 18
+      Z
+    "
+    fill="url(#agy-dark-arch)"
+    clip-path="url(#agy-dark-rr)"
+  />
+</svg>

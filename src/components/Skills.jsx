@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SKILL_CATEGORIES, TOOLS } from '../data/portfolioData'
 import {
@@ -84,6 +84,18 @@ export default function Skills() {
   const [direction, setDirection] = useState(1) // 1 for right, -1 for left
   const touchStartX = useRef(0)
   const touchStartY = useRef(0)
+
+  // Track dark mode via the <html> class so tool icons update live on theme toggle
+  const [isDark, setIsDark] = useState(() =>
+    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  )
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    })
+    observer.observe(document.documentElement, { attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
 
   const handleTabSwitch = (newTab) => {
     if (newTab === activeTab) return
@@ -303,7 +315,7 @@ export default function Skills() {
                     <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center p-2 flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:border-sky-500 dark:group-hover:border-sky-400 shadow-2xs">
                       {typeof tool.icon === 'string' && (tool.icon.startsWith('/') || tool.icon.endsWith('.svg')) ? (
                         <img
-                          src={tool.icon}
+                          src={isDark && tool.iconDark ? tool.iconDark : tool.icon}
                           alt={`${tool.name} logo`}
                           className="w-6 h-6 object-contain"
                           loading="lazy"
