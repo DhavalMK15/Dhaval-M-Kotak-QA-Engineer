@@ -45,7 +45,7 @@ Find the `PROFILE` object at the top of the file:
 contact: {
   email: 'dhavalkotak0150@gmail.com',           // Replace with your email
   linkedin: 'linkedin.com/in/dhaval-kotak-a6b3ab24a',  // Replace
-  github: 'https://github.com/DhavalMK15',               // Replace
+  github: 'https://github.com/DhavalMK15/selenium-python-automation',               // Replace
 },
 ```
 
